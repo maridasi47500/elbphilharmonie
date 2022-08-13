@@ -1,0 +1,87 @@
+<main>
+			<div id="content-container" class="content-container--facelift">
+				
+            
+
+        <section class="self-care-section self-care-section--facelift ng-scope" ng-app="elbphilharmonie">
+            <self-care external-guided-tour-headline="Select Plaza Ticket for Guided Tour" external-guided-tour-description="Guided tours through the Elbphilharmonie are not fully accessible. Accessible tours for persons with limited mobility may also be booked here." dsgvo="When you register to create an account, the data you provide is recorded and stored electronically. You can deactivate your customer account at any time. If you do not agree to the data processing, you cannot purchase tickets online. You’ll find further information in our <a href='https://www.elbphilharmonie.de/en/privacy-policy' target='_blank'>Privacy Policy</a>." phone-number-mandatory="false" logout-url="http://shop.elbphilharmonie.de/en/logout/" redirect-on-successful-login-url="" class="ng-isolate-scope"><div class="selfcare--facelift">
+    <!-- ngIf: isLoading() -->
+
+    <!-- ngIf: initialized --><div ng-if="initialized" class="ng-scope">
+        <!-- ngIf: customer == null -->
+
+        <!-- ngIf: customer != null --><div ng-if="customer != null" class="ng-scope">
+
+            <!-- ngIf: isOverview() -->
+
+            <!-- ngIf: isPage('my-data') -->
+
+            <!-- ngIf: isPage('change-password') -->
+
+            <!-- ngIf: isPage('change-email') -->
+
+            <!-- ngIf: isPage('my-orders') -->
+
+            <!-- ngIf: isPage('my-raffles') --><self-care-my-raffles ng-if="isPage('my-raffles')" page-id="my-raffles" on-cancel="switchToOverview();" class="ng-scope ng-isolate-scope"><div>
+    <div class="content-row row-big">
+        <div class="large-offset-2 large-8 small-offset-0 small-12 columns">
+            <h1 class="headline--standard ng-binding">My pending ticket orders</h1>
+        </div>
+    </div>
+
+    <!-- ngIf: isLoading() --> <!-- TODO -->
+
+    <!-- ngRepeat: raffle in raffles -->
+
+    <!-- ngIf: raffles == null || raffles.length < 1 --><div ng-if="raffles == null || raffles.length < 1" class="ng-scope">
+
+        <div class="content-row row-big">
+            <div class="large-offset-2 large-8 small-offset-0 small-12 columns">
+                <div class="shop-text ng-binding">You have not ordered any tickets yet.</div>
+            </div>
+        </div>
+
+    </div><!-- end ngIf: raffles == null || raffles.length < 1 -->
+
+    <div class="spacer"></div>
+
+    <div class="content-row row-big">
+        <div class="large-offset-2 large-8 small-offset-0 small-12 columns">
+            <a href="#" onclick="cancel(); event.preventDefault();" class="read-more ng-binding">Back to my account</a>
+        </div>
+    </div>
+
+</div>
+</self-care-my-raffles><!-- end ngIf: isPage('my-raffles') -->
+
+            <!-- ngIf: isPage('my-subscriptions') && customer.hasSubscriptions -->
+
+            <!-- ngIf: isPage('my-external-guided-tour') && customer.isExternalGuidedTourUser -->
+
+            <!-- ngIf: isPage('my-newsletters') -->
+
+            <!-- ngIf: isPage('my-shipping') -->
+
+        </div><!-- end ngIf: customer != null -->
+    </div><!-- end ngIf: initialized -->
+
+</div></self-care>
+        </section>
+
+    
+
+			</div> <!-- content-container -->
+		</main>
+<%=content_for :myscripts do%>
+<script>
+  function edit(){
+    
+  }
+  function showDisableAccountHint(){
+    
+  }
+  function cancel(){
+    window.location = "<%=myaccount_path(locale: I18n.locale)%>"
+  }
+</script>
+<%end%>

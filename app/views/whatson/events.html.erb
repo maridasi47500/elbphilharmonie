@@ -1,0 +1,476 @@
+
+
+
+		<main class="content-container">
+			
+	<div class="grid-container">
+		<div class="grid-x grid-margin-x align-center">
+			<div class="cell">
+				
+
+<header class="grid-container page-header less-space">
+	<div class="grid-x grid-margin-x align-center">
+		<div class="cell medium-10">
+			<h1>What’s On</h1>
+		</div>
+	</div>
+</header>
+
+<aside>
+  <nav class="grid-container section-container anchor-nav event-tabs">
+    <ul class="anchor-nav__list">
+      <li class="anchor-nav__item">
+        <a href="/en/whats-on/" class="anchor-nav__link active" data-name="Events" aria-current="page">
+          Events
+        </a>
+      </li>
+      <li class="anchor-nav__item">
+        <a href="/en/subscriptions" class="anchor-nav__link" data-name="Subscriptions">
+          Subscriptions
+        </a>
+      </li>
+      <li class="anchor-nav__item">
+        <a href="/en/season" class="anchor-nav__link" data-name="Season">
+          Season
+        </a>
+      </li>
+      <li class="anchor-nav__item">
+        <a href="/en/participate" class="anchor-nav__link" data-name="Participate">
+          Participate
+        </a>
+      </li>
+      <li class="anchor-nav__indicator" style="transform: translate(0px, 0px); width: 96px;"></li>
+    </ul>
+  </nav>
+</aside>
+
+				
+
+				<section id="program-section" class="booking-list-page">
+
+					<aside class="filter" data-has-filter="1" data-has-date="1">
+						<div class="filter__fakeblock"></div>
+						<div class="filter__group">
+							<span class="filter__intro">Filter list:</span>
+							<div class="filter__content">
+								<nav class="filter__navigation">
+									<button type="button" class="filter__navigation-button filter__navigation-button--calendar" data-button-action="calendar" data-class="calendar--open" data-action="toggle" title="Date" aria-controls="calendar-filter" aria-expanded="false">
+										<i class="icon-calendar" data-name="Date"></i>
+                      
+                        <strong class="filter__navigation-text">Date</strong>
+                      
+										<i class="icon-chevron-down" data-name="Date"></i>
+									</button>
+									<button type="button" class="filter__navigation-button filter__navigation-button--filter" data-button-action="filter__wrapper" data-class="filter__wrapper--open" aria-controls="filter-nav" aria-expanded="true" data-action="add" title="Filter list">
+										<i class="icon-filter" data-name="Edit filter"></i>
+										
+											<strong class="filter__navigation-text">Edit filter</strong>
+										
+									</button>
+								</nav>
+								<ul class="filter__checkboxes">
+									
+
+<li class="filter__option filter__option--checkbox">
+    <label for="tickets-opener-1" class=" ">
+      <input id="tickets-opener-1" class="filter__checkbox" type="checkbox" data-link="<%=request.path%>/TICKETS/" data-name="Tickets available">
+      <span class="filter__option-text">Tickets available</span>
+    </label>
+  </li>
+  <li class="filter__option filter__option--checkbox">
+    <label for="only-elphilharmonie-1" class="  active">
+      <input id="only-elphilharmonie-1" class="filter__checkbox" type="checkbox" data-link="<%=request.path%>/" data-name="Only Elbphilharmonie" checked="">
+      <span class="filter__option-text">Only Elbphilharmonie</span>
+    </label>
+  </li>
+  <li class="filter__option filter__option--checkbox">
+    <label for="tickets-canceled-1" class=" ">
+      <input id="tickets-canceled-1" class="filter__checkbox" type="checkbox" data-link="<%=request.path%>/CANCELLED/" data-name="Add cancellations">
+      <span class="filter__option-text">Add cancellations</span>
+    </label>
+  </li>
+
+								</ul>
+							</div>
+              <div id="calendar-filter" aria-hidden="true" class="calendar" data-last-date="July 31, 2024, 11:59 p.m." data-day="20" data-month="5" data-year="2022" data-first_event_date="2021-08-01T00:00:00+02:00" data-last_event_date="2024-07-31T23:59:00+02:00" data-urlpattern="<%=myevents_path(date: "11-22-3333", other: params[:other])%>">
+								
+<header class="calendar__header">
+  <button title="Close watchlist" class="calendar__close" data-button-action="calendar" data-class="calendar--open" data-action="remove"></button>
+  <h2 class="no-line calendar__title">Date</h2>
+</header>
+<div class="calendar__wrapper">
+	<div class="calendar__headline">
+
+    <a href="<%=request.path%>/" class="calendar__prev" title="previous month"><i class="icon-arrow-left"></i></a>
+    <span class="calendar__current">
+      <span class="calendar__current-month bold">May</span>
+      <span class="calendar__current-year bold">2022</span>
+    </span>
+    <a id="calendar-next-month" href="<%=request.path%>/" class="calendar__next" title="next month"><i class="icon-arrow-right"></i></a>
+	</div>
+  <div class="calendar__content">
+    <table class="calendar__table">
+      <thead class="calendar__thead">
+        <tr>
+          <th>
+            <span>MO</span>
+          </th>
+          <th>
+            <span>TU</span>
+          </th>
+          <th>
+            <span>WE</span>
+          </th>
+          <th>
+            <span>TH</span>
+          </th>
+          <th>
+            <span>FR</span>
+          </th>
+          <th>
+            <span>SA</span>
+          </th>
+          <th>
+            <span>SO</span>
+          </th>
+        </tr>
+      </thead>
+      <tbody class="calendar__tbody">
+        <%(Date.today.beginning_of_month.beginning_of_week..Date.today.end_of_month.end_of_week).to_a.each_slice(7).each do |week|%>
+          <tr>
+            <%week.each do |day| %>
+              <td>
+                  <%if day.month == Date.today.month%>
+                <a href="<%=myevents_path(other: params[:other], date: l(day, format: :myurl))%>" class="past "><%=l(day, format: :dayofevent)%></a>
+                <%end%>
+              </td>
+              
+            <%end%>
+             
+            
+          </tr>
+          <%end%>
+        
+      </tbody>
+      <tbody class="calendar__unavailable">
+        <tr>
+          <td>
+            <a href="/en/archive" class="link-default bold">View older events in the Concert Archive</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<footer class="calendar__footer">
+  <a href="<%=request.path%>/" class="link link-default calendar__today" title="Show concerts from today">Show concerts from today</a>
+</footer>
+<!-- <script type="text/javascript"> -->
+
+<!-- 	if(!(typeof $ === 'undefined')) { -->
+<!-- 		var last_event_date = $('#calendar-filter').attr('data-last-date'); -->
+<!-- 		// check if user reaches to the month of last event in calendar -->
+<!-- 		if ( !last_event_date || last_event_date == '' ) -->
+<!-- 			$('#calendar-next-month').hide(); -->
+<!-- 	} -->
+<!-- </script> -->
+
+							</div>
+							<nav class="filter__wrapper" id="filter-nav" aria-hidden="false">
+                <i class="filter__wrapper-blend" data-button-action="filter__wrapper" data-class="filter__wrapper--open" data-action="remove"></i>
+								<div class="filter__scroller">
+                                                                    
+									<header class="filter__header">
+										<button class="filter__button-back bold" data-button-action="filter__wrapper" data-class="filter__wrapper--open" data-action="remove" type="button" title="Events">
+											<i class="icon-arrow-left"></i>
+											Events
+										</button>
+										
+											<a class="filter__button-clear bold" href="/en/whats-on/" type="button" title="Clear filter">Clear filter</a>
+										
+									</header>
+									<ul class="filter__options">
+										<li class="filter__option filter__option--title">
+											<h2 class="no-line filter__title">Filter</h2>
+										</li>
+                                                                                <%Mycat.all.each do |mycat|%>
+										<li class="filter__option" data-name="<%=mycat.name%>">
+											<input id="<%=mycat.name.parameterize%>-opener" type="checkbox" class="filter__option-checkbox">
+											<label for="<%=mycat.name.parameterize%>-opener" tabindex="-1" aria-expanded="false" aria-controls="filter-<%=mycat.name.parameterize%>" class="filter__option-label"><%=mycat.name%><i class="icon-chevron-down"></i></label>
+	
+                                                                                        <ul class="filter__items" aria-hidden="true" id="filter-<%=mycat.name.parameterize%>">
+ <%@myvar=false%>
+  <%mycat.allmyeventcats.each do |eventcat|%>
+    <li class="filter__item ">
+      <a data-name="<%=eventcat.name%>" onclick="window.location =this.href;" href="<%= eventcat.urlchecked(request.path) ? myevents_path(date: params[:date], other: eventcat.myotherurl3(params[:other])) : myevents_path(date: params[:date], other: eventcat.myotherurl2(params[:other]))%>" class="filter__link <%=eventcat.urlchecked(request.path) ? "checked" : ""%>"><%=eventcat.name%></a>
+      
+      
+    </li>
+    <%if !(@myvar && eventcat.subelements[0].is_a?(Venue))%>
+    <%eventcat.subelements.each_with_index do |subel,myid|%>
+    <%break if (subel.is_a?(Venue) && myid == 2)%>
+        <li class="filter__item filter__item--subelement">
+      <a data-name="<%=subel.name%>" onclick="window.location =this.href;" href="<%=subel.urlchecked(request.path) ? myevents_path(date: params[:date], other: subel.myotherurl3(params[:other])) : myevents_path(date: params[:date], other: subel.myotherurl2(params[:other]))%>" class="filter__link <%=subel.urlchecked(request.path) ? "checked" : ""%>"><%=subel.name%></a>
+      
+      
+    </li>
+    <%end%>
+    <%@myvar = true%>
+    <%end%>
+
+    <%end%>
+    </ul>
+
+										</li>
+  <%end%>
+  
+  
+
+										
+
+<li class="filter__option filter__option--checkbox">
+    <label for="tickets-opener-2" class="<%=request.path.include?('TICKETS') ? "active" : ""%> ">
+      <input id="tickets-opener-2" class="filter__checkbox" type="checkbox" data-link="<%=request.path.include?('TICKETS') ? myevents_path(date: params[:date], other: params[:other].to_s.split('/').without('TICKETS').join('/')) : myevents_path(date: params[:date], other: (params[:other].to_s.split('/')|['TICKETS']).join('/'))%>" data-name="Tickets available" <%=request.path.include?('TICKETS') ? "checked=\"\"" : ""%>>
+      <span class="filter__option-text">Tickets available</span>
+    </label>
+  </li>
+  <li class="filter__option filter__option--checkbox">
+    <label for="only-elphilharmonie-2" class="  <%=request.path.include?('EPHH') ? "active" : ""%>">
+      <input id="only-elphilharmonie-2" class="filter__checkbox" type="checkbox" data-link="<%=request.path.include?('EPHH') ? myevents_path(date: params[:date], other: params[:other].to_s.split('/').without('EPHH').join('/')) : myevents_path(date: params[:date], other: (params[:other].to_s.split('/')|['EPHH']).join('/'))%>" data-name="Only Elbphilharmonie" <%=request.path.include?('EPHH') ? "checked=\"\"" : ""%>>
+      <span class="filter__option-text">Only Elbphilharmonie</span>
+    </label>
+  </li>
+  <li class="filter__option filter__option--checkbox">
+    <label for="tickets-canceled-2" class="<%=request.path.include?('CANCELLED') ? "active" : ""%> ">
+      <input id="tickets-canceled-2" class="filter__checkbox" type="checkbox" data-link="<%=request.path.include?('CANCELLED') ? myevents_path(date: params[:date], other: params[:other].to_s.split('/').without('CANCELLED').join('/')) : myevents_path(date: params[:date], other: (params[:other].to_s.split('/')|['CANCELLED']).join('/')) %>" data-name="Add cancellations" <%=request.path.include?('CANCELLED') ? "checked=\"\"" : ""%>>
+      <span class="filter__option-text">Add cancellations</span>
+    </label>
+  </li>
+
+									</ul>
+									<footer class="filter__footer ">
+                  
+									</footer>
+								</div>
+							</nav>
+						</div>
+					</aside>
+
+					
+						<section class="filter-current" style="height: 128px; opacity: 1;">
+							<ul class="filter-current__items">
+								
+									
+								
+									<%=render partial: "filter", collection: @tags, as: :filter%>
+								
+							</ul>
+						</section>
+					
+
+					<div class="program-section__loading loading-animation" style="display: none; opacity: 0;"></div>
+                                        <%if @events.length == 0%>
+                                        <div class="event-list--empty" style="transform: translate(0px, 0px); opacity: 1;">
+							<div class="grid-x grid-margin-x align-center">
+								<div class="cell medium-10 large-8 xxlarge-6">
+									
+										<p class="h4">Your selection did not produce any results.</p>
+										<p>Please remove one of the filters or try a different combination.</p>
+									
+								</div>
+							</div>
+						</div>
+                                        <%else%>
+					
+						<div class="grid-x grid-margin-x align-center">
+							<div class="cell large-10 xlarge-12">
+								<ul class="event-list" id="event-list">
+									
+
+
+
+<%=render as: :event, partial: "event", collection: @events%>
+
+
+
+<li class="loading-event loading-animation">Loading...</li>
+
+
+
+
+
+	<li data-url="<%=request.path%>">
+		<noscript>
+			<div class="grid-container">
+				<div class="grid-x grid-margin-x">
+					<div class="cell text-center">
+						<a href="<%=request.path%>" class="link link-default button secondary">
+							Next
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="spacer"></div>
+		</noscript>
+	</li>
+
+
+								</ul>
+							</div>
+						</div>
+					
+<%end%>
+				</section>
+
+			</div>
+		</div>
+	</div>
+
+  
+
+
+      
+
+<aside class="merklist-modal">
+	<div class="merklist-modal__wrapper">
+		<button class="merklist-modal__close js-merklist-modal__close" type="button" title="Close"></button>
+    <!-- MODAL: login -->
+    <div class="merklist-modal__content" data-modal="login">
+      <p class="merklist-modal__title line-center h3">Saved events</p>
+      <p class="merklist-modal__text">Login required. If you do not have an Elbphilharmonie customer account, registering is quick and easy.</p>
+      <div class="merklist-modal__button">
+        <a href="<%=request.path%>/#" class="button link link-default merklist-modal__account">Log in or register</a>
+      </div>
+    </div>
+    <!-- MODAL: alert check -->
+    <div class="merklist-modal__content" data-modal="alert" style="display: none;">
+      <p class="merklist-modal__title line-center h3">Your selection</p>
+      <label class="merklist-modal__label">
+      <input type="radio" name="alert" class="merklist-modal__radio" value="1">
+        <span>Add to saved events</span>
+      </label>
+      <label class="merklist-modal__label">
+      <input type="radio" name="alert" class="merklist-modal__radio" value="2" checked="">
+        <span>Activate ticket alert</span>
+        <span class="merklist-modal__text">You will receive an email alert one day before tickets go on sale.</span>
+      </label>
+      <div class="merklist-modal__button">
+        <button type="button" class="button link link-default merklist-modal__save">Confirm</button>
+      </div>
+    </div>
+    <!-- MODAL: alert uncheck -->
+    <div class="merklist-modal__content" data-modal="uncheck" style="display: none;">
+      <p class="merklist-modal__title line-center h3">Edit events saved</p>
+      <label class="merklist-modal__label">
+        <input type="radio" name="uncheck" class="merklist-modal__radio" value="1" checked="">
+        <span>Deactivate ticket alert</span>
+      </label>
+      <label class="merklist-modal__label">
+        <input type="radio" name="uncheck" class="merklist-modal__radio" value="DELETE">
+        <span>Remove event from my saved events</span>
+      </label>
+      <div class="merklist-modal__button">
+        <button type="button" class="button link link-default merklist-modal__save">Confirm</button>
+      </div>
+    </div>
+	</div>
+</aside>
+
+      <aside class="blog__lightbox">
+  <div class="blog__lightbox-container">
+    <button class="blog__lightbox-close" title="Close modal"></button>
+    <div class="blog__lightbox-wrapper">
+      <iframe src="/events.html_files/saved_resource.html" frameborder="0" id="blog-iframe" class="blog__lightbox-iframe" allow="fullscreen"></iframe>
+    </div>
+  </div>
+</aside>
+
+		</main>
+
+<div id="afterlogin" hidden></div>
+<%=content_for :myjs do%>
+function bookmark(e){
+$(e.target).toggleClass('event__bookmark--active');
+}
+function myotherfunc(e) {
+$('.merklist-modal').removeClass('merklist-modal--open');
+
+}
+function login(e){
+console.log($('#afterlogin').html())
+window.location = "<%=myaccount_path%>?afterloginbookmarkevent="+$('#afterlogin').html();
+return false;
+}
+function myfunc(e){
+<%if !user_signed_in?%>
+console.log($(e.target), $(e.target).parents('li')[0], $(e.target).parents('li')[0].dataset.eventId);
+$('#afterlogin').html($(e.target).parents('li')[0].dataset.eventId);
+console.log($('#afterlogin').html())
+$('.merklist-modal').toggleClass('merklist-modal--open');
+$('.merklist-modal__account').click(login);
+$('.merklist-modal__button').click(login);
+$('.merklist-modal__close').click(myotherfunc);
+<%else%>
+if (e.target.name === "button"){
+console.log(e.target, $(e.target)[0]);
+$(e.target).parents('li')[0].dataset.myEventId =  $(e.target)[0].dataset.eventId;
+}else{
+$(e.target).parents('li')[0].dataset.myEventId =  $(e.target).parents('li')[0].dataset.eventId;
+}
+$.ajax({
+url: "<%=myfavoriteeventajax_path%>",
+data: {eventid: $(e.target).parents('li')[0].dataset.myEventId},
+type:"post",
+success:function(data){
+console.log(data);
+if (data !== "0") {
+console.log(('[data-my-event-id=\''+String(data.eventid)+'\']'), $('[data-myeventid=\''+String(data.eventid)+'\']')[0], data);
+$('[data-myeventid=\''+String(data.eventid)+'\']')[0].outerHTML = (data.mydata)
+$('[data-myeventid=\''+String(data.eventid)+'\']').click(myfunc); 
+$('[data-myeventid=\''+String(data.eventid)+'\']').find('*')(myfunc); 
+}
+}});
+<%end%> 
+return false;
+}
+
+<%end%>
+<%=content_for :myjsonload do%>
+
+
+
+$('button.event__bookmark').click(myfunc); 
+$('.event__bookmark-icon').click(myfunc); 
+$('.event__bookmark-text').click(myfunc); 
+  
+<%end%>
+<%=content_for :mycss do%>
+        <link href="/js/app.css" />
+
+<%end%>
+<%=content_for :myscripts do%>
+	<!--
+	<script src="/js/bookmark.js" type="text/javascript"></script>
+	<script src="/js/bookmark2.js" type="text/javascript"></script>
+	<script src="/js/bookmark3.js" type="text/javascript"></script>-->
+        <script src="/js/calendar.js" type="text/javascript"></script>
+	<script>
+    Calendar.months = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ]
+	</script>
+
+
+
+<%end%>

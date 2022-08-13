@@ -1,0 +1,19 @@
+
+    <li class="cell medium-6 large-4 abos__item" data-name="<%=project.title%>">
+        
+        <a href="<%=participateshow_path(title: project.title.parameterize, id: project.id)%>" class="abos__link"><figure class="abos__figure"><img class="abos__image" src="<%=project.image%>"  alt="<%=project.imagecaption%>" title="<%=project.imagecaption%>" /><div class="abos__figure-line" data-line></div></figure><div class=""><h3><%=project.title%></h3>
+                
+                <p>
+                
+                </p></div></a>
+        <%if project.registernow?%>
+        <a href="<%=participateform_path(id: project.id, languageId: 2)%>" class="link link-default button">
+		Register now
+	</a>
+        <%end%>
+        <br>
+        <%if project.event_status%>
+        <p class="status">
+		<%=project.event_status.try(:status)%>
+	</p>
+    <%end%></li>

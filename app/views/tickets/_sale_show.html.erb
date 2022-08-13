@@ -1,0 +1,27 @@
+<div class="sale-status status-box">
+	
+		<span class="ticket-and-prices">
+			
+
+
+
+	<a class="link link-ticket button large" href="<%=buyticket_path(id: status.event_id, title: status.event.title.parameterize)%>">
+
+		<!--  --><span>Tickets <span class="price-from">from €</span></span><span class="price-from"><span><%=status.event.price.split(' | ')[0].to_f.round(2)%></span></span>
+
+	</a>
+
+			
+				
+
+<span class="prices"><span>€</span><%=status.event.price.split(' | ').map{|x|"<span>#{x}</span>"}.join(' | ').html_safe%>
+				
+			
+				
+					</span>
+
+			
+		</span>
+	
+	
+</div>

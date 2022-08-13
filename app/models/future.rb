@@ -1,0 +1,3 @@
+class Future < EventStatus
+  
+end

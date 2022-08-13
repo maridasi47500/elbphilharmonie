@@ -1,0 +1,224 @@
+
+
+		<main class="content-container">
+			
+  <div class="grid-container">
+    
+
+<header class="grid-container page-header less-space">
+	<div class="grid-x grid-margin-x align-center">
+		<div class="cell medium-10">
+			<h1>What’s On</h1>
+		</div>
+	</div>
+</header>
+
+<aside>
+  <nav class="grid-container section-container anchor-nav event-tabs">
+    <ul class="anchor-nav__list">
+      <li class="anchor-nav__item">
+        <a href="/en/whats-on/" class="anchor-nav__link" data-name="Events" >
+          Events
+        </a>
+      </li>
+      <li class="anchor-nav__item">
+        <a href="/en/subscriptions" class="anchor-nav__link" data-name="Subscriptions" >
+          Subscriptions
+        </a>
+      </li>
+      <li class="anchor-nav__item">
+        <a href="/en/season" class="anchor-nav__link" data-name="Season" >
+          Season
+        </a>
+      </li>
+      <li class="anchor-nav__item">
+        <a href="/en/participate" class="anchor-nav__link active" data-name="Participate" aria-current="page">
+          Participate
+        </a>
+      </li>
+      <li class="anchor-nav__indicator"></li>
+    </ul>
+  </nav>
+</aside>
+
+
+    <section id="program-section" class="booking-list-page">
+
+<!--       <aside class="filter filter--abos"> -->
+<!--         <div class="filter__fakeblock"></div> -->
+
+        <!-- <div class="filter__group"> -->
+        <!--   <nav class="filter__navigation"></nav> -->
+
+          <!-- <ul class="filter__seasons"> -->
+          <!--   <li class="filter__season"> -->
+          <!--     <a href="" title=" " class="link link-default filter__season-link"> </a> -->
+          <!--   </li> -->
+          <!-- </ul> -->
+
+        <!-- </div> -->
+      <!-- </aside> -->
+
+
+      <article class="abos__article grid-x align-center">
+        <div class="cell medium-10 large-8">
+          
+
+
+
+
+
+
+	<div class="grid-container section-container fluid">
+		<div class="grid-x grid-margin-x align-center cms-row " id="container-66935">
+		
+			<div class="cell cms-col">
+				
+				
+					
+					
+
+
+
+
+
+
+
+	<h2 id="headline-66960" class="headline-module">
+		What is even better than listening to music? Making your own!
+		
+	</h2>
+
+
+
+
+
+
+
+					
+				
+					
+					
+
+
+
+
+
+<div id="text-66959" class="text-module">
+	
+		<p>Whether it’s an instrumental workshop you’re interested in, the family orchestra or the gamelan ensemble – at the Elbphilharmonie you can not only listen to music, you can join in and make music yourself! Different participation formats offer something for everyone: for children and adults alike, from&nbsp;beginners to the more advanced.</p>
+	
+</div>
+
+
+
+
+
+					
+				
+				
+			</div>
+		
+		</div>
+	</div>
+	<div class="spacer"></div>
+
+
+
+
+
+
+        </div>
+      </article>
+
+		
+			
+
+		
+			
+  <%@projects.each do |title,events|%>
+	
+
+  
+	<header class="abos__header grid-x grid-margin-x">
+	  <div class="cell medium-4 large-2">
+		<div class="abos__figure-line abos__genre-line"></div>
+		<span class="h4"><%=title[0]%></span>
+	  </div>
+	  <h2 class="abos__genre-title no-line cell medium-8 large-6" id="<%=title[1].parameterize%>"><%=title[1]%></h2>
+	  <div class="cell large-4 abos__genre-lastcolumn">
+		<!-- <a href="#" title="" class="abos__genre-link"><i class="icon-information"></i></a> -->
+	  </div>
+	</header>
+	<ul class="grid-x grid-margin-x align-top">
+<%=render partial: "musicproject", as: :event, collection: events%>
+
+
+</ul>
+<%end%>
+  
+  
+
+
+		
+    </section>
+  </div>
+
+
+      
+
+<aside class="merklist-modal">
+	<div class="merklist-modal__wrapper">
+		<button class="merklist-modal__close js-merklist-modal__close" type="button" title="Close"></button>
+    <!-- MODAL: login -->
+    <div class="merklist-modal__content" data-modal="login">
+      <p class="merklist-modal__title line-center h3">Saved events</p>
+      <p class="merklist-modal__text">Login required. If you do not have an Elbphilharmonie customer account, registering is quick and easy.</p>
+      <div class="merklist-modal__button">
+        <a href="#" class="button link link-default merklist-modal__account">Log in or register</a>
+      </div>
+    </div>
+    <!-- MODAL: alert check -->
+    <div class="merklist-modal__content" data-modal="alert" style="display: none;">
+      <p class="merklist-modal__title line-center h3">Your selection</p>
+      <label  class="merklist-modal__label">
+      <input type="radio" name="alert" class="merklist-modal__radio" value="1">
+        <span>Add to saved events</span>
+      </label>
+      <label class="merklist-modal__label">
+      <input type="radio" name="alert" class="merklist-modal__radio" value="2" checked>
+        <span>Activate ticket alert</span>
+        <span class="merklist-modal__text">You will receive an email alert one day before tickets go on sale.</span>
+      </label>
+      <div class="merklist-modal__button">
+        <button type="button" class="button link link-default merklist-modal__save">Confirm</button>
+      </div>
+    </div>
+    <!-- MODAL: alert uncheck -->
+    <div class="merklist-modal__content" data-modal="uncheck" style="display: none;">
+      <p class="merklist-modal__title line-center h3">Edit events saved</p>
+      <label class="merklist-modal__label">
+        <input type="radio" name="uncheck" class="merklist-modal__radio" value="1" checked>
+        <span>Deactivate ticket alert</span>
+      </label>
+      <label  class="merklist-modal__label">
+        <input type="radio" name="uncheck" class="merklist-modal__radio" value="DELETE">
+        <span>Remove event from my saved events</span>
+      </label>
+      <div class="merklist-modal__button">
+        <button type="button" class="button link link-default merklist-modal__save">Confirm</button>
+      </div>
+    </div>
+	</div>
+</aside>
+
+      <aside class="blog__lightbox">
+  <div class="blog__lightbox-container">
+    <button class="blog__lightbox-close" title="Close modal"></button>
+    <div class="blog__lightbox-wrapper">
+      <iframe src="" frameborder="0" id="blog-iframe" class="blog__lightbox-iframe" allow="fullscreen"></iframe>
+    </div>
+  </div>
+</aside>
+
+		</main>

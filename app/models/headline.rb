@@ -1,0 +1,3 @@
+class Headline < Othercontent
+  
+end

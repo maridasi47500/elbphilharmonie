@@ -1,0 +1,22 @@
+<div class="unavailable-status status-box">
+	
+		
+			<span class="status">
+				Tickets currently not available
+			</span>
+			
+				
+
+<span class="prices"><span>€</span><%=status.event.price.split(' | ').map{|x|"<strike>#{x}</strike>"}.join(' | ').html_safe%></span>
+
+			
+		
+		
+				
+					<span class="status-sub">Please try again later</span>
+				
+			
+		
+	
+	
+</div>

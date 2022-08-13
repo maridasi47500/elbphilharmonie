@@ -1,0 +1,8 @@
+<div class="future-status status-box"><span class="status">
+				
+					Online ticket sale
+				
+			</span><span class="status status-sub">
+				<%=status.status_sub.split("\n")[0]%>
+				
+			</span><a class="link link-ticket hide" href="<%=buyticket_path(id: status.event_id, title: status.event.title.parameterize)%>" data-name="<%=status.event.title%> - Order tickets regardless"><!--  --><span>Tickets <span class="price-from">from €</span></span><span class="price-from"><span><%=status.event.price.split(' | ')[0].to_f.round(2)%></span></span></a></div>

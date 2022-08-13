@@ -1,0 +1,46 @@
+<div class="content-row row-big">
+    <div class="large-offset-1 large-8 small-offset-0 small-12 columns">
+        <!-- ngIf: !$ctrl.isExistingUser || $ctrl.emailIsReadOnly --><div ng-if="!$ctrl.isExistingUser || $ctrl.emailIsReadOnly" class="ng-scope">
+            <input-email id="customer-email" autocomplete="email" read-only="$ctrl.emailIsReadOnly" model="$ctrl.customerData" field="$ctrl.customerDataForm['customer-email']" enable-email-repetition="$ctrl.enableEMailRepetition" submitted="$ctrl.submitted" class="ng-isolate-scope"><!-- e-mail control -->
+<div class="shop-form-row">
+    <div class="label-wrapper">
+        <label for="customer-email" class="ng-binding">
+            Email address
+        </label>
+    </div>
+    <div class="shop-form-item">
+        <%=form.email_field "email", id: "customer-email", autocomplete: "email", validateemail: "", required: "", class: "ng-pristine #{!user.errors[:email].blank? ? "ng-empty ng-invalid ng-invalid-required ng-touched" : nil}"%>
+        <!-- // error no or invalid e-mail -->
+        <label class=" ng-binding <%=user.errors[:email].blank? ? "nbhide" : "validation-error"%>" for="customer-email" ng-show="$ctrl.submitted &amp;&amp; $ctrl.isInvalidEmail()">Please provide a valid email address.</label>
+        <!-- // correction hint -->
+        <label class="domain-blacklist-correction-hint ng-scope <%=user.errors[:email].blank? ? "nbhide" : "validation-error"%>" for="customer-email" ng-show="$ctrl.showCorrectionHint()" translate="EMAILDOMAINBLACKLIST_COMMON_HINTCORRECTION" translate-value-email="">Did you mean ?</label>
+        <!-- // error domain blocked -->
+        <label class=" ng-binding <%=user.errors[:email].blank? ? "nbhide" : "validation-error"%>" for="customer-email" ng-show="$ctrl.isDomainBlocked()">This email provider has been blocked.</label>
+
+        <!-- // checkbox confirm e-mail-->
+        <div class="shop-form-item domain-blacklist-accept-email <%=user.errors[:email].blank? ? "nbhide" : "validation-error"%>" ng-show="$ctrl.field.blacklist.isBlacklisted &amp;&amp; !$ctrl.field.blacklist.blocked">
+            <%=form.check_box "cbCorrection", class: "checkbox ng-pristine #{!user.errors[:email].blank? ? "ng-empty ng-invalid ng-invalid-required ng-touched" : "ng-untouched ng-valid ng-empty ng-valid-required"} ", id: "customer-email_checkbox"%>
+            <label for="customer-email_checkbox" class="ng-binding">No, the email address provided is correct.</label>                    
+        </div>     
+         
+        <!-- // error checkbox confirm e-mail -->
+        <div class="shop-form-item wide">            
+            <label ng-show="$ctrl.submitted &amp;&amp; $ctrl.isConfirmEmailCheckboxInvalid()" class=" ng-binding <%=user.errors[:email].blank? ? "nbhide" : "validation-error"%>">
+                Please confirm the validity of your email address.
+            </label>
+        </div> 
+    </div>
+</div>
+
+<!-- repetition e-mail control -->
+<!-- ngIf: $ctrl.enableEmailRepetition && !$ctrl.readOnly --><div class="shop-form-row ng-scope" ng-if="$ctrl.enableEmailRepetition &amp;&amp; !$ctrl.readOnly">
+    <div class="label-wrapper">
+        <label for="customer-email_repetition" class="ng-binding">Re-enter email address</label>
+    </div>
+    <div class="shop-form-item">
+        <%=form.email_field "email_repetition", id: "customer-email_repetition", autocomplete: "email", required: "", "ng-change"=>"$ctrl.updateValidation()", class: "ng-pristine #{!user.errors[:email_repetition].blank? ? "ng-empty ng-invalid ng-invalid-required ng-touched" : nil} ng-untouched ng-empty ng-valid-email ng-invalid ng-invalid-required"%>
+        <label class=" ng-binding <%=user.errors[:email_repetition].blank? ? "nbhide" : "validation-error"%>" for="customer-email_repetition" ng-show="$ctrl.submitted &amp;&amp; $ctrl.model.email != $ctrl.model.emailRepetition">Email addresses do not match.</label>
+    </div>
+    <!-- // error email repetition -->
+    
+</div>

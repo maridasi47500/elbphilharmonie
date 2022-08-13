@@ -1,0 +1,260 @@
+<main class="content-container">
+			
+	<section class="grid-container">
+		<div class="container-background container-grey search-page-head">
+			<div class="grid-x align-center">
+				<div class="large-9 small-11 large-centered columns">
+          <div class="spacer"></div>
+          <h2 class="no-line search__title">
+            
+              <%=@totallength%> Search results
+            
+          </h2>
+          <div class="search__wrapper js-search">
+            <form id="generic-search-form" action="/en/search/" method="get" class="search__form js-search-form">
+              <span class="search__icon icon-search-big"></span>
+              <input id="generic-search-query" type="search" placeholder="" value="<%=params[:q]%>" autocomplete="off" name="q" class="search__input js-autocomplete-input">
+              <a href="/en/advanced-search" class="search__expert-link">Advanced search in concert archive</a>
+            </form>
+            <nav class="header__autocomplete search__autocomplete">
+              <div class="header__autocomplete-loading loading-animation"></div>
+              <div class="header__autocomplete-noresult">
+                <h4>Your search yielded no results.</h4>
+                <p class="din">Please try again with a different search term.</p>
+              </div>
+              <ul class="header__autocomplete-list"></ul>
+            </nav>
+          </div>
+          <div class="spacer"></div>
+				</div>
+			</div>
+		</div>
+		
+
+
+  <aside data-anchor-sticky="" style="height: 55px;">
+    <nav class="grid-container section-container anchor-nav sticky anchor-nav--fixed">
+      <ul class="anchor-nav__list">
+        
+        
+          <li class="anchor-nav__item">
+            <a href="#search_events" class="anchor-nav__link" title="Upcoming Events (<%=@events.length%>)">Upcoming Events (<%=@events.length%>)</a>
+          </li>
+        
+        
+          <li class="anchor-nav__item ">
+            <a href="#search_others" class="anchor-nav__link" title="Other results (<%=@other.length%>)">Other results (<%=@other.length%>)</a>
+          </li>
+        
+        
+          <li class="anchor-nav__item">
+            <a href="#search_past_events" class="anchor-nav__link" title="Past Events (<%=@past.length%>)">Past Events (<%=@past.length%>)</a>
+          </li>
+        
+        <li class="anchor-nav__indicator" style="transform: translate(232px, 0px); width: 175px;"></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <div class="spacer"></div>
+	<div class="search-results grid-container">
+		
+    <div id="search_events"></div>
+		<%if @events.length > 0%>
+			<section class=" align-center content-row event-list-module">
+				
+					<div class="large-12 columns">
+				
+        <div class="grid-x align-center">
+          <div class="small-12 medium-8">
+            <h2>Upcoming Events (<%=@events.length%>)</h2>
+          </div>
+        </div>
+				
+						<div class="spacer small"></div>
+					</div>
+				
+				<ul class="event-list">
+					
+<%=render as: :event, partial: "event", collection: @events%>
+
+
+				</ul>
+				
+				<div class="spacer small"></div>
+				<div class="search__buttons">
+					<a href="/en/search/event/<%=params[:q]%>" class="button secondary link link-default">Show all results</a>
+				</div>
+				
+				<div class="spacer"></div>
+			</section>
+		
+
+		<%end%>
+
+		
+			<!-- <div class="container-background container-grey"> -->
+			<!-- 	<div class="grid-x"> -->
+			<!-- 		<div class="columns"> -->
+		
+
+		
+		<%if @other.length > 0%>
+			<section id="search_others" class="grid-x align-center event-list-module">
+				<div class="medium-8">
+					<div class="teaser-box">
+						
+
+            <h2>Other results (<%=@other.length%>)</h2>
+						<div class="spacer small"></div>
+						
+							<div>
+						
+						
+
+
+
+	<%=render partial: "mediatheque", collection: @other, as: :mediatheque%>
+	
+
+						
+							</div>
+						
+						
+						<div class="spacer small"></div>
+            <div class="search__buttons">
+              <a href="/en/search/other/<%=params[:q]%>" class="button secondary link link-default">Show all results</a>
+            </div>
+						
+						<div class="spacer"></div>
+					</div>
+				</div>
+			</section>
+		
+<%end%>
+		
+					<!-- </div> -->
+				<!-- </div> -->
+			<!-- </div> -->
+		
+
+		
+
+		<%if @past.length > 0%>
+		
+			<section id="search_past_events" class=" event-list-module">
+				
+					<div class="large-12 columns">
+				
+          <div class="grid-x align-center">
+            <div class="small-12 medium-8">
+              <h2>Past Events (<%=@past.length%>)</h2>
+            </div>
+          </div>
+
+				
+						<div class="spacer small"></div>
+					</div>
+				
+				<ul class="event-list">
+					
+<%=render as: :event, partial: "event", collection: @past%>
+
+				</ul>
+				
+					<div class="spacer small"></div>
+					<div class="search__buttons">
+						<a href="/en/search/past_event/<%=params[:q]%>" class="button secondary link link-default">Show all results</a>
+					</div>
+				
+				<div class="spacer big"></div>
+			</section>
+		
+
+		
+
+	</div>
+
+
+
+
+	</section>
+
+<%end%>
+
+      
+
+<aside class="merklist-modal">
+	<div class="merklist-modal__wrapper">
+		<button class="merklist-modal__close js-merklist-modal__close" type="button" title="Close"></button>
+    <!-- MODAL: login -->
+    <div class="merklist-modal__content" data-modal="login">
+      <p class="merklist-modal__title line-center h3">Saved events</p>
+      <p class="merklist-modal__text">Login required. If you do not have an Elbphilharmonie customer account, registering is quick and easy.</p>
+      <div class="merklist-modal__button">
+        <a href="#" class="button link link-default merklist-modal__account">Log in or register</a>
+      </div>
+    </div>
+    <!-- MODAL: alert check -->
+    <div class="merklist-modal__content" data-modal="alert" style="display: none;">
+      <p class="merklist-modal__title line-center h3">Your selection</p>
+      <label class="merklist-modal__label">
+      <input type="radio" name="alert" class="merklist-modal__radio" value="1">
+        <span>Add to saved events</span>
+      </label>
+      <label class="merklist-modal__label">
+      <input type="radio" name="alert" class="merklist-modal__radio" value="2" checked="">
+        <span>Activate ticket alert</span>
+        <span class="merklist-modal__text">You will receive an email alert one day before tickets go on sale.</span>
+      </label>
+      <div class="merklist-modal__button">
+        <button type="button" class="button link link-default merklist-modal__save">Confirm</button>
+      </div>
+    </div>
+    <!-- MODAL: alert uncheck -->
+    <div class="merklist-modal__content" data-modal="uncheck" style="display: none;">
+      <p class="merklist-modal__title line-center h3">Edit events saved</p>
+      <label class="merklist-modal__label">
+        <input type="radio" name="uncheck" class="merklist-modal__radio" value="1" checked="">
+        <span>Deactivate ticket alert</span>
+      </label>
+      <label class="merklist-modal__label">
+        <input type="radio" name="uncheck" class="merklist-modal__radio" value="DELETE">
+        <span>Remove event from my saved events</span>
+      </label>
+      <div class="merklist-modal__button">
+        <button type="button" class="button link link-default merklist-modal__save">Confirm</button>
+      </div>
+    </div>
+	</div>
+</aside>
+
+      <aside class="blog__lightbox">
+  <div class="blog__lightbox-container">
+    <button class="blog__lightbox-close" title="Close modal"></button>
+    <div class="blog__lightbox-wrapper">
+      <iframe src="" frameborder="0" id="blog-iframe" class="blog__lightbox-iframe" allow="fullscreen"></iframe>
+    </div>
+  </div>
+</aside>
+
+		</main>
+<%=content_for :myscripts do%>
+<script>
+  window.onload=function() {
+    var anchor_value;
+var stripped_url = document.location.toString().split("#");
+if (stripped_url.length > 1)
+  anchor_value = stripped_url[1];
+$("[href='#"+anchor_value+"']").parent().toggleClass("anchor-nav__item--active")
+
+    if (anchor_value === "search_others") {
+  $(".anchor-nav__indicator").prop('style','transform: translate(232px, 0px); width: 175px;');
+  }else  if (anchor_value === "search_past_events"){
+      $(".anchor-nav__indicator").prop('style','transform: translate(437px, 0px); width: 148px;');
+  }else{
+  $(".anchor-nav__indicator").prop('style','transform: translate(0px, 0px); width: 200px;');
+}
+  }
+  </script>
+  <%end%>

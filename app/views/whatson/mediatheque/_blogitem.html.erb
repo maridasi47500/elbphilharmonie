@@ -1,0 +1,72 @@
+<div class="cell medium-10 xlarge-4">
+					
+
+
+<div class="blog__item blog__item--small blog__item--between-livestream-and-demand tag-live-stream ">
+	
+
+	
+		<figure class="blog__image">
+			
+				<a href="/en/mediatheque/ndr-elbphilharmonie-orchester-alan-gilbert/744" class="blog__link" aria-hidden="true" tabindex="-1">
+			
+				
+					<div class="blog__image-wrapper">
+						<picture class="blog__image-view" aria-hidden="true">
+							<source media="(min-width: 48em)" srcset="https://d3c80vss50ue25.cloudfront.net/media/filer_public_thumbnails/filer_public/22/b7/22b7c2e1-c378-4377-a6ae-a37d60aa651f/alpenlandschaft2_c_gemeinfrei.jpg__452x409_q85_crop_subsampling-2_upscale.jpg">
+							<img src="https://d3c80vss50ue25.cloudfront.net/media/filer_public_thumbnails/filer_public/22/b7/22b7c2e1-c378-4377-a6ae-a37d60aa651f/alpenlandschaft2_c_gemeinfrei.jpg__110x99_q85_crop_subsampling-2_upscale.jpg" alt="" data-image-loading>
+						</picture>
+						<picture class="blog__image-blurry">
+							<source media="(min-width: 48em)" srcset="https://d3c80vss50ue25.cloudfront.net/media/filer_public_thumbnails/filer_public/22/b7/22b7c2e1-c378-4377-a6ae-a37d60aa651f/alpenlandschaft2_c_gemeinfrei.jpg__452x409_q85_crop_subsampling-2_upscale.jpg">
+							<img src="https://d3c80vss50ue25.cloudfront.net/media/filer_public_thumbnails/filer_public/22/b7/22b7c2e1-c378-4377-a6ae-a37d60aa651f/alpenlandschaft2_c_gemeinfrei.jpg__110x99_q85_crop_subsampling-2_upscale.jpg" alt="NDR Elbphilharmonie Orchester / Alan Gilbert" title="" data-image-loading>
+						</picture>
+					</div>
+					<div class="blog__image-line" data-line></div>
+				
+			
+				</a>
+			
+	
+
+		
+			<div class="blog__image-overlay" title="">
+			</div>
+		
+
+	
+		</figure><!-- /.image-container -->
+
+		<div class="blog__text">
+			<h3 class="blog__text-title no-line">
+                                        <%if @mediatheque.livestreams.length > 0%>
+					<span class="preline">
+                                                        <%if @mediatheque.begins > Date.today%>
+							Video from  <%=l(@mediatheque.begins, format: :shortdate)%>  soon on demand
+							<%elsif @mediatheque.begins <= Date.today && @mediatheque.end >= Date.today%>
+                                                        Video on demand from <%=l(@mediatheque.begins, format: :shortdate)%> available until  <%=l(@mediatheque.end, format: :shortdate)%> 
+                                                        <%end%>
+						<span class="show-for-sr">:</span>
+					</span>
+					<%end%>
+				
+				<a href="/en/mediatheque/ndr-elbphilharmonie-orchester-alan-gilbert/744" class="detail-link" data-name="<%=@mediatheque.mylink%> - NDR Elbphilharmonie Orchester / Alan Gilbert">
+					<span class="inner-title">NDR Elbphilharmonie Orchester / Alan Gilbert</span>
+				</a>
+			</h3>
+			<p class="blog__description">
+				Ein musikalischer Ausflug in die Alpen: Das Residenzorchester der Elbphilharmonie spielt Richard Strauss’ riesenhafte »Alpensinfonie« im Großen Saal.
+				
+					<a href="/en/mediatheque/tag/live-stream" class="tag article-tag" data-name="#LiveStream">#LiveStream</a>
+				
+			</p>
+			
+				<div class="blog__button">
+					<a href="/en/mediatheque/ndr-elbphilharmonie-orchester-alan-gilbert/744" class="link link-default detail-link" data-name="<%=@mediatheque.mylink%> - NDR Elbphilharmonie Orchester / Alan Gilbert" aria-hidden="true" tabindex="-1"><%=@mediatheque.mylink%></a>
+				</div>
+			
+		</div>
+
+	
+</div><!-- /.teaser-box -->
+
+				</div>

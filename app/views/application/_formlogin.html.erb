@@ -1,0 +1,87 @@
+<login-form on-processing="$ctrl.handleFormProcessing(promise)" on-login="$ctrl.onLogin(customer)" class="ng-isolate-scope">
+    
+    <%=form_with scope: "",url: myaccount_path(afterloginbookmarkevent: params[:afterloginbookmarkevent]), html:{class: "shop-form shop-form--facelift ng-pristine ng-valid-email ng-invalid ng-invalid-required", name: "$ctrl.loginForm", "ng-class"=>"{'submitted': $ctrl.loginSubmitted}", novalidate: ""} do |form|%>
+
+    <div class="content-row row-big">
+        <div class="large-offset-1 large-8 small-offset-0 small-12 columns">
+
+            <div class="shop-form-row">
+                <div class="label-wrapper">
+                    <label for="login-email" class="ng-binding">
+                        Email address
+                    </label>
+                </div>
+                <div class="shop-form-item">
+                    <input id="login-email" type="email" validateemail="" name="login-email" autocomplete="email" ng-model="$ctrl.email" required="" class="ng-pristine ng-untouched ng-empty ng-valid-email ng-invalid ng-invalid-required">
+           
+                    <%if !user.errors[:email].blank?%>
+
+                    <label class="validation-error ng-binding ng-hide" for="login-email" ng-show="$ctrl.submitted &amp;&amp; $ctrl.loginForm['login-email'].$invalid">
+                        Please provide a valid email address.
+                    </label>
+                      <%end%>
+                </div>
+            </div>
+
+            <div class="shop-form-row">
+                <div class="label-wrapper">
+                    <label for="login-password" class="ng-binding">
+                        Password
+                    </label>
+                </div>
+                <div class="shop-form-item">
+                    <input id="login-password" type="password" name="login-password" autocomplete="current-password" ng-model="$ctrl.password" required="" class="ng-pristine ng-empty ng-invalid ng-invalid-required ng-touched">
+                    <%if !user.errors[:password].blank?%>
+                    <label class="validation-error ng-binding ng-hide" for="login-password" ng-show="$ctrl.submitted &amp;&amp; $ctrl.loginForm['login-password'].$invalid">
+                        Please provide your password.
+                    </label>
+                      <%end%>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="content-row row-big">
+        <div class="large-offset-3 large-6 small-offset-0 small-12 columns">
+            <%if !user.errors[:email].blank? || !user.errors[:password].blank?%>
+            <div class="validation-error ng-binding ng-hide" ng-show="$ctrl.submitted &amp;&amp; $ctrl.serverError == 'WRONG_LOGIN_DATA'">
+                Email address or password is incorrect. Please try again.
+            </div>
+            <%end%>
+            <!--
+            <div class="validation-error ng-binding ng-hide" ng-show="$ctrl.submitted &amp;&amp; $ctrl.serverError == 'CORPORATE_CUSTOMER'">
+                Online booking is currently unavailable for this customer account. Please contact us by phone at +49 40 357 666 333.
+            </div>
+            <div class="validation-error ng-binding ng-hide" ng-show="$ctrl.submitted &amp;&amp; $ctrl.serverError == 'UNKNOWN_ERROR'">
+                Login failed. Please try again later.
+            </div>
+            <div class="validation-error ng-binding ng-hide" ng-show="$ctrl.facebookSubmitted &amp;&amp; $ctrl.serverError == 'INVALID_FACEBOOK_ACCESS_TOKEN'">
+                Facebook login failed. Please try again.
+            </div>
+            <div class="validation-error ng-binding ng-hide" ng-show="$ctrl.facebookSubmitted &amp;&amp; $ctrl.serverError == 'NO_FACEBOOK_EMAIL'">
+                No email address could be determined for your Facebook account. Please make sure that your email address is activated in your Facebook account.
+            </div>
+            <div class="validation-error ng-binding ng-hide" ng-show="$ctrl.facebookSubmitted &amp;&amp; $ctrl.serverError == 'UNKNOWN_FACEBOOK_ERROR'">
+                Facebook login failed. Please try again later.
+            </div>
+            -->
+       </div>
+    </div>
+        <%=form.hidden_field :afterloginbookmarkevent%>
+    <div class="content-row row-big">
+        <div class="large-offset-3 large-6 small-offset-0 small-12 columns">
+            <div class="shop-form-row">
+                <div class="inline-link-button button--forgotpassword"><a ng-href="https://shop.elbphilharmonie.de/en/reset-password/" ng-click="$ctrl.logRedirectToForgotPassword();" class="read-more ng-binding" href="https://shop.elbphilharmonie.de/en/reset-password/">Forgot your password?</a></div>
+
+                <button class="shop-button submit read-more ng-binding" ng-click="$ctrl.submit()">
+                    Log in
+                </button>
+
+                <!-- ngIf: false -->
+            </div>
+        </div>
+    </div>
+
+<%end%>    
+</login-form>

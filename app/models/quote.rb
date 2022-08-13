@@ -1,0 +1,3 @@
+class Quote < Othercontent 
+  
+end

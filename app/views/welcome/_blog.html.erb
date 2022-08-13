@@ -1,0 +1,61 @@
+<li class="cell medium-10 xlarge-6" data-grid="" style="position: absolute; left: <%=cycle("0","50")%>%; top: <%=(blog_counter/2+1)*659.562%>px;">
+				
+
+
+<div class="blog__item blog__item--small blog__item--other <%blog.tags.each do |tag|%> tag-<%=tag.url%><%end%>">
+	
+
+	
+		<figure class="blog__image">
+			
+				<a href="/en/mediatheque/studio-drift-amazement-at-the-natural-world/634" class="blog__link" aria-hidden="true" tabindex="-1">
+			
+				
+					<div class="blog__image-wrapper">
+						<picture class="blog__image-view" aria-hidden="true">
+							<source media="(min-width: 48em)" srcset="<%=blog.image%>">
+							<img src="/index_files/180822-coded_nature-0622.jpg__110x99_q85_crop_subject_location-741,914_subsampling-2_upscale.jpg" alt="" data-image-loading="">
+						</picture>
+						<picture class="blog__image-blurry">
+							<source media="(min-width: 48em)" srcset="<%=blog.image%>">
+							<img src="/index_files/180822-coded_nature-0622.jpg__110x99_q85_crop_subject_location-741,914_subsampling-2_upscale.jpg" alt="<%=blog.title%>" title="Studio Drift: Flylight © Ronals Smits" data-image-loading="">
+						</picture>
+					</div>
+					<div class="blog__image-line" data-line="" style="width: 47.2289%;"></div>
+				
+			
+				</a>
+			
+	
+
+		
+
+	
+		</figure><!-- /.image-container -->
+
+		<div class="blog__text">
+			<h3 class="blog__text-title no-line">
+				
+				<a href="/en/mediatheque/studio-drift-amazement-at-the-natural-world/634" class="detail-link" data-name="Read the article - <%=blog.title%>">
+					<span class="inner-title"><%=blog.title%></span>
+				</a>
+			</h3>
+			<p class="blog__description">
+				<%=blog.subtitle.html_safe%>
+				<%blog.tags.each do |blog|%>
+					<a href="<%=tagblog_path(name: blog.url)%>" class="tag article-tag" data-name="<%=tag.name%>"><%=tag.name%></a>
+				<%end%>
+				
+			</p>
+			
+				<div class="blog__button">
+					<a href="/en/mediatheque/studio-drift-amazement-at-the-natural-world/634" class="link link-default detail-link" data-name="Read the article - <%=blog.title%>" aria-hidden="true" tabindex="-1">Read the article</a>
+				</div>
+			
+		</div>
+
+	
+</div><!-- /.teaser-box -->
+
+			</li>
+		

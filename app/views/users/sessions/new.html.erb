@@ -1,0 +1,53 @@
+<main>
+			<div id="content-container" class="content-container--facelift">
+				
+            
+
+        <section class="self-care-section self-care-section--facelift ng-scope" >
+            <self-care external-guided-tour-headline="Select Plaza Ticket for Guided Tour" external-guided-tour-description="Guided tours through the Elbphilharmonie are not fully accessible. Accessible tours for persons with limited mobility may also be booked here." dsgvo="When you register to create an account, the data you provide is recorded and stored electronically. You can deactivate your customer account at any time. If you do not agree to the data processing, you cannot purchase tickets online. You’ll find further information in our <a href='https://www.elbphilharmonie.de/en/privacy-policy' target='_blank'>Privacy Policy</a>." phone-number-mandatory="false" logout-url="http://shop.elbphilharmonie.de/en/logout/" redirect-on-successful-login-url="" class="ng-isolate-scope">
+                
+                
+                <div class="selfcare--facelift">
+    <!-- ngIf: $ctrl.isLoading() -->
+
+    <!-- ngIf: $ctrl.initialized --><div ng-if="$ctrl.initialized" class="ng-scope">
+        <!-- ngIf: $ctrl.customer == null --><div ng-if="$ctrl.customer == null" class="ng-scope">
+            <div class="content-row row-big">
+                <div class="large-offset-3 large-6 small-offset-0 small-12 columns">
+                    <h1 class="headline--standard ng-binding">My Customer Account</h1>
+                </div>
+            </div>
+
+            <div class="content-row row-big">
+                <div class="large-offset-3 large-6 small-offset-0 small-12 columns">
+                    <h2 class="headline--large ng-binding">Login<br></h2>
+                </div>
+            </div>
+            
+            <%=render "formlogin", user: @loginuser%>
+
+            <div class="content-row row-big">
+                <br><br><br>
+                <div class="large-offset-3 large-6 small-offset-0 small-12 columns">
+                    <h2 class="headline--large ng-binding">Registration for New Customers<br></h2>
+                </div>
+            </div>
+            
+            <%=render "formsignin", user: @user%>
+        </div><!-- end ngIf: $ctrl.customer == null -->
+
+        <!-- ngIf: $ctrl.customer != null -->
+    </div><!-- end ngIf: $ctrl.initialized -->
+
+</div>
+
+<!--</self-care>-->
+        </section>
+
+    
+
+			</div> <!-- content-container -->
+		</main>
+
+    
+        

@@ -1,0 +1,13 @@
+<div class="content-row row-big">
+        <div class="large-offset-3 large-6 small-offset-0 small-12 columns">
+            <h2 class="headline--large ng-binding">Deactivate customer account</h2>
+
+            <!-- ngIf: !$ctrl.isDisableAccountHintEnabled && !$ctrl.isOptInSent -->
+
+            <!-- ngIf: $ctrl.isDisableAccountHintEnabled && !$ctrl.isOptInSent -->
+
+            <!-- ngIf: $ctrl.isOptInSent --><div ng-if="$ctrl.isOptInSent" class="ng-scope">
+                <div class="shop-text ng-binding">To deactivate your customer account, please click on the confirmation link in the email you just received.</div>
+            </div><!-- end ngIf: $ctrl.isOptInSent -->
+        </div>
+    </div>

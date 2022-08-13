@@ -1,0 +1,243 @@
+
+<main>
+
+    <div class="languages">
+                                    <a href="/anmelden/193?languageId=1"
+                   class="ui" lang="de" hreflang="de">Dieses Formular steht auch auf Deutsch zur Verfügung.
+                </a>
+                <br/>
+                        </div>
+
+    <p>
+        <strong>
+            Please register using this form by 08 Aug 2022 at the latest.
+
+                            <br>
+                In case of a high number of registrations, we reserve the right to end registration earlier.
+                    </strong>
+    </p>
+
+    
+    <hr>
+
+    <form name="registration" method="post" id="registration">
+
+        
+
+    <h3>
+                    Personal information of registering person
+                            (guardian in the case of a participant under the age of 18)
+                        </h3>
+
+    <div class="control-group salutation-firstname-surname">
+        <div class="control">
+            <label for="registration_salutation" class="required">Salutation</label>
+            <select id="registration_salutation" name="registration[salutation]" required="required" autocomplete="honorific-prefix"><option value="" selected="selected">Please select</option><option value="0">Mr</option><option value="1">Ms</option><option value="2">Mx (gender neutral)</option></select>
+                
+        </div>
+        <div class="control">
+            <label for="registration_firstname" class="required">First name</label>
+            <input type="text" id="registration_firstname" name="registration[firstname]" required="required" autocomplete="given-name" minlength="2" maxlength="40" />
+                
+        </div>
+        <div class="control">
+            <label for="registration_surname" class="required">Last name</label>
+            <input type="text" id="registration_surname" name="registration[surname]" required="required" autocomplete="family-name" minlength="2" maxlength="40" />
+                
+        </div>
+    </div>
+
+    <div class="control-group">
+        <div class="control">
+            <label for="registration_email" class="required">Email address</label>
+            <input type="email" id="registration_email" name="registration[email]" required="required" autocomplete="email" />
+                
+        </div>
+        <div class="control">
+            <label for="registration_phone" class="required">Phone number</label>
+            <input type="tel" id="registration_phone" name="registration[phone]" required="required" autocomplete="tel" minlength="7" maxlength="20" placeholder="Mobile or landline" />
+                
+        </div>
+    </div>
+
+    <div class="control">
+        <label for="registration_street" class="required">Street name and number</label>
+        <input type="text" id="registration_street" name="registration[street]" required="required" autocomplete="address-line1" minlength="5" maxlength="60" />
+            
+    </div>
+
+    <div class="control-group zip-city">
+        <div class="control">
+            <label for="registration_zip" class="required">Postal code</label>
+            <input type="text" id="registration_zip" name="registration[zip]" required="required" pattern=" *\d{5} *" autocomplete="postal-code" />
+                
+        </div>
+        <div class="control">
+            <label for="registration_city" class="required">City</label>
+            <input type="text" id="registration_city" name="registration[city]" required="required" minlength="3" maxlength="60" />
+                
+        </div>
+    </div>
+
+    
+                                        
+        <h3>Personal information of participating person(s)</h3>
+
+        <div id="participants">
+                            <div class="control-group participants">
+                    <div class="control">
+                        <label for="registration_participants_0_firstname" class="required">First name</label>
+                        <input type="text" id="registration_participants_0_firstname" name="registration[participants][0][firstname]" required="required" disabled="disabled" />
+                            
+                    </div>
+
+                    <div class="control">
+                        <label for="registration_participants_0_surname" class="required">Last name</label>
+                        <input type="text" id="registration_participants_0_surname" name="registration[participants][0][surname]" required="required" disabled="disabled" />
+                            
+                    </div>
+
+                    <div class="control">
+                        <label for="registration_participants_0_birthdate" class="required">Date of birth</label>
+                        <input type="date" id="registration_participants_0_birthdate" name="registration[participants][0][birthdate]" required="required" placeholder="yyyy-mm-dd" />
+                            
+                    </div>
+
+                                            <div class="control-group enrollSameAsParticipate">
+                            <div class="control">
+                                <label data-nooptional="1" for="registration_enrollSameAsParticipate">Participant is identical with registering person</label>
+                                <input type="checkbox" id="registration_enrollSameAsParticipate" name="registration[enrollSameAsParticipate]" value="1" checked="checked" />
+                                    
+                            </div>
+                        </div>
+                                    </div>
+                            <div class="control-group participants">
+                    <div class="control">
+                        <label for="registration_participants_1_firstname">First name</label>
+                        <input type="text" id="registration_participants_1_firstname" name="registration[participants][1][firstname]"  />
+                            
+                    </div>
+
+                    <div class="control">
+                        <label for="registration_participants_1_surname">Last name</label>
+                        <input type="text" id="registration_participants_1_surname" name="registration[participants][1][surname]"  />
+                            
+                    </div>
+
+                    <div class="control">
+                        <label for="registration_participants_1_birthdate">Date of birth</label>
+                        <input type="date" id="registration_participants_1_birthdate" name="registration[participants][1][birthdate]" placeholder="yyyy-mm-dd" />
+                            
+                    </div>
+
+                                    </div>
+                            <div class="control-group participants">
+                    <div class="control">
+                        <label for="registration_participants_2_firstname">First name</label>
+                        <input type="text" id="registration_participants_2_firstname" name="registration[participants][2][firstname]"  />
+                            
+                    </div>
+
+                    <div class="control">
+                        <label for="registration_participants_2_surname">Last name</label>
+                        <input type="text" id="registration_participants_2_surname" name="registration[participants][2][surname]"  />
+                            
+                    </div>
+
+                    <div class="control">
+                        <label for="registration_participants_2_birthdate">Date of birth</label>
+                        <input type="date" id="registration_participants_2_birthdate" name="registration[participants][2][birthdate]" placeholder="yyyy-mm-dd" />
+                            
+                    </div>
+
+                                    </div>
+                            <div class="control-group participants">
+                    <div class="control">
+                        <label for="registration_participants_3_firstname">First name</label>
+                        <input type="text" id="registration_participants_3_firstname" name="registration[participants][3][firstname]"  />
+                            
+                    </div>
+
+                    <div class="control">
+                        <label for="registration_participants_3_surname">Last name</label>
+                        <input type="text" id="registration_participants_3_surname" name="registration[participants][3][surname]"  />
+                            
+                    </div>
+
+                    <div class="control">
+                        <label for="registration_participants_3_birthdate">Date of birth</label>
+                        <input type="date" id="registration_participants_3_birthdate" name="registration[participants][3][birthdate]" placeholder="yyyy-mm-dd" />
+                            
+                    </div>
+
+                                    </div>
+                            <div class="control-group participants">
+                    <div class="control">
+                        <label for="registration_participants_4_firstname">First name</label>
+                        <input type="text" id="registration_participants_4_firstname" name="registration[participants][4][firstname]"  />
+                            
+                    </div>
+
+                    <div class="control">
+                        <label for="registration_participants_4_surname">Last name</label>
+                        <input type="text" id="registration_participants_4_surname" name="registration[participants][4][surname]"  />
+                            
+                    </div>
+
+                    <div class="control">
+                        <label for="registration_participants_4_birthdate">Date of birth</label>
+                        <input type="date" id="registration_participants_4_birthdate" name="registration[participants][4][birthdate]" placeholder="yyyy-mm-dd" />
+                            
+                    </div>
+
+                                    </div>
+                    </div>
+    
+        <div>
+                    
+                            <div id="registration_participants">    <div>
+                    
+                            <div id="registration_participants_0">    <div>
+                    
+                            <div id="registration_participants_0_data">    <div><p><strong>INFORMATIONEN</strong></p><ul><li>Das Familienorchester ist ein Projekt der Elbphilharmonie Hamburg in Kooperation mit der Staatlichen Jugendmusikschule. Die Künstlerische Leitung hat Christine Philippsen. Sie entscheidet über die Teilnahme am Familienorchester.</li><li>Die Anmeldung erfolgt pro Saison.</li><li>Probenbeginn Herbst: 6.9.2022</li><li>Probentermine: wöchentlich dienstags von 18:00-19:30 Uhr im Kaistudio der Elbphilharmonie; in den Hamburger Schulferien finden keine Proben statt.</li><li>Konzerte: 14.2.2023 Miralles-Saal (Werkstattkonzert) | 11.6.2023 Freizeitzentrum Schnelsen | 18.6.2023 Elbphilharmonie Kleiner Saal</li><li>Der Teilnehmerbeitrag beträgt € 10 im Monat.</li><li>In der Regel wird das eigene Instrument genutzt. Kontrabässe, Schlagwerk und Harfen werden zur Verfügung gestellt.</li><li>Die Proben finden nach den jeweils geltenden Coronaregeln statt. Weitere Informationen unter <a href="http://www.elbphilharmonie.de/coronavirus" rel="noopener noreferrer" target="_blank">www.elbphilharmonie.de/coronavirus</a></li><li>Aktuelle Informationen werden jeweils auf <a href="http://www.elbphilharmonie.de/mitmachen" rel="noopener noreferrer" target="_blank">www.elbphilharmonie.de/mitmachen</a> publiziert.</li><li><strong>Gesucht werden</strong> Spielerinnen und Spieler für Violine, Viola, Violoncello, Flöte, Oboe.</li><li><strong>Wichtiger Hinweis:</strong> Die Anmeldung ist erst vollständig, wenn unter den Links (»Vervollständigung der Teilnehmer-Informationen«) der Bestätigungsmail die individuellen Angaben ergänzt wurden.</li></ul></div>
+    <div><p><strong>TEILNAHMEBEDINGUNGEN</strong></p><ul><li>Eventuelle Fahrt- und Verpflegungskosten sind von den Teilnehmenden selbst zu tragen.</li><li>Die Teilnahme erfolgt auf eigene Gefahr.</li><li>Die Anmeldung erfolgt digital über die Webseite <a href="http://www.elbphilharmonie.de/mitmachen" rel="noopener noreferrer" target="_blank">www.elbphilharmonie.de/mitmachen</a>.</li><li>Die Vergabe der Plätze erfolgt durch die Künstlerische Leitung. Diese Auswahl ist nicht anfechtbar.</li><li>Mit der Teilnahme an einer Probenphase erklären Sie sich bereit, regelmäßig an den Proben und an den Konzerten teilzunehmen.</li><li>Im Rahmen des Projekts Familienorchester werden Fotos sowie Aufzeichnungen auf Ton- und Bildträgern aufgenommen, die von der HamburgMusik gGmbH (Veranstalter) zur Dokumentation und Bewerbung des Angebots von Elbphilharmonie und Laeiszhalle veröffentlicht werden. Vor Aufnahme und Veröffentlichung wird der Veranstalter Sie um Ihre Einwilligung bitten.</li><li>Es wird ausdrücklich darauf hingewiesen, dass nach deutschem Recht das Kopieren von Noten und Partituren nicht erlaubt ist.</li><li>Mit der Anmeldung werden alle Teilnahmebedingungen anerkannt. In allen weiteren Fragen sind die Entscheidungen des Veranstalters verbindlich.</li><li>Der Veranstalter behält sich vor, Teile oder Inhalte der Anmeldung und der Teilnahmebedingungen zu widerrufen oder zu ändern.</li></ul></div>
+</div>
+                                        
+    </div>
+</div>
+                                        
+    </div>
+</div>
+                                        
+    </div>
+    <hr/>
+    <div>
+                                    <label class="required">You wish to be contacted in the future via email regarding:</label><br>
+            
+                            <div id="registration_optin" class="choice-group"><input type="radio" id="registration_optin_0" name="registration[optin]" required="required" value="2" /><label for="registration_optin_0" class="required">Information on all Elbphilharmonie education activities</label><br/>
+        <input type="radio" id="registration_optin_1" name="registration[optin]" required="required" value="1" /><label for="registration_optin_1" class="required">Information on »Familienorchester«</label><br/>
+        <input type="radio" id="registration_optin_2" name="registration[optin]" required="required" value="0" checked="checked" /><label for="registration_optin_2" class="required">I do not wish to receive information emails.</label><br/>
+        </div>
+                                        
+    </div>
+<input type="hidden" id="registration__token" name="registration[_token]" value="c639a5d876c5a.bF3m0sR0fHqjvP1fvOuxD25QdVBssZWw0sTbPYd7bD0.M26AnK49Bk7P25In37ncSgkaRxsng_D2i_CKU9g4PWgjFZSY_R4-DPfNng" />
+
+    <p>I have read and agree to the Terms &amp; Conditions of Participation and the <a href="https://wtn6.elbphilharmonie.de/static/mitmachen-dse-en-hhjms.pdf" target="_blank">Data Privacy Information</a>.</a></p>
+
+            <p>
+            <strong>
+                Please note that all participants data has to be completed by 08.08.2022 in order to participate in this activity. For each participant, you will find a link in the confirmation mail we sent you.
+            </strong>
+        </p>
+    
+    <input type="hidden" name="auth_token" value="">
+    <button type="submit">Register</button>
+    </form>
+
+            <p class="cooperation-partner">
+            <span>In cooperation with</span>
+            <span style="background-image: url(/content-assets/logo-hhjms.png)">Staatliche Jugendmusikschule Hamburg</span>
+        </p>
+    
+</main>
+

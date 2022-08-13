@@ -1,0 +1,3 @@
+class Discovery < Blog
+  
+end

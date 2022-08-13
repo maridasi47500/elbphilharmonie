@@ -1,0 +1,3 @@
+class Sitepage < ApplicationRecord
+  
+end

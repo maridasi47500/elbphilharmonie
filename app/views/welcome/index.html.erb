@@ -1,0 +1,304 @@
+<main class="content-container">
+			
+	<section id="home-intro" class="home-intro">
+	<div class="home-intro__background" style="opacity: 1;">
+		<video loop="" muted="" autoplay="" playsinline="" poster="https://d3c80vss50ue25.cloudfront.net/static/images/background/elbphil-intro.4dda009d82eb.jpg" class="home-intro__video" data-mobile="https://d3c80vss50ue25.cloudfront.net/media/filer_public/6b/32/6b324cb0-8201-44bc-8d8e-7ce3af03541e/20211216_hero_video_home_mobil.mp4" data-desktop="https://d3c80vss50ue25.cloudfront.net/media/filer_public/7f/cd/7fcd137f-7459-4ced-8100-10d6f40b83c6/20211216_hero_video_home.mp4"><source type="video/mp4" src="https://d3c80vss50ue25.cloudfront.net/media/filer_public/7f/cd/7fcd137f-7459-4ced-8100-10d6f40b83c6/20211216_hero_video_home.mp4"></video>
+	</div>
+		<aside class="home-intro__wrapper grid-y align-center grid-container">
+	  <div class="cell">
+		<h1 class="home-intro__title no-line">
+		  Elbphilharmonie<br>
+		  &amp; Laeiszhalle <br>
+		 <span class="light">Hamburg</span>
+		</h1>
+		<nav class="home-intro__buttons">
+		  <a href="/en/#" class="button link link-default" id="home-banner-tickets">
+			Buy tickets
+		  </a>
+		  <div class="home-intro__buttons-wrapper">
+			<a href="/en/whats-on/TICKETS/" class="button link link-default">
+			  Concert Tickets
+			</a>
+			<a href="/en/plaza-tickets" class="button link link-default home-plaza-link">
+			  Plaza Tickets
+			</a>
+			<a href="/en/fuehrungen-einzelpersonen/" class="button link link-default">
+			  Guided Tours
+			</a>
+		  </div>
+		</nav>
+    
+      <a href="/en/newsletter" class="button-circle home-intro__newsletter" style="opacity: 1; visibility: inherit;">
+        <i class="icon-newsletter"></i>
+        <span class="button-circle-text home-intro__newsletter-text">Get our newsletter</span>
+      </a>
+    
+	  </div>
+		</aside>
+	</section>
+
+  
+    <div class="breaking-news-container" id="breaking-news">
+      <div class="grid-container">
+        
+          <!-- #2461
+          COLOR SCHEME: urgent
+          -->
+          <div class="breaking-news breaking-news--urgent">
+              <div class="grid-x align-center ">
+                <div class="columns medium-10">
+                <button title="Close breaking news" class="breaking-news__close"></button>
+                
+                  <a href="/en/mediatheque/canceled-studio-drift-breaking-waves/727" class="breaking-news__link">
+                
+                  <!-- <i class="icon icon-alert"></i> -->
+                  <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="27" height="27" viewBox="0 0 27 27"><g transform="translate(-329.5 -792.5)"><circle cx="12.5" cy="12.5" r="12.5" transform="translate(330.5 793.5)" fill="none" stroke="#e42322" stroke-width="2"></circle><path d="M9.208,6.774a1.2,1.2,0,1,1,1.2-1.2,1.211,1.211,0,0,1-1.2,1.2m-.926,1.8h1.853v9.214H8.282Z" transform="translate(352.408 816.786) rotate(180)" fill="#e42322"></path></g></svg>
+                  <p>For safety reasons, all further performances of the light installation »Breaking Waves« have to be cancelled – a recording of the premiere on thursday can be watched here</p>
+                
+                  </a>
+                
+              </div>
+            </div>
+          </div>
+        
+      </div>
+    </div>
+  
+
+	<section class="highlights grid-container">
+		<aside class="highlights__aside">
+			<ul class="highlights__aside-list">
+				<li class="highlights__aside-line" style="transform: translate(0px, 0px); width: 103px;"></li>
+				
+					<li class="highlights__aside-item highlights__aside-item--active" tabindex="0" data-item="highlights" data-name="Highlights">Highlights</li>
+				
+					<li class="highlights__aside-item " tabindex="0" data-item="advance-booking" data-name="Advance booking">Advance booking</li>
+				
+					<li class="highlights__aside-item " tabindex="0" data-item="jazz-world" data-name="Jazz &amp; World">Jazz &amp; World</li>
+				
+					<li class="highlights__aside-item " tabindex="0" data-item="laeiszhalle" data-name="Laeiszhalle">Laeiszhalle</li>
+				
+					<li class="highlights__aside-item " tabindex="0" data-item="children-families" data-name="Children &amp; Families">Children &amp; Families</li>
+				
+			</ul>
+		</aside>
+		<ul class="grid-x grid-margin-x highlights__list">
+			
+				<%=render partial: "highlight", collection: @teaser,as: :highlight%>
+				
+			
+		</ul>
+	</section>
+
+	<section class="grid-container bigteaser">
+		<div class="swiper-container bigteaser__wrapper swiper-container-initialized swiper-container-horizontal">
+			<div class="swiper-wrapper bigteaser__list">
+				
+					<%=render collection: @swiper, as: :teaser, partial: "teaser"%>
+				
+					
+				
+			</div>
+			<div class="bigteaser__pagination swiper-pagination swiper-pagination-clickable swiper-pagination-bullets"><span class="swiper-pagination-bullet swiper-pagination-bullet-active" tabindex="0" role="button" aria-label="Go to slide 1"></span></div>
+		<span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+	</section>
+
+  <section class="blog-home grid-container grid-x align-justify">
+	<h2 class="blog-home__title no-line cell">
+	  <span class="preline light">
+		From the Mediatheque
+	  </span>
+	  <span class="show-for-sr">:</span>
+		Videos, Podcasts, Articles
+	  </h2>
+
+<%=render "bloghomearticle", article: @article%>
+
+	<ul class="blog__list blog-home__list blog__list--masonry grid-x grid-margin-x align-center small-12 xlarge-6" style="position: relative; height: 2086.17px;">
+		
+			<%=render partial: "blog", collection: @blogs, as: :blog%>
+		
+	  <li class="blog-home__button small-12" data-grid="" style="position: absolute; left: 0%; top: 1986.47px;">
+		<a href="/en/mediatheque" class="button link link-default media-library">Go to the Mediatheque</a>
+	  </li>
+	</ul>
+  </section>
+
+	<section class="teaser swiper-container swiper-container-initialized swiper-container-horizontal">
+		<ul class="teaser__wrapper swiper-wrapper" style="transition-duration: 0ms; transform: translate3d(90px, 0px, 0px);">
+			
+				<li class="teaser__item swiper-slide swiper-slide-active" style="background-image: url(&quot;https://d3c80vss50ue25.cloudfront.net/media/filer_public_thumbnails/filer_public/95/e0/95e0cace-865c-4454-b223-c41be47cd034/170404_new_york_philharmonic_foto_chris_lee2.jpg__1134x638_q85_crop_subject_location-990%2C876_subsampling-2_upscale.jpg&quot;); margin-right: 52px;">
+					<h2 class="teaser__title no-line">
+						<a href="/en/newsletter">
+							Stay up to date
+						</a>
+					</h2>
+					<a href="/en/newsletter" class="button link link-default" data-name="Stay up to date" aria-hidden="true" tabindex="-1">Subscribe to our newsletter</a>
+					<span class="teaser__copyright">New York Philharmonic © Chris Lee</span>
+				</li>
+			
+				<li class="teaser__item swiper-slide swiper-slide-next" style="background-image: url(&quot;https://d3c80vss50ue25.cloudfront.net/media/filer_public_thumbnails/filer_public/3b/f0/3bf00a8d-9137-40c6-bb8c-22a8271e77cd/elbphilharmonie_publikationen_magazin.jpg__1134x638_q85_crop_subject_location-1403%2C1767_subsampling-2_upscale.jpg&quot;); margin-right: 52px;">
+					<h2 class="teaser__title no-line">
+						<a href="/en/publications">
+							Yearbook, magazine, photo books
+						</a>
+					</h2>
+					<a href="/en/publications" class="button link link-default" data-name="Yearbook, magazine, photo books" aria-hidden="true" tabindex="-1">Order now</a>
+					<span class="teaser__copyright"></span>
+				</li>
+			
+				<li class="teaser__item swiper-slide" style="background-image: url(&quot;https://d3c80vss50ue25.cloudfront.net/media/filer_public_thumbnails/filer_public/38/76/38764ad4-9ff1-47b9-a0e0-b9204de7e646/ndr_elbphilharmonie_orchester_foto_michael_zapf_2.jpg__1134x638_q85_crop_subsampling-2_upscale.jpg&quot;); margin-right: 52px;">
+					<h2 class="teaser__title no-line">
+						<a href="/en/ndr-elbphilharmonie-orchestra">
+							The Elbphilharmonie’s resident orchestra
+						</a>
+					</h2>
+					<a href="/en/ndr-elbphilharmonie-orchestra" class="button link link-default" data-name="The Elbphilharmonie’s resident orchestra" aria-hidden="true" tabindex="-1">More about the NDR Elbphilharmonie Orchestra</a>
+					<span class="teaser__copyright"></span>
+				</li>
+			
+				<li class="teaser__item swiper-slide" style="background-image: url(&quot;https://d3c80vss50ue25.cloudfront.net/media/filer_public_thumbnails/filer_public/cb/d2/cbd28054-2a4b-4bc8-8a07-973cb85ab2c1/panorama_hamburg_c_maxim_schulz_bearbeitet_ohne_baucontainer.jpg__1134x638_q85_crop_subject_location-960%2C640_subsampling-2_upscale.jpg&quot;); margin-right: 52px;">
+					<h2 class="teaser__title no-line">
+						<a href="/en/mediatheque/next-door#!/">
+							Favourite spots in Hamburg
+						</a>
+					</h2>
+					<a href="/en/mediatheque/next-door#!/" class="button link link-default" data-name="Favourite spots in Hamburg" aria-hidden="true" tabindex="-1">Have a look</a>
+					<span class="teaser__copyright">© Maxim Schulz</span>
+				</li>
+			
+		</ul>
+		<button class="teaser__next" type="button" tabindex="0" role="button" aria-label="Next slide" aria-disabled="false"></button>
+		<button class="teaser__prev swiper-button-disabled" type="button" tabindex="-1" role="button" aria-label="Previous slide" aria-disabled="true"></button>
+		<div class="grid-container">
+			<div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets"><span class="swiper-pagination-bullet swiper-pagination-bullet-active" tabindex="0" role="button" aria-label="Go to slide 1"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 2"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 3"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 4"></span></div>
+		</div>
+	<span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></section>
+
+
+  <section class="socialmedia grid-container">
+	<header class="socialmedia__header">
+	  <h2 class="no-line">Elbphilharmonie <br>
+		@social media</h2>
+	  <ul class="socialmedia__icons grid-x">
+		<li class="small-3"><a class="icon-facebook-circle socialmedia__link" target="_blank" href="https://www.facebook.com/elbphilharmonie.hamburg" title="Facebook"></a></li>
+		<li class="small-3"><a class="icon-twitter-circle socialmedia__link" target="_blank" href="https://twitter.com/elbphilharmonie" title="Twitter"></a></li>
+		<li class="small-3"><a class="icon-instagram-circle socialmedia__link" target="_blank" href="https://www.instagram.com/elbphilharmonie/" title="Instagram"></a></li>
+		<li class="small-3"><a class="icon-youtube-circle socialmedia__link" target="_blank" href="https://www.youtube.com/user/ElbphilharmonieHH" title="Youtube"></a></li>
+	  </ul>
+	</header>
+	<aside class="socialmedia__wrapper swiper-container swiper-container-initialized swiper-container-horizontal">
+	  <ul class="socialmedia__posts swiper-wrapper">
+        
+		<li class="socialmedia__post swiper-slide swiper-slide-active" style="width: 225.25px; margin-right: 32px;">
+      <a href="https://www.instagram.com/p/Cc8HF3HoI7I/" target="_blank">
+        <figure class="socialmedia__image" style="background-image: url(https://scontent-frx5-1.cdninstagram.com/v/t51.2885-15/279338931_354144646756220_5444332656055956667_n.jpg?_nc_cat=104&amp;ccb=1-5&amp;_nc_sid=8ae9d6&amp;_nc_ohc=INXdHzVL5wEAX9sOv0S&amp;_nc_ht=scontent-frx5-1.cdninstagram.com&amp;edm=ANo9K5cEAAAA&amp;oh=00_AT-EV4J0CPa9nqKB4Zpj7-_LDh3bDcnkbk_1ZLL3Ovhf1Q&amp;oe=6272EB83);">
+          <span class="icon-instagram-white"></span>
+        </figure>
+      </a>
+		  <i class="socialmedia__line" data-line="" style="width: 62.6333%;"></i>
+		  <span class="socialmedia__text">Center of attention ⚡
+___
+Photo by <a href="https://www.instagram.com/katjas_photobox/" target="_blank">@katjas_photobox</a>. If you want your photo to be chosen as #picoftheweek, tag it with #Elbphilharmonie and follow <a href="https://www.instagram.com/elbphilharmonie/" target="_blank">@elbphilharmonie</a> on Instagram.</span>
+		</li>
+        
+		<li class="socialmedia__post swiper-slide swiper-slide-next" style="width: 225.25px; margin-right: 32px;">
+      <a href="https://www.instagram.com/p/Cc29mR4IyOL/" target="_blank">
+        <figure class="socialmedia__image" style="background-image: url(https://scontent-frx5-1.cdninstagram.com/v/t51.2885-15/279162491_295577366084756_5068741651741648462_n.jpg?_nc_cat=108&amp;ccb=1-5&amp;_nc_sid=8ae9d6&amp;_nc_ohc=iJQuHGd37FUAX-MyDoR&amp;_nc_ht=scontent-frx5-1.cdninstagram.com&amp;edm=ANo9K5cEAAAA&amp;oh=00_AT8snArkvQZOnh5qgOt2hqOfZhroh54SUR-d70ho8I0BKw&amp;oe=62730023);">
+          <span class="icon-instagram-white"></span>
+        </figure>
+      </a>
+		  <i class="socialmedia__line" data-line="" style="width: 58.2734%;"></i>
+		  <span class="socialmedia__text">Cleaning – the Elphi kind of way 🧼
+___ 
+Repost via <a href="https://www.instagram.com/nadine.lanz/" target="_blank">@nadine.lanz</a>. #elbphilharmonie #hamburg #architecture #welovehh</span>
+		</li>
+        
+		<li class="socialmedia__post swiper-slide" style="width: 225.25px; margin-right: 32px;">
+      <a href="https://www.instagram.com/p/Cc2zehssryL/" target="_blank">
+        <figure class="socialmedia__image" style="background-image: url(https://scontent-frx5-1.cdninstagram.com/v/t51.29350-15/279172359_766573300973237_898078928540885772_n.jpg?_nc_cat=106&amp;ccb=1-5&amp;_nc_sid=8ae9d6&amp;_nc_ohc=lDNp6bKczXcAX_XzaVy&amp;_nc_ht=scontent-frx5-1.cdninstagram.com&amp;edm=ANo9K5cEAAAA&amp;oh=00_AT_Xp88ujZ0_plL5b3rebwfDTsb2WM3Rop7gKj9ZveP4Jw&amp;oe=62728498);">
+          <span class="icon-instagram-white"></span>
+        </figure>
+      </a>
+		  <i class="socialmedia__line" data-line="" style="width: 60.443%;"></i>
+		  <span class="socialmedia__text">The light installation »Breaking Waves« is open to the public, and can be watched on all four evenings from the areas of the port to the west of the Elbphilharmonie – from the Überseebrücke for example, the lookout point at the south end of the Old Elbtunnel, or from the cosy surroundings of one of the harbour pleasure boats. More information through the link in our bio
+#breakingwaves #drift #elbphilharmonie</span>
+		</li>
+        
+		<li class="socialmedia__post swiper-slide" style="width: 225.25px; margin-right: 32px;">
+      <a href="https://www.instagram.com/tv/Cc0EpEJDQdY/" target="_blank">
+        <figure class="socialmedia__image" style="background-image: url(https://scontent-frx5-1.cdninstagram.com/v/t51.29350-15/279103413_1229439431158398_4222688145854571958_n.jpg?_nc_cat=102&amp;ccb=1-5&amp;_nc_sid=8ae9d6&amp;_nc_ohc=b8Nzyzz9gZYAX8bYqt3&amp;_nc_ht=scontent-frx5-1.cdninstagram.com&amp;edm=ANo9K5cEAAAA&amp;oh=00_AT-rqHF-5N8ZeuE-JVjU64_ZE4jI0iuyGJKCQjEBUGtqWQ&amp;oe=6271D274);">
+          <span class="icon-instagram-white"></span>
+        </figure>
+      </a>
+		  <i class="socialmedia__line" data-line="" style="width: 37.28%;"></i>
+		  <span class="socialmedia__text"><a href="https://www.instagram.com/nezetseguin/" target="_blank">@nezetseguin</a> &amp; <a href="https://www.instagram.com/rdamphil/" target="_blank">@rdamphil</a> at the Elbphilharmonie with a gorgeous Alma &amp; Gustav Mahler programme! Get your last minute tickets through the link in the <a href="https://www.instagram.com/elbphilharmonie/" target="_blank">@elbphilharmonie</a> bio</span>
+		</li>
+        
+	  </ul>
+	  <div class="swiper-pagination"></div>
+	<span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></aside>
+  </section>
+
+
+
+      
+
+<aside class="merklist-modal">
+	<div class="merklist-modal__wrapper">
+		<button class="merklist-modal__close js-merklist-modal__close" type="button" title="Close"></button>
+    <!-- MODAL: login -->
+    <div class="merklist-modal__content" data-modal="login">
+      <p class="merklist-modal__title line-center h3">Saved events</p>
+      <p class="merklist-modal__text">Login required. If you do not have an Elbphilharmonie customer account, registering is quick and easy.</p>
+      <div class="merklist-modal__button">
+        <a href="/en/#" class="button link link-default merklist-modal__account">Log in or register</a>
+      </div>
+    </div>
+    <!-- MODAL: alert check -->
+    <div class="merklist-modal__content" data-modal="alert" style="display: none;">
+      <p class="merklist-modal__title line-center h3">Your selection</p>
+      <label class="merklist-modal__label">
+      <input type="radio" name="alert" class="merklist-modal__radio" value="1">
+        <span>Add to saved events</span>
+      </label>
+      <label class="merklist-modal__label">
+      <input type="radio" name="alert" class="merklist-modal__radio" value="2" checked="">
+        <span>Activate ticket alert</span>
+        <span class="merklist-modal__text">You will receive an email alert one day before tickets go on sale.</span>
+      </label>
+      <div class="merklist-modal__button">
+        <button type="button" class="button link link-default merklist-modal__save">Confirm</button>
+      </div>
+    </div>
+    <!-- MODAL: alert uncheck -->
+    <div class="merklist-modal__content" data-modal="uncheck" style="display: none;">
+      <p class="merklist-modal__title line-center h3">Edit events saved</p>
+      <label class="merklist-modal__label">
+        <input type="radio" name="uncheck" class="merklist-modal__radio" value="1" checked="">
+        <span>Deactivate ticket alert</span>
+      </label>
+      <label class="merklist-modal__label">
+        <input type="radio" name="uncheck" class="merklist-modal__radio" value="DELETE">
+        <span>Remove event from my saved events</span>
+      </label>
+      <div class="merklist-modal__button">
+        <button type="button" class="button link link-default merklist-modal__save">Confirm</button>
+      </div>
+    </div>
+	</div>
+</aside>
+
+      <aside class="blog__lightbox">
+  <div class="blog__lightbox-container">
+    <button class="blog__lightbox-close" title="Close modal"></button>
+    <div class="blog__lightbox-wrapper">
+      <iframe src="/index_files/saved_resource.html" frameborder="0" id="blog-iframe" class="blog__lightbox-iframe" allow="fullscreen"></iframe>
+    </div>
+  </div>
+</aside>
+
+		</main>
+
+		
+			

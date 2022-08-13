@@ -1,0 +1,3 @@
+class Past < EventStatus
+  
+end

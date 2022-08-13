@@ -1,0 +1,11 @@
+<div class="slide cell medium-5 large-4 bigteaser__item">
+						<div class="bigteaser__figure" style="background-image: url(<%=teaser.image%>)">
+						</div>
+						<h3 class="bigteaser__subtitle">
+							<a href="/<%=I18n.locale%>/<%=teaser.url%>#gastro-<%=@event.venue.name.parameterize%>">
+								<%=teaser.subtitle%>
+							</a>
+						</h3>
+						<p class="description-bold bigteaser__title" role="doc-subtitle"><%=teaser.title%></p>
+						<a class="button link link-default" href="/<%=I18n.locale%>/<%=teaser.url%>#gastro-<%=@event.venue.name.parameterize%>"><%=teaser.link%></a>
+					</div>

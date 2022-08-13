@@ -1,0 +1,80 @@
+<%content.headlines.each do |content|%>
+
+
+<div class="headline-module">
+	
+		<h3><%=content.text%></h3>
+	
+</div>
+<%end%>
+<%content.texts.each do |content|%>
+
+<div class="text-module">
+	
+		<p><%=content.text%></p>
+	
+</div>
+<%end%>
+<%content.quotes.each do |content|%>
+<div class="quote-module">
+			
+<blockquote class="blockquote">
+	<p class="quote"><%=content.text%></p>
+	
+</blockquote>
+		</div>
+<%end%>
+<%content.mypics.each do |content|%>
+<figure class="image-module">
+	
+		
+
+		
+			<picture>
+				
+<img src="<%=content.image%>" title="<%=content.title%>" alt="<%=content.title%>">
+				
+
+			</picture>
+		
+
+		
+			<figcaption class="image-caption"><%=content.title%></figcaption>
+		
+
+		
+
+	
+</figure>
+<%end%>
+
+<%if content.links.length < 3%>
+<%content.links.each do |content|%>
+<div id="anchor-67291" class="anchor-module">
+	<a href="<%=content.url%>" class="button hollow link link-default" data-name="<%=content.name%>"><%=content.name%></a>
+</div>
+<%end%>
+
+<%else%>
+
+<div id="anchor-list-69648" class="list-module">
+	<ul class="link-list">
+		<%content.links.each do |content|%>
+
+			
+				<li class="list-item" id="anchor-item-69649">
+					
+						
+							<a href="<%=content.url%>" class="link link-default">
+								<%=content.name%> 
+							</a>
+						
+					
+				</li>
+			
+		<%end%>
+			
+		
+	</ul>
+</div>
+<%end%>

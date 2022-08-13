@@ -1,0 +1,34 @@
+<div class="content-row row-big">
+        <div class="large-offset-3 large-6 small-offset-0 small-12 columns">
+            <h2 class="headline--large ng-binding">Deactivate customer account</h2>
+
+            <!-- ngIf: !$ctrl.isDisableAccountHintEnabled && !$ctrl.isOptInSent -->
+
+            <!-- ngIf: $ctrl.isDisableAccountHintEnabled && !$ctrl.isOptInSent --><div ng-if="$ctrl.isDisableAccountHintEnabled &amp;&amp; !$ctrl.isOptInSent" class="ng-scope">
+                <div class="shop-text ng-binding">When you deactivate your customer account, all personal data as well as your order history will be deleted from the system.</div>
+                <div class="shop-form-row">
+                    <div class="spacer"></div>
+
+                    <div class="form-item checkbox">
+                        <span class="checkbox">
+                            <input type="checkbox" class="checkbox ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" name="confirmation" id="confirmation" ng-model="$ctrl.confirmed" required="">
+                        </span>
+                        <label for="confirmation" class="ng-binding">I want to deactivate my customer account</label>
+                    </div>
+                    <label class="validation-error ng-binding nghide" style="display:none;" id="mymsg" for="confirmation" ng-show="$ctrl.submitted &amp;&amp; $ctrl.form['confirmation'].$invalid" id="agb-errormessage-todo">
+                        Please confirm the deactivation of your customer account.
+                    </label>
+                    <!-- ngIf: $ctrl.errorMessage != null -->
+
+                    <div class="spacer"></div>
+
+                    <button class="shop-button submit read-more ng-binding" onclick="(!confirmation.checked ? $('#mymsg').show() : desactivatecustomeraccount());return false;">
+                        Save
+                    </button>
+                    <div class="inline-link-button"><a href="#" onclick="desactivate();return false();" class="read-more ng-binding">Cancel</a></div>
+                </div>
+            </div><!-- end ngIf: $ctrl.isDisableAccountHintEnabled && !$ctrl.isOptInSent -->
+
+            <!-- ngIf: $ctrl.isOptInSent -->
+        </div>
+    </div>

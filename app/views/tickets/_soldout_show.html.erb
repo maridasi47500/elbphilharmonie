@@ -1,0 +1,30 @@
+<div class="soldout-status status-box">
+	
+		
+			
+				<span class="ticket-and-prices">
+					<span class="status link-sold-out button secondary large">
+						Sold out
+					</span>
+					
+						
+
+<span class="prices"><span>€</span><%=status.event.price.split(' | ').map{|x|"<strike>#{x}</strike>"}.join(' | ').html_safe%></span>
+
+					
+				</span>
+			
+		
+		
+				
+					<span class="status status-sub">
+						
+							Remaining tickets occasionally available at box office
+						
+					</span>
+				
+			
+		
+	
+	
+</div>

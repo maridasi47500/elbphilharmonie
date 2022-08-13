@@ -1,0 +1,34 @@
+		<li id="event_id_<%=event.id%>" data-event-id="<%=event.id%>" class="event-item <%=event.printpast%>" data-categories="[]" style="transform: translate(0px, 0px); opacity: 1;">
+                    <div class="grid-x grid-margin-x"><div class="cell xlarge-2"><div class="grid-x grid-margin-x date-and-place"><div class="cell small-6 medium-4 xlarge-12 date-cell"><div><span class="indicator-line" data-line="" style="width: 88.3073%;"></span></div><span class="caption"><time datetime="2022-05-30T19:30:00+02:00"><strong class="date nobreak"><%=event.date ? l(event.date, format: :mydate) : nil%></strong><span class="time"><%=event.time ? l(event.time, format: :mytime) : nil%></span></time></span></div><div class="cell small-6 medium-8 xlarge-12 place-cell">
+                                    <span class="caption uppercase">
+                                        <%if event.venue.surelements.length > 0%>
+                                        <strong><%=event.venue.surelements[0].name%></strong>  <%=event.venue.name%>
+                                        <%else%>
+				<strong><%=event.venue.name%></strong> 
+                                <%end%>
+							</span>
+                                
+                                </div></div></div><div class="cell medium-4 hide-for-small-only image-cell"><a href="<%=event_path(title: event.title.parameterize, id: event.elbid)%>" tabindex="-1" class="event-image-link">
+                                        <picture aria-hidden="true"><source media="(max-width: 640px)" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg=="><source media="(max-width: 1024px)" srcset="<%=(event.smallpicture.try(:url))%>"><source media="(max-width: 1440px)" srcset="<%=(event.smallpicture.try(:url))%>"><img src="<%=(event.smallpicture.try(:url))%>" alt=""></picture>
+                                        <picture class="blurry show-for-medium"><source media="(max-width: 640px)" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg=="><source media="(max-width: 1024px)" srcset="<%=(event.smallpicture.try(:url))%>"><source media="(max-width: 1440px)" srcset="<%=(event.smallpicture.try(:url))%>"><img src="<%=(event.smallpicture.try(:url))%>" alt="<%=event.title%>" title="<%=event.title%>"></picture></a></div><div class="cell medium-8 xlarge-6 grid-y align-justify event-main"><div class="cell"><p class="event-title h2 no-line"><a href="<%=event_path(title: event.title.parameterize, id: event.elbid)%>">
+								<%=event.title%>
+							</a></p><p class="event-subtitle"><%=event.subtitle%></p></div><div class="cell status-info grid-x align-justify align-bottom"><div class="cell small-12 large-shrink ">
+         
+<%if event.saved?(current_user.try(:id))%>
+                                                                <button data-myeventid="<%=event.id%>" class="event__bookmark event__bookmark--active" type="button" data-alert="false" data-id="000000e9:000a474e" data-name="Fri, 27 May 2022 - Quadro Nuevo"><i class="event__bookmark-icon icon-merken-star-blue" data-bookmark-icon-off="icon-merken-star" data-bookmark-icon-on="icon-merken-star-blue" style="transform: translate(0px, 0px);"></i><span class="event__bookmark-text " data-bookmark-text-off="Save for later" data-bookmark-text-on="<strong>Event saved</strong>" data-bookmark-alert-off="Save for later / Ticket alert" data-bookmark-alert-one-on="<strong>Event saved /</strong> Ticket alert" data-bookmark-alert-two-on="<strong>Event saved / Ticket alert activated</strong>" style="transform: translate(0px, 0px); opacity: 1;"><strong>Event saved</strong></span>&nbsp;
+                </button>
+                                                                <%else%>
+<button class="event__bookmark" type="button" data-alert="false" data-myeventid="<%=event.id%>" data-eventid="<%=event.id%>"  data-id="00000000000000" data-name="Mon, 30 May 2022 - <%=event.title%>"><i  data-eventid="<%=event.id%>"   class="event__bookmark-icon icon icon-merken-star" data-bookmark-icon-off="icon-merken-star" data-bookmark-icon-on="icon-merken-star-blue"></i><span class="event__bookmark-text "  data-eventid="<%=event.id%>"   data-bookmark-text-off="Save for later" data-bookmark-text-on="&lt;strong&gt;Event saved&lt;/strong&gt;" data-bookmark-alert-off="Save for later / Ticket alert" data-bookmark-alert-one-on="&lt;strong&gt;Event saved /&lt;/strong&gt; Ticket alert" data-bookmark-alert-two-on="&lt;strong&gt;Event saved / Ticket alert activated&lt;/strong&gt;">Save for later</span>&nbsp;
+                </button>
+                                                                <%end%>
+                                                            
+                                                            
+                                                            </div><!-- <span></span> --><div class="cell small-1 large-auto"></div>
+                                                            
+                                                            
+                                                            <div class="cell shrink text-right"><%=render "tickets/#{event.status.type.underscore}_index", status: event.status%></div>
+                                                        
+                                                        
+                                                        
+                                                        </div></div></div>
+                </li>

@@ -1,0 +1,141 @@
+<main>
+			<div id="content-container" class="content-container--facelift">
+				
+            
+
+        <section class="self-care-section self-care-section--facelift ng-scope" ng-app="elbphilharmonie">
+            <self-care external-guided-tour-headline="Select Plaza Ticket for Guided Tour" external-guided-tour-description="Guided tours through the Elbphilharmonie are not fully accessible. Accessible tours for persons with limited mobility may also be booked here." dsgvo="When you register to create an account, the data you provide is recorded and stored electronically. You can deactivate your customer account at any time. If you do not agree to the data processing, you cannot purchase tickets online. You’ll find further information in our <a href='https://www.elbphilharmonie.de/en/privacy-policy' target='_blank'>Privacy Policy</a>." phone-number-mandatory="false" logout-url="http://shop.elbphilharmonie.de/en/logout/" redirect-on-successful-login-url="" class="ng-isolate-scope"><div class="selfcare--facelift">
+    <!-- ngIf: isLoading() -->
+
+    <!-- ngIf: initialized --><div ng-if="initialized" class="ng-scope">
+        <!-- ngIf: customer == null -->
+
+        <!-- ngIf: customer != null --><div ng-if="customer != null" class="ng-scope">
+
+            <!-- ngIf: isOverview() --><div ng-if="isOverview()" class="ng-scope">
+
+                <div class="content-row row-big">
+                    <div class="large-offset-2 large-8 columns">
+                        <!-- 0/12 - 2/8 -->
+
+                        <h1 class="headline--standard ng-binding">My Customer Account</h1>
+
+                        <div class="self-care__blockwrapper">
+                            <nav>
+
+                                <div class="self-care-block self-care-block--myorders">
+                                    <a href="<%=mypurchases_path(locale: I18n.locale)%>" class="link-box">
+                                        <div class="text-box white-box">
+                                            <div class="self-care-section__headline ng-binding">My purchases</div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <!-- ngIf: customer.hasSubscriptions -->
+
+                                <div class="self-care-block self-care-block--myraffles">
+                                    <a href="<%=pendingticket_path(locale: I18n.locale)%>" class="link-box">
+                                        <div class="text-box white-box">
+                                            <div class="self-care-section__headline ng-binding">My pending ticket orders</div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <!-- ngRepeat: account in partnerAccounts -->
+
+                                <div class="self-care-block self-care-block--newsletter">
+                                    <a href="<%=newsletters_path(locale: I18n.locale)%>" class="link-box">
+                                        <div class="text-box white-box">
+                                            <div class="self-care-section__headline ng-binding">My newsletters</div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="self-care-block self-care-block--data">
+                                    <a href="<%=details_path(locale: I18n.locale)%>" class="link-box">
+                                        <div class="text-box white-box">
+                                            <div class="self-care-section__headline ng-binding">My details</div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <!-- ngIf: customer.isExternalGuidedTourUser -->
+
+                                <div class="self-care-block self-care-block--changeemail">
+                                    <a href="<%=changeemail_path(locale: I18n.locale)%>" class="link-box">
+                                        <div class="text-box white-box">
+                                            <div class="self-care-section__headline ng-binding">Change email address</div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="self-care-block self-care-block--changepassword">
+                                    <a href="<%=changepassword_path(locale: I18n.locale)%>" class="link-box">
+                                        <div class="text-box white-box">
+                                            <div class="self-care-section__headline ng-binding">Change password</div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </nav>
+                        </div>
+                        <!--
+            <div class="self-care-block">
+                <a href="#" class="link-box" onclick="switchToPage('my-shipping'); event.preventDefault();">
+                    <div class="text-box white-box">
+                        <h3>Bevorzugte Versandart</h3>
+                        <div class="shop-text">Hier können Sie die von Ihnen bevorzugte Versandart festlegen.</div>
+                    </div>
+                </a>
+            </div>
+            -->
+
+                    </div>
+                </div>
+
+                <div class="selfcare__logoutwrapper">
+                    <div class="content-row row-big">
+                        <div class="large-offset-2 large-8 column">
+                            <a href="#" onclick="logout(); event.preventDefault();" class="selfcare__logout ng-binding">Logout</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- end ngIf: isOverview() -->
+
+            <!-- ngIf: isPage('my-data') -->
+
+            <!-- ngIf: isPage('change-password') -->
+
+            <!-- ngIf: isPage('change-email') -->
+
+            <!-- ngIf: isPage('my-orders') -->
+
+            <!-- ngIf: isPage('my-raffles') -->
+
+            <!-- ngIf: isPage('my-subscriptions') && customer.hasSubscriptions -->
+
+            <!-- ngIf: isPage('my-external-guided-tour') && customer.isExternalGuidedTourUser -->
+
+            <!-- ngIf: isPage('my-newsletters') -->
+
+            <!-- ngIf: isPage('my-shipping') -->
+
+        </div><!-- end ngIf: customer != null -->
+    </div><!-- end ngIf: initialized -->
+
+</div></self-care>
+        </section>
+
+    
+
+			</div> <!-- content-container -->
+		</main>
+<%=content_for :myscripts do%>
+<script>
+  function logout(){
+    window.location="<%=logout_path%>";
+    
+  }
+  
+</script>
+<%end%>

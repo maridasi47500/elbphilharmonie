@@ -1,0 +1,252 @@
+<%=form_with model: user,scope: "",url: myaccount_path, html: {class: ""} do |form|%>
+
+<!-- ngIf: !$ctrl.waitingForEmailActivation --><div ng-if="" class="ng-scope">
+<div class="content-row row-big">
+    <div class="large-offset-1 large-8 small-offset-0 small-12 columns">
+
+        <div class="shop-form-row">
+            <div class="label-wrapper">
+                <label for="address-gender" class="ng-binding">
+                    Title
+                </label>
+            </div>
+            <div class="shop-form-item">
+                <%=form.select "gender", [["Mr", "male"], ["Ms", "female"]], {include_blank: "Please select..."},{"ng-model"=> "$ctrl.customerData.gender", id: "address-gender", class: "ng-pristine #{!user.errors[:gender].blank? ? "ng-empty ng-invalid ng-invalid-required ng-touched" : nil} "}%>
+                    
+                <label for="address-gender" class=" ng-binding <%=!user.errors[:title].blank? ? "validation-error" : "nbhide"%>">
+                    Please select a title.
+                </label>
+            </div>
+        </div>
+
+        <div class="shop-form-row">
+            <div class="label-wrapper">
+                <label class="shop-form-label--optional ng-binding" for="address-title">
+                    Academic title
+                </label>
+            </div>
+            <div class="shop-form-item">
+                <%=form.select "title", ['Dr', 'Professor','Professor Dr'], {include_blank: ''}, {"ng-model"=>"$ctrl.customerData.title", id: "address-title", autocomplete: "honorific-prefix", "ng-options"=>"t.key as t.label for t in $ctrl.academicTitleOptions", class: "ng-pristine #{!user.errors[:title].blank? ? "ng-empty ng-invalid ng-invalid-required ng-touched" : nil} ng-valid ng-empty ng-touched"}%>
+                    
+                
+            </div>
+        </div>
+
+        <div class="shop-form-row">
+            <div class="label-wrapper">
+                <label for="address-first-name" class="ng-binding">First name</label>/<label for="address-last-name" class="ng-binding">Last name</label>
+            </div>
+            <div class="shop-form-item small">
+                <%=form.text_field "first_name",  "ng-model"=>"$ctrl.customerData.firstName", id: "address-first-name", autocomplete: "given-name", required: "", class: "ng-pristine #{!user.errors[:first_name].blank? ? "ng-empty ng-invalid ng-invalid-required ng-touched" : nil} ng-untouched ng-empty ng-invalid ng-invalid-required"%>
+                <label for="address-first-name" class=" ng-binding <%=!user.errors[:first_name].blank? ? "validation-error" : "nbhide"%>">
+                    Please provide your first name.
+                </label>
+            </div>
+            <div class="shop-form-item small">
+                
+                <%=form.text_field "last_name", id: "address-last-name", autocomplete: "family-name", required: "", class: "ng-pristine #{!user.errors[:last_name].blank? ? "ng-empty ng-invalid ng-invalid-required ng-touched" : nil} ng-untouched ng-empty ng-invalid ng-invalid-required"%>
+                <label for="last_name" class=" ng-binding <%=!user.errors[:last_name].blank? ? "validation-error" : "nbhide"%>">
+                    Please provide your last name.
+                </label>
+            </div>
+        </div>
+
+        <!-- ngIf: $ctrl.showCompanyName() -->
+
+        <div class="shop-form-row">
+            <div class="label-wrapper">
+                <label for="address-street" class="ng-binding">
+                    Street name and number
+                </label>
+            </div>
+            <div class="shop-form-item">
+                <%=form.text_field "street", id: "address-street", autocomplete: "address-line1", required: "", class: "ng-pristine #{!user.errors[:street].blank? ? "ng-empty ng-invalid ng-invalid-required ng-touched" : nil} ng-untouched ng-empty ng-invalid ng-invalid-required"%>
+                <label for="street" class=" ng-binding <%=!user.errors[:street].blank? ? "validation-error" : "nbhide"%>">
+                    Please provide a street name and number.
+                </label>
+            </div>
+        </div>
+
+        <div class="shop-form-row">
+            <div class="label-wrapper">
+                <label for="address-zip-code" class="ng-binding">Postcode</label>/<label for="address-city" class="ng-binding">City</label>
+            </div>
+            <div class="shop-form-item postalcode">
+                <%=form.text_field "zip_code", id: "address-zip-code", autocomplete: "postal-code", "ng-pattern"=>"^\d{5}$", required: "", class: "ng-pristine #{!user.errors[:zip_code].blank? ? "ng-empty ng-invalid ng-invalid-required ng-touched" : nil} ng-untouched ng-empty ng-invalid ng-invalid-required ng-valid-pattern"%>
+                <label for="address-zip-code" class=" ng-binding <%=!user.errors[:zip_code].blank? ? "validation-error" : "nbhide"%>">
+                    Please provide a postcode.
+                </label>
+                <label ng-show="$ctrl.submitted &amp;&amp; $ctrl.customerDataForm['address-zip-code'].$invalid &amp;&amp; $ctrl.customerDataForm['address-zip-code'].$error.pattern" for="address-zip-code" class=" ng-binding <%=!user.errors[:zip_code].blank? ? "validation-error" : "nbhide"%>">
+                    The postcode does not match the valid format of your country.
+                </label>
+            </div>
+            <div class="shop-form-item city">
+                <%=form.text_field "city", id: "address-city", autocomplete: "address-level2", required: "", class: "ng-pristine #{!user.errors[:city].blank? ? "ng-empty ng-invalid ng-invalid-required ng-touched" : nil} ng-untouched ng-empty ng-invalid ng-invalid-required"%>
+                <label for="address-city" class=" ng-binding <%=!user.errors[:city].blank? ? "validation-error" : "nbhide"%>">
+                    Please provide a city.
+                </label>
+            </div>
+        </div>
+
+        <div class="shop-form-row">
+            <div class="label-wrapper">
+                <label for="country" class="ng-binding">Country</label>
+            </div>
+            <div class="shop-form-item">
+                <%=form.select "country", Country.all.collect {|a|[a.name, a.myvalue]}, id: "my-country", selected: user.country,required: "", class: "ng- #{!user.errors[:country].blank? ? "ng-empty ng-invalid ng-invalid-required ng-touched" : nil} "%>
+                
+                
+                <label for="country" class=" ng-binding <%=!user.errors[:country].blank? ? "validation-error" : "nbhide"%>">
+                    Please select your country.
+                </label>
+            </div>
+        </div>
+
+        <div class="shop-form-row">
+            <div class="label-wrapper">
+                <label for="address-phone" ng-class="{'shop-form-label--optional': !$ctrl.phoneNumberMandatory}" class="ng-binding shop-form-label--optional">
+                    Phone number
+                </label>
+            </div>
+            <div class="shop-form-item">
+                <%=form.telephone_field "phone", id: "address-phone", autocomplete: "tel", placeholder: "", "ng-pattern"=>"/^[0-9 \)\(\+\-]*$/", class: "ng-pristine #{!user.errors[:phone].blank? ? "ng-empty ng-invalid ng-invalid-required ng-touched" : nil} ng-untouched ng-valid ng-empty ng-valid-pattern ng-valid-required"%>
+                <label ng-show="$ctrl.submitted &amp;&amp; ($ctrl.customerDataForm['address-phone'].$invalid || $ctrl.serverError == 'PHONE_INVALID')" for="address-phone" class=" ng-binding <%=!user.errors[:phone].blank? ? "validation-error" : "nbhide"%>">
+                    Please provide your phone number in case we need to contact you regarding your booking.
+                </label>
+            </div>
+        </div>
+
+        <div class="shop-form-row">
+            <div class="label-wrapper">
+                <label class="shop-form-label--optional ng-binding" for="address-birthday">
+                    Date of birth
+                </label>
+            </div>
+            <div class="shop-form-item">
+                <%=form.text_field "birthday", id: "address-birthday", autocomplete: "bday", input: "date", placeholder: "DD.MM.YYYY", "date-input"=>"", birthday: "", class: "ng-pristine #{!user.errors[:birthday].blank? ? "ng-empty ng-invalid ng-invalid-required ng-touched" : nil} ng-untouched ng-valid ng-empty ng-valid-birthday"%>
+                <label for="address-birthday" class=" ng-binding <%=!user.errors[:birthday].blank? ? "validation-error" : "nbhide"%>">
+                    Please provide your date of birth in the following format:
+                    DD.MM.YYYY
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="content-row row-big <%=!(user.birthday.blank? && user.phone.blank?) ? "validation-error" : "nbhide"%>" >
+    <div class="large-offset-3 large-6 small-offset-0 small-12 columns">
+        <div class="corporation-member-hint">
+            <h4 class="ng-binding">Please be aware</h4>
+            <div class="shop-text ng-binding">You are making a booking through your company using these contact details. If you wish to book for private purposes, please register with your private email address or contact us by phone at +49 40 357 666 66.</div>
+        </div>
+    </div>
+</div>
+
+<div class="content-row row-big">
+    <div class="large-offset-1 large-8 small-offset-0 small-12 columns">
+        <!-- ngIf: !$ctrl.isExistingUser || $ctrl.emailIsReadOnly --><div ng-if="!$ctrl.isExistingUser || $ctrl.emailIsReadOnly" class="ng-scope">
+            <input-email id="customer-email" autocomplete="email" read-only="$ctrl.emailIsReadOnly" model="$ctrl.customerData" field="$ctrl.customerDataForm['customer-email']" enable-email-repetition="$ctrl.enableEMailRepetition" submitted="$ctrl.submitted" class="ng-isolate-scope"><!-- e-mail control -->
+<div class="shop-form-row">
+    <div class="label-wrapper">
+        <label for="customer-email" class="ng-binding">
+            Email address
+        </label>
+    </div>
+    <div class="shop-form-item">
+        <%=form.email_field "email", id: "customer-email", autocomplete: "email", validateemail: "", required: "", class: "ng-pristine #{!user.errors[:email].blank? ? "ng-empty ng-invalid ng-invalid-required ng-touched" : nil}"%>
+        <!-- // error no or invalid e-mail -->
+        <label class=" ng-binding <%=!user.errors[:email].blank? ? "validation-error" : "nbhide"%>" for="customer-email" ng-show="$ctrl.submitted &amp;&amp; $ctrl.isInvalidEmail()">Please provide a valid email address.</label>
+        <!-- // correction hint -->
+        <label class="domain-blacklist-correction-hint ng-scope <%=!user.errors[:email].blank? ? "validation-error" : "nbhide"%>" for="customer-email" ng-show="$ctrl.showCorrectionHint()" translate="EMAILDOMAINBLACKLIST_COMMON_HINTCORRECTION" translate-value-email="">Did you mean ?</label>
+        <!-- // error domain blocked -->
+        <label class=" ng-binding <%=!user.errors[:email].blank? ? "validation-error" : "nbhide"%>" for="customer-email" ng-show="$ctrl.isDomainBlocked()">This email provider has been blocked.</label>
+
+        <!-- // checkbox confirm e-mail-->
+        <div class="shop-form-item domain-blacklist-accept-email <%=!user.errors[:email].blank? ? "validation-error" : "nbhide"%>" ng-show="$ctrl.field.blacklist.isBlacklisted &amp;&amp; !$ctrl.field.blacklist.blocked">
+            <%=form.check_box "cbCorrection", class: "checkbox ng-pristine #{!user.errors[:email].blank? ? "ng-empty ng-invalid ng-invalid-required ng-touched" : "ng-untouched ng-valid ng-empty ng-valid-required"} ", id: "customer-email_checkbox"%>
+            <label for="customer-email_checkbox" class="ng-binding">No, the email address provided is correct.</label>                    
+        </div>     
+         
+        <!-- // error checkbox confirm e-mail -->
+        <div class="shop-form-item wide">            
+            <label ng-show="$ctrl.submitted &amp;&amp; $ctrl.isConfirmEmailCheckboxInvalid()" class=" ng-binding <%=!user.errors[:email].blank? ? "validation-error" : "nbhide"%>">
+                Please confirm the validity of your email address.
+            </label>
+        </div> 
+    </div>
+</div>
+
+<!-- repetition e-mail control -->
+<!-- ngIf: $ctrl.enableEmailRepetition && !$ctrl.readOnly --><div class="shop-form-row ng-scope" ng-if="$ctrl.enableEmailRepetition &amp;&amp; !$ctrl.readOnly">
+    <div class="label-wrapper">
+        <label for="customer-email_repetition" class="ng-binding">Re-enter email address</label>
+    </div>
+    <div class="shop-form-item">
+        <%=form.email_field "email_repetition", id: "customer-email_repetition", autocomplete: "email", required: "", "ng-change"=>"$ctrl.updateValidation()", class: "ng-pristine #{!user.errors[:email_repetition].blank? ? "ng-empty ng-invalid ng-invalid-required ng-touched" : nil} ng-untouched ng-empty ng-valid-email ng-invalid ng-invalid-required"%>
+        <label class=" ng-binding <%=!user.errors[:email_repetition].blank? ? "validation-error" : "nbhide"%>" for="customer-email_repetition" ng-show="$ctrl.submitted &amp;&amp; $ctrl.model.email != $ctrl.model.emailRepetition">Email addresses do not match.</label>
+    </div>
+    <!-- // error email repetition -->
+    
+</div><!-- end ngIf: $ctrl.enableEmailRepetition && !$ctrl.readOnly --></input-email>
+            <div class="shop-form-row">
+                <div class="label-wrapper">
+                    <label for="customer-password" class="ng-binding">
+                        Password
+                    </label>
+                </div>
+                <div class="shop-form-item">
+                    <%=form.password_field "password", id: "customer-password", autocomplete: "new-password", required: "", class: "ng-pristine #{!user.errors[:password].blank? ? "ng-empty ng-invalid ng-invalid-required ng-touched" : nil} ng-untouched ng-empty ng-invalid ng-invalid-required"%>
+                    <label class=" ng-binding <%=!user.errors[:password].blank? ? "validation-error" : "nbhide"%>" for="customer-password" ng-show="$ctrl.submitted &amp;&amp; $ctrl.customerDataForm['customer-password'].$invalid">
+                        Please provide your password.
+                    </label>
+                    <label class="validation-hint ng-binding" ng-class="{'': $ctrl.submitted &amp;&amp; $ctrl.serverError == 'PASSWORD_TOO_WEAK'}" for="customer-password">
+                        Must be at least 8 characters, with upper case, lower case and numbers
+                    </label>
+                </div>
+            </div>
+            <div class="shop-form-row">
+                <div class="label-wrapper"></div>
+                <div class="shop-form-item ng-binding" style="padding-top: 20px;" ng-bind-html="$ctrl.dsgvo">When you register to create an account, the data you provide is recorded and stored electronically. You can deactivate your customer account at any time. If you do not agree to the data processing, you cannot purchase tickets online. You’ll find further information in our <a href="https://www.elbphilharmonie.de/en/privacy-policy" target="_blank">Privacy Policy</a>.</div>
+            </div>
+        </div><!-- end ngIf: !$ctrl.isExistingUser || $ctrl.emailIsReadOnly -->
+
+    </div>
+</div>
+
+<div class="content-row row-big">
+    <div class="large-offset-3 large-6 small-offset-0 small-12 columns">
+        <%user.errors[:password].each do |msg|%>
+        <div class=" ng-binding validation-error" ng-show="$ctrl.submitted &amp;&amp; $ctrl.serverError == 'EMAIL_ALREADY_TAKEN'">
+<%=msg%>
+        </div>
+        <%end%>
+   
+        
+    </div>
+</div>
+
+<div class="spacer"></div>
+<%=form.hidden_field :afterloginbookmarkevent%>
+<div class="content-row row-big">
+    <div class="large-offset-3 large-6 small-offset-0 small-12 columns">
+        <div class="shop-form-row">
+            <button class="shop-button submit read-more ng-binding">
+                Register
+            </button>
+            <!-- ngIf: $ctrl.onCancel -->
+        </div>
+    </div>
+</div>
+
+<div class="spacer"></div>
+
+</div><!-- end ngIf: !$ctrl.waitingForEmailActivation -->
+        
+<!-- ngIf: $ctrl.waitingForEmailActivation -->
+<%end%>
+
+<script>
+  window.onload=function(){
+    $('#country').val('<%=user.country%>')
+  }
+  </script>

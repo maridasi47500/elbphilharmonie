@@ -1,0 +1,29 @@
+<li class="cell small-12 medium-6 xlarge-3 highlights__item <%if highlight.active%>highlights__item--active<%end%>" data-category="<%=highlight.category%>" data-name="<%=highlight.title%>">
+        <a href="<%=highlight.imageurl%>" class="highlights__link" aria-hidden="true" tabindex="-1" data-lightbox="">
+						<figure class="highlights__figure">
+							<img data-image="<%=highlight.image%>" style="opacity: 1;" alt="<%=highlight.imagecaption%>" class="highlights__image" src="<%=highlight.image%>">
+							<i class="highlights__figure-line" data-line="" style="width: 29.7999%;"></i>
+              <%if highlight.isavideo?%>
+                <span class="show-for-sr">Play Video</span>
+                <span class="highlights__play" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 124 124">
+                    <circle fill="#FFF" fill-opacity=".25" stroke="#FFF" stroke-width="4" cx="62" cy="62" r="60"></circle>
+                    <path fill="#FFF" d="M53 45.6l24 15-24 15v-30z"></path>
+                  </svg>
+                </span>
+              <%end%>
+            </figure>
+          </a>
+					<span class="preline"><%=highlight.subtitle%></span>
+					<h3>
+            <a href="<%=highlight.url%>" class="highlight-title" data-name="<%=highlight.title%>">
+							<span class="show-for-sr">:</span>
+							<%=highlight.title%>
+            </a>
+					</h3>
+					<p><%=highlight.content%></p>
+          
+            <a href="<%=highlight.url%>" class="link link-default highlight-button" data-name="<%=highlight.mylabel.name%> - <%=highlight.title%>" aria-hidden="true" tabindex="-1"><%=highlight.mylabel.name%></a>
+          
+				</li>
+			<!-- festivals, whatson , events lists (query),mediatheques -->

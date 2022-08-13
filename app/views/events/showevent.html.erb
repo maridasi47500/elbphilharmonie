@@ -1,0 +1,601 @@
+<%=content_for :title do%>
+<%=l(@event.date, format: :mydate)%> - <%=@event.title%> - <%=@event.grossersaal%> -
+<%end%>
+
+<main class="content-container">
+			
+	
+
+	<header class="grid-container event-detail-head">
+		<div class="grid-x grid-x-margin">
+			<div class="cell relative">
+				<div class="grid-x">
+					
+						<div class="cell auto shrink date">
+							<span class="caption">
+								<time datetime="2022-05-27T20:00:00+02:00">
+									<strong><%=l(@event.date, format: :mydate)%> </strong>
+									
+										
+											<%=l(@event.time, format: :mytime)%>
+										
+									
+								</time>
+							</span>
+						</div>
+					
+					
+						<div class="cell auto shrink place">
+							
+								<a class="caption uppercase" data-anchor-link href="#venue">
+									
+<%if @event.venue.surelements.length > 0%>
+                                        <strong><%=@event.venue.surelements[0].name%></strong>  <%=@event.venue.name%>
+                                        <%else%>
+				<strong><%=@event.venue.name%></strong> 
+                                <%end%>
+								</a>
+							
+						</div>
+					
+				</div>
+				<div class="grid-x grid-margin-x">
+					<div class="cell large-8">
+						<div id="search_content_start_1"></div>
+						<h1 class="event-title no-line">
+							<%=@event.title%>
+						</h1>
+						
+							<p class="event-subtitle subline" role="doc-subtitle">
+								<%=@event.subtitle%>
+							</p>
+						
+						<div id="search_content_end_1"></div>
+					</div>
+				</div>
+        <div class="grid-x grid-margin-x event-head-bottom" data-event-id="26618">
+					<div class="cell xlarge-shrink event-functions">
+						<ul class="grid-x grid-margin-x">
+							
+                
+								<li class="cell shrink">
+									<%if @event.saved?(current_user.try(:id))%>
+                                                                <button data-myeventid="<%=@event.id%>" class="event__bookmark event__bookmark--active" type="button" data-alert="false" data-id="000000e9:000a474e" data-name="Fri, 27 May 2022 - Quadro Nuevo"><i class="event__bookmark-icon icon-merken-star-blue" data-bookmark-icon-off="icon-merken-star" data-bookmark-icon-on="icon-merken-star-blue" style="transform: translate(0px, 0px);"></i><span class="event__bookmark-text " data-bookmark-text-off="Save for later" data-bookmark-text-on="<strong>Event saved</strong>" data-bookmark-alert-off="Save for later / Ticket alert" data-bookmark-alert-one-on="<strong>Event saved /</strong> Ticket alert" data-bookmark-alert-two-on="<strong>Event saved / Ticket alert activated</strong>" style="transform: translate(0px, 0px); opacity: 1;"><strong>Event saved</strong></span>&nbsp;
+                </button>
+                                                                <%else%>
+<button class="event__bookmark" type="button" data-alert="false" data-myeventid="<%=@event.id%>" data-eventid="<%=@event.id%>"  data-id="00000000000000" data-name="Mon, 30 May 2022 - <%=@event.title%>"><i  data-eventid="<%=@event.id%>"   class="event__bookmark-icon icon icon-merken-star" data-bookmark-icon-off="icon-merken-star" data-bookmark-icon-on="icon-merken-star-blue"></i><span class="event__bookmark-text "  data-eventid="<%=@event.id%>"   data-bookmark-text-off="Save for later" data-bookmark-text-on="&lt;strong&gt;Event saved&lt;/strong&gt;" data-bookmark-alert-off="Save for later / Ticket alert" data-bookmark-alert-one-on="&lt;strong&gt;Event saved /&lt;/strong&gt; Ticket alert" data-bookmark-alert-two-on="&lt;strong&gt;Event saved / Ticket alert activated&lt;/strong&gt;">Save for later</span>&nbsp;
+                </button>
+                                                                <%end%>
+								</li>
+                
+							
+							<li class="cell shrink event__function event__function--1 ">
+								<button class="event__function-button event-share" aria-expanded="false">Share</button>
+								<div class="event__function-content share" aria-hidden="true">
+									
+									<ul class="event__function-list link-list share-links  share-links-event">
+										<li class="event__function-item">
+											<a data-name="Facebook" class="share-link event__function-link link link-default share-facebook" href="https://www.facebook.com/sharer/sharer.php?u=" target="_blank">
+												<i class="icon icon-share-facebook"></i> Facebook
+											</a>
+										</li>
+										<li class="event__function-item">
+											<a data-name="Twitter" class="share-link event__function-link link link-default share-twitter" href="https://twitter.com/share?url=&text=Fri%2C%2027%20May%202022%2020:00%20Pr%C3%BCfungskonzert" target="_blank">
+												<i class="icon icon-share-twitter"></i> Twitter
+											</a>
+										</li>
+										<li class="event__function-item only-desktop share-whatsapp">
+											<a data-name="WhatsApp" class="share-link event__function-link link link-default" href="https://web.whatsapp.com/send?text=This%20event%20on%20www.elbphilharmonie.com%20may%20be%20of%20interest%20to%20you%3A%0A%0AFri%2C%2027%20May%202022%2020%3A00%0ALaeiszhalle%20Kleiner%20Saal%0APr%C3%BCfungskonzert%0AHochschule%20f%C3%BCr%20Musik%20und%20Theater%20Hamburg%0A%0APerformers%0AZuzanna%20Pietrzak%3A%20Klavier%0AKlasse%20Prof.%20Hubert%20Rutkowski%3A%20%0A%0Ahttps%3A//www.elbphilharmonie.de/en/whats-on/prufungskonzert/18160" target="_blank">
+											<i class="icon icon-share-whatsapp"></i> WhatsApp
+											</a>
+										</li>
+										<li class="event__function-item only-mobile share-whatsapp">
+											<a data-name="WhatsApp" class="share-link event__function-link link link-default" href="whatsapp://send?text=This%20event%20on%20www.elbphilharmonie.com%20may%20be%20of%20interest%20to%20you%3A%0A%0AFri%2C%2027%20May%202022%2020%3A00%0ALaeiszhalle%20Kleiner%20Saal%0APr%C3%BCfungskonzert%0AHochschule%20f%C3%BCr%20Musik%20und%20Theater%20Hamburg%0A%0APerformers%0AZuzanna%20Pietrzak%3A%20Klavier%0AKlasse%20Prof.%20Hubert%20Rutkowski%3A%20%0A%0Ahttps%3A//www.elbphilharmonie.de/en/whats-on/prufungskonzert/18160">
+												<i class="icon icon-share-whatsapp"></i> WhatsApp
+											</a>
+										</li>
+										<li class="event__function-item share-mail">
+											<a data-name="Email" class="share-link event__function-link link link-default" href="mailto:?subject=Recommendation%3A%20Fri%2C%2027%20May%202022%20Pr%C3%BCfungskonzert&body=This%20event%20on%20www.elbphilharmonie.com%20may%20be%20of%20interest%20to%20you%3A%0A%0AFri%2C%2027%20May%202022%2020%3A00%0ALaeiszhalle%20Kleiner%20Saal%0APr%C3%BCfungskonzert%0AHochschule%20f%C3%BCr%20Musik%20und%20Theater%20Hamburg%0A%0APerformers%0AZuzanna%20Pietrzak%3A%20Klavier%0AKlasse%20Prof.%20Hubert%20Rutkowski%3A%20%0A%0Ahttps%3A//www.elbphilharmonie.de/en/whats-on/prufungskonzert/18160">
+											<i class="icon icon-share-mail"></i> Email
+											</a>
+										</li>
+									</ul>
+									
+								</div>
+							</li>
+
+							
+								<li class="cell shrink event__function event__function--2">
+									<button class="event__function-button calendar-add" aria-expanded="false">Calendar entry</button>
+									<div class="event__function-content event__function-content--calendar" aria-hidden="true">
+										<div class="event__function-list event__function-list--step-1">
+											<ul class="ical-list link-list">
+												<li>
+													<a class="link link-default" data-calendar-type="ics" href="/en/whats-on/prufungskonzert/18160.ics" target="_blank" rel="nofollow">iCal/Outlook Calendar</a>
+												</li>
+												<li>
+													<a class="link link-default" data-calendar-type="google" href="/en/whats-on/prufungskonzert/18160/google" target="_blank" rel="nofollow">Google Calendar</a>
+												</li>
+												<li>
+													<a class="link link-default" data-calendar-type="yahoo" href="/en/whats-on/prufungskonzert/18160/yahoo" target="_blank" rel="nofollow">Yahoo Calendar</a>
+												</li>
+											</ul>
+										</div>
+										
+									</div>
+								</li>
+							
+              
+						</ul>
+					</div>
+
+					
+
+					
+						<div class="cell xlarge-auto event-status">
+							
+
+
+
+
+
+	
+
+
+
+
+<%=render "tickets/#{@event.status.type.underscore}_show", status: @event.status%>
+
+<div class="presale sale-status status-box" style="display: none;">
+  <span class="ticket-and-prices">
+    
+
+
+
+	<a class="link link-ticket button large"
+	   href="/en/whats-on/ticket/prufungskonzert/18160"
+	   
+
+	
+
+	
+		
+	
+
+	>
+
+		<!--  --><span>Tickets</span><span class="price-from"><span></span></span>
+
+	</a>
+
+    
+      
+
+<span class="prices"><span>&euro;</span><strike>0</strike></span>
+
+    
+  </span>
+</div>
+
+						</div>
+					
+				</div>
+			</div>
+		</div>
+	</header>
+
+	
+		<div class="cell xlarge-auto event-sticky">
+			
+
+
+
+
+
+	
+
+
+
+
+
+                    <%=render "tickets/#{@event.status.type.underscore}_show", status: @event.status%>
+
+
+<div class="presale sale-status status-box" style="display: none;">
+  <span class="ticket-and-prices">
+    
+
+
+
+	<a class="link link-ticket button large"
+	   href="/en/whats-on/ticket/prufungskonzert/18160"
+	   
+
+	
+
+	
+		
+	
+
+	>
+
+		<!--  --><span>Tickets</span><span class="price-from"><span></span></span>
+
+	</a>
+
+    
+      
+
+<span class="prices"><span>&euro;</span><strike>0</strike></span>
+
+    
+  </span>
+</div>
+
+		</div>
+	
+
+	<aside class="grid-container slideshow-media-container">
+		<div class="slideshow-media slideshow-event">
+			
+				<figure class="slide has-dark-gradient">
+					<picture>
+						<img src="<%=@event.bigpicture.url%>" alt="<%=@event.venue.name%>" title="<%=@event.bigpicture.title%>">
+					</picture>
+					<figcaption class="image-caption"><%=@event.bigpicture.title%></figcaption>
+				</figure>
+			
+		</div>
+	</aside>
+	<div class="spacer"></div>
+
+	
+
+
+
+
+	
+
+<section class="event-detail-content grid-container">
+	<div id="search_content_start_2"></div>
+	<div class="grid-x grid-margin-x align-center">
+		<div class="cell medium-10 large-8 xxlarge-7">
+			
+			
+				<p><%=@event.description%></p>
+			
+			
+		</div>
+		<div class="cell xxlarge-1">
+		</div>
+	</div>
+	
+		<div class="spacer"></div>
+	
+
+	
+
+	<div class="grid-x grid-margin-x align-center">
+            
+		<div class="cell medium-10 large-8">
+			<div class="grid-x grid-margin-x">
+<%if @event.booklets.length > 0%>
+            
+            <div class="cell medium-6" id="programme">
+							<h3>Programme (booklet)</h3>
+							
+								<%=render collection: @event.booklets, as: booklet, partial: "booklet"%>
+						</div>
+            <%end%>
+                            <%if @event.festivals.length > 0%>
+                            <div class="cell medium-6">
+						<h3>Festival</h3>
+						
+							<p>Harbour Front Sounds</p>
+							
+								<div class="anchor-module">
+									<a href="/en/festivals/harbour-front-sounds/928" class="link link-default">
+										Find out more
+									</a>
+								</div>
+							
+						
+						<div class="spacer"></div>
+					</div>
+                            <%end%>
+                             <%if @event.spotlights.length > 0%>
+                            <%=render as: :event, partial: "eventspotlight", collection: @event.spotlights%>
+                            <%end%>
+				<%if @event.musicians.length > 0%>
+					<div class="cell medium-6">
+						<h3>Performers</h3>
+                                                <%@event.musicians.each do |m|%>
+						<p class="artists without-space">
+<b><%=m.artist.name%></b>	&#32;	&#32;<%=m.musical_instrument.name_de%>
+                                                </p>
+
+<%end%>
+                                                
+
+						<div class="spacer"></div>
+					</div>
+				<%end%>
+				<%if @event.pieces.length > 0%>
+            <div class="cell medium-6">
+						
+							<h3>Programme</h3>
+							
+                                                          <%@event.pieces.each do |x|%>
+                                                        <p><%=x.name.html_safe%>
+</p>
+
+							
+						
+
+						
+						<div class="spacer"></div>
+                                                <%end%>
+					</div>
+            
+            
+            <%end%>
+<%if @event.endtime%>
+				
+<div class="cell medium-6">
+						
+							<h3>Estimated end time</h3>
+							<p>
+								  
+								
+									<%=@event.endtime%> 
+								
+							</p>
+						
+						<div class="spacer"></div>
+					</div>
+				
+<%end%>
+				
+<%if @event.otherevents.length > 0%>
+
+			<div class="cell medium-6">
+						
+
+
+	
+		<h3>Supporting programme</h3>
+	<%@event.otherevents.each do |otherevent|%>
+	<p>
+		<%=l(otherevent.date, format: :mydate)%> <%=l(otherevent.time, format: :mytime)%><br>
+		<strong><%=otherevent.title%> </strong>,
+		<%if otherevent.venue.surelements.length > 0%>
+                                        <%=otherevent.venue.surelements[0].name%>, <%=otherevent.venue.name%>
+                                        <%else%>
+				<%=otherevent.venue.name%>
+                                <%end%>
+	</p>
+	
+		<div class="anchor-module">
+			<a href="<%=event_path(title: otherevent.title.parameterize, id: otherevent.id)%>" class="link link-default">Find out more</a>
+		</div>
+	<%end%>
+
+
+						<div class="spacer"></div>
+					</div>	
+
+				<%end%>
+
+				<%if @event.concert_broadcasts.length > 0%>
+                            <div class="cell medium-6" id="livestream-concert">
+						<h3>Concert Broadcast</h3>
+                                                <%@event.concert_broadcasts.each do |b|%>
+						<p><%=b%></p>
+						<%end%>
+                                                <div class="spacer"></div>
+                                                  
+					</div>
+                            <%end%>
+
+				
+
+				
+					<div class="cell block-promoters">
+						
+							<p>Promoter: <%=@event.promoter%></p>
+						
+						
+						<div class="spacer"></div>
+					</div>
+				
+
+				
+
+			</div>
+		</div>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+	</div>
+
+	<div id="search_content_end_2"></div>
+</section>
+
+
+	
+
+
+<%if @event.videos.length > 0%>
+	
+<%=render collection: @event.videos, as: :video, partial: "video"%>
+
+<%end%>
+
+	
+		
+<aside id="venue" class="grid-container venue-module">
+	<div class="grid-x grid-margin-x align-center">
+		<div class="cell medium-8 large-6">
+			<h2 class="light">
+				
+					<span class="preline light">
+						Location
+					</span>
+					<span class="show-for-sr">:</span>
+				<%if @event.venue.surelements.length > 0%>
+                                        <strong><%=@event.venue.surelements[0].name%></strong> <br> <%=@event.venue.name%>
+                                        <%else%>
+				<strong><%=@event.venue.name%></strong> <br> 
+                                <%end%>
+			</h2>
+		</div>
+		<div class="cell medium-4 large-3 large-offset-1 xlarge-offset-1 xxlarge-offset-1">
+		</div>
+		<div class="cell medium-8 large-6">
+			<p><%=@event.venue.description%></p><br>
+			<ul class="accordion" data-accordion>
+				
+	<%@event.venue.venueinfos.each_with_index do |info,i|%>
+
+	<li class="accordion-item" role="tab" data-accordion-item>
+		<a href="#<%=info.mytype.parameterize%>-<%=i%>" class="accordion-title">
+			<%=t("infotype."+info.mytype.underscore, hall:  @event.venue.name)%>
+		</a>
+		<div class="accordion-content" data-tab-content id="<%=info.mytype.parameterize%>-<%=i%>">
+			<%=info.try(:description)%>
+                </div>
+	</li>
+
+        <%end%>
+			</ul>
+		</div>
+		<div class="cell medium-4 large-3 large-offset-1 xlarge-offset-1 xxlarge-offset-1 images">
+			<figure class="image-module">
+				<img src="<%=@event.venue.smallpic.url%>" title="<%=@event.venue.smallpic.title%>">
+				<figcaption><%=@event.venue.smallpic.title%></figcaption>
+			</figure>
+		</div>
+		<div class="clearer"></div>
+	</div>
+</aside>
+<div class="spacer"></div>
+
+
+
+		
+
+
+	<section class="grid-container detail-teasers">
+		<div class="grid-x grid-margin-x align-center">
+			<div class="cell">
+				<h2>
+					
+						During your visit
+					
+				</h2>
+			</div>
+		</div>
+		<div class="spacer small"></div>
+                <%if @event.teasers.length > 0%>
+		<div class="grid-x grid-margin-x slider-detail-teasers">
+			
+				
+			<%=render collection: @event.teasers, as: :teaser, partial: "teaser"%>		
+				
+			
+				
+					
+				
+			
+		</div>
+                <%end%>
+	</section>
+	<div class="spacer"></div>
+
+
+	
+	<div id="search_content_start_3"></div>
+	<div id="search_content_end_3"></div>
+
+  
+
+
+      
+
+<aside class="merklist-modal">
+	<div class="merklist-modal__wrapper">
+		<button class="merklist-modal__close js-merklist-modal__close" type="button" title="Close"></button>
+    <!-- MODAL: login -->
+    <div class="merklist-modal__content" data-modal="login">
+      <p class="merklist-modal__title line-center h3">Saved events</p>
+      <p class="merklist-modal__text">Login required. If you do not have an Elbphilharmonie customer account, registering is quick and easy.</p>
+      <div class="merklist-modal__button">
+        <a href="#" class="button link link-default merklist-modal__account">Log in or register</a>
+      </div>
+    </div>
+    <!-- MODAL: alert check -->
+    <div class="merklist-modal__content" data-modal="alert" style="display: none;">
+      <p class="merklist-modal__title line-center h3">Your selection</p>
+      <label  class="merklist-modal__label">
+      <input type="radio" name="alert" class="merklist-modal__radio" value="1">
+        <span>Add to saved events</span>
+      </label>
+      <label class="merklist-modal__label">
+      <input type="radio" name="alert" class="merklist-modal__radio" value="2" checked>
+        <span>Activate ticket alert</span>
+        <span class="merklist-modal__text">You will receive an email alert one day before tickets go on sale.</span>
+      </label>
+      <div class="merklist-modal__button">
+        <button type="button" class="button link link-default merklist-modal__save">Confirm</button>
+      </div>
+    </div>
+    <!-- MODAL: alert uncheck -->
+    <div class="merklist-modal__content" data-modal="uncheck" style="display: none;">
+      <p class="merklist-modal__title line-center h3">Edit events saved</p>
+      <label class="merklist-modal__label">
+        <input type="radio" name="uncheck" class="merklist-modal__radio" value="1" checked>
+        <span>Deactivate ticket alert</span>
+      </label>
+      <label  class="merklist-modal__label">
+        <input type="radio" name="uncheck" class="merklist-modal__radio" value="DELETE">
+        <span>Remove event from my saved events</span>
+      </label>
+      <div class="merklist-modal__button">
+        <button type="button" class="button link link-default merklist-modal__save">Confirm</button>
+      </div>
+    </div>
+	</div>
+</aside>
+
+      <aside class="blog__lightbox">
+  <div class="blog__lightbox-container">
+    <button class="blog__lightbox-close" title="Close modal"></button>
+    <div class="blog__lightbox-wrapper">
+      <iframe src="" frameborder="0" id="blog-iframe" class="blog__lightbox-iframe" allow="fullscreen"></iframe>
+    </div>
+  </div>
+</aside>
+
+		</main>
+
+<%=content_for :myjsonload do%>
+    function mymenu(e){
+      $(e.target).toggleClass('event__function-button--active');
+    }
+    $('.event-share').click(mymenu);
+ <%end%>
+    <%=content_for :mycss do%>
+    <link href="/mycss.css" rel="stylesheet">
+    <link href="/css/base.css" rel="stylesheet">
+    <style>
+        .event-detail-head {
+          margin-top: 60px;
+        }
+        </style>
+    <%end%>

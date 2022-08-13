@@ -1,0 +1,33 @@
+
+de:
+  event_type:
+    event: "AKTUELLE VERANSTALTUNGEN MIT DEM <br /> SUCHBEGRIFF <b>%{q}</b> (%{nb}):"
+    past_event: "VERGANGENE VERANSTALTUNGEN MIT DEM <br /> SUCHBEGRIFF <b>%{q}</b> (%{nb}):"
+  my:
+    dic:
+      focus: "Schwerpunkt"
+    messages:
+      mydatainvalid: "At least one of your entries is incorrect. Please try again."
+      fail: "Registration was not successful. Please contact us by email at tickets@elbphilharmonie.de."
+      mydata: Conflicting customer data is already present in our system. Please contact us by email at tickets@elbphilharmonie.de.
+      myemail: "Eine Änderung auf die angegebene E-Mail-Adresse ist nicht möglich. Bitte wenden Sie sich an die Ticket-Hotline."
+  activerecord:
+    errors:
+
+      models:
+        user:
+          attributes:
+            phone:
+              wrongcountry: "the number is wrong for this country"
+            email:
+              notfound: "email is not found"
+              blank: "Please enter a new email address"
+              taken: "This address cannot be used. Please enter another email address."
+              empty: "An error occurred while changing your email address. Please try again later"            
+            password:
+              badpasswords: "The passwords do not match."
+              mypassword: "password is wrong"
+              invalid: "Please enter a secure password"
+              taken: "A customer account with this email address already exists. Please log in using the correct password. You can <a ng-href=\"/en/reset-password/\" class=\"ng-binding\" href=\"/en/reset-password/\">request a new password</a> if you have forgotten your password or do not have it currently at hand."
+              empty: "An error occurred while changing your email address. Please try again later"
+              mymessage: "A password must contain upper letter, lower letter and numbers."

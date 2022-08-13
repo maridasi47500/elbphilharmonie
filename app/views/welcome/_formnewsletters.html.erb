@@ -1,0 +1,52 @@
+<self-care-my-newsletters ng-if="isPage('my-newsletters')" page-id="my-newsletters" on-cancel="switchToOverview();" class="ng-scope ng-isolate-scope"><div class="self-care-newsletters self-care-newsletters--facelift">
+
+    <!-- ngIf: isLoading -->
+
+    <div class="content-row row-big">
+        <div class="large-offset-3 large-6 small-offset-0 small-12 columns">
+            <h1 class="headline--standard ng-binding">My newsletter subscriptions</h1>
+        </div>
+    </div>
+
+    <!-- ngIf: serviceUnavailable -->
+
+    <!-- ngIf: optInPending -->
+
+    <!-- ngIf: distributionLists && !optInPending --><div ng-if="distributionLists &amp;&amp; !optInPending" class="content-row row-big ng-scope">
+        <div class="large-offset-3 large-6 small-offset-0 small-12 columns">
+            <%=form_with model: user, url: updatemyuser_path do |form|%>
+            <!-- ngIf: !optInSent --><div ng-if="!optInSent" class="ng-scope">
+                <div class="shop-text ng-binding">Manage your newsletter subscription settings here.</div>
+                <br>
+            </div><!-- end ngIf: !optInSent -->
+
+            <!-- ngIf: !optInSent --><div ng-if="!optInSent" class="shop-checkbox-group ng-scope">
+                <!-- ngRepeat: distributionList in distributionLists track by distributionList.id -->
+                <%=form.collection_check_boxes(:newsletter_ids, Newsletter.all, :id, :name_and_description) do |b|%>
+                <div class="shop-checkbox-group-item ng-scope" ng-repeat="distributionList in distributionLists track by distributionList.id">
+                    <%=b.check_box(id: "list-#{b.value}", name: "list-#{b.value}", "ng-model"=>"distributionList.selected", class: "ng-pristine ng-untouched ng-valid ng-empty")%>
+                    <label for="list-<%=b.value%>" class="ng-binding"><%=b.text[0]%></label>
+                    <!-- ngIf: distributionList.description --><div class="description ng-binding ng-scope" ng-if="distributionList.description"><%=b.text[1]%></div><!-- end ngIf: distributionList.description -->
+                </div><!-- end ngRepeat: distributionList in distributionLists track by distributionList.id -->
+
+                <%end%>
+                
+                
+                <!-- end ngRepeat: distributionList in distributionLists track by distributionList.id -->
+            </div><!-- end ngIf: !optInSent -->
+
+            <!-- ngIf: !optInSent --><div ng-if="!optInSent" class="ng-scope">
+                <br>
+                <div class="shop-form-row">
+                    <button class="shop-button submit read-more ng-binding" onclick="saveNewsletterRegistrations()">
+                        Save
+                    </button>
+                    <div class="inline-link-button"><a href="#" onclick="goToOverview(); return false();" class="read-more ng-binding">Back to my account</a></div>
+                </div>
+            </div><!-- end ngIf: !optInSent -->
+
+            <!-- ngIf: optInSent -->
+        <%end%>
+        </div>
+    </div><!-- end ngIf: distributionLists && !optInPending -->
+</div></self-care-my-newsletters>

@@ -1,0 +1,3 @@
+class Spotlight < Festival
+  
+end

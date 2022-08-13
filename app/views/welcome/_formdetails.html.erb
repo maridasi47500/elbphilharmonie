@@ -1,0 +1,75 @@
+<form class="shop-form shop-form--facelift ng-pristine ng-valid" name="form" novalidate="">
+    <div class="content-row row-big">
+        <div class="large-offset-3 large-6 small-offset-0 small-12 columns">
+            <h1 class="headline--standard ng-binding">My details</h1>
+        </div>
+    </div>
+    
+    <!-- ngIf: isLoading() -->
+
+    <!-- ngIf: !isEditing && customer != null --><div ng-if="!isEditing &amp;&amp; customer != null" class="ng-scope">
+
+        <div class="content-row row-big" id="seconddiv">
+            <div class="large-offset-3 large-6 small-offset-0 small-12 columns">
+
+                <div class="self-care-customer-data">
+                    <customer-data customer="customer" class="ng-isolate-scope"><div>
+
+    <!-- ngIf: customer.customerNumber --><span ng-if="customer.customerNumber" class="ng-binding ng-scope">Customer number: <%=user.id%><br></span><!-- end ngIf: customer.customerNumber -->
+    <!-- ngIf: customer.firstName || customer.lastName --><span ng-if="customer.firstName || customer.lastName" class="ng-binding ng-scope">
+        <span ng-show="" class="ng-binding">
+            <%=user.mygender%>
+        </span>
+        <%=user.title%>
+        <%=user.fullname%><br>
+    </span><!-- end ngIf: customer.firstName || customer.lastName -->
+    <span ng-show="showCompanyName()" class="ng-binding ng-hide"><br></span>
+    <!-- ngIf: customer.city --><span ng-if="customer.city" class="ng-binding ng-scope">
+        <%=user.street%><br>
+        <%=user.zipandcity%><br>
+        <%=user.seecountry%><br>
+    </span><!-- end ngIf: customer.city -->
+
+    <!-- ngIf: customer.phone -->
+    <!-- ngIf: customer.birthday -->
+    <!-- ngIf: customer.email --><span ng-if="customer.email" class="ng-binding ng-scope">Email address: <%=user.email%><br></span><!-- end ngIf: customer.email -->
+
+</div></customer-data>
+                </div>
+
+                <div class="shop-form-row">
+                    <button class="shop-button submit read-more ng-binding" onclick="edit();return false;">
+                        Edit customer details
+                    </button>
+                    <div class="inline-link-button"><a href="#" onclick="cancel(); return false;" class="read-more ng-binding">Back to my account</a></div>
+                </div>
+
+            </div>
+        </div>
+
+    </div><!-- end ngIf: !isEditing && customer != null -->
+
+    <!-- ngIf: isEditing -->
+
+    <div class="spacer"></div>
+
+    <div class="content-row row-big">
+        <div class="large-offset-3 large-6 small-offset-0 small-12 columns">
+            <h2 class="headline--large ng-binding">Deactivate customer account</h2>
+
+            <!-- ngIf: !isDisableAccountHintEnabled && !isOptInSent --><div ng-if="!isDisableAccountHintEnabled &amp;&amp; !isOptInSent" class="ng-scope">
+                <div class="shop-text ng-binding">If you no longer wish to use your Elbphilharmonie und Laeiszhalle Hamburg customer account, you can deactivate it here.</div>
+
+                <div class="spacer"></div>
+
+                <button class="shop-button submit read-more ng-binding" onclick="showDisableAccountHint();return false;">
+                    Deactivate customer account
+                </button>
+            </div><!-- end ngIf: !isDisableAccountHintEnabled && !isOptInSent -->
+
+            <!-- ngIf: isDisableAccountHintEnabled && !isOptInSent -->
+
+            <!-- ngIf: isOptInSent -->
+        </div>
+    </div>
+</form>

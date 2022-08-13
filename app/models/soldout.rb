@@ -1,0 +1,3 @@
+class Soldout < EventStatus
+  
+end

@@ -1,0 +1,75 @@
+<%=form_with model: user,scope:"", url: updatemyuseremail_path,  html: {name: "form", class: "shop-form shop-form--facelift ng-pristine ng-scope ng-valid-email ng-invalid ng-invalid-required", "ng-if"=>"!success", novalidate: ""} do |form|%>
+
+        <div class="content-row row-big">
+            <div class="large-offset-3 large-6 small-offset-0 small-12 columns">
+                <label class="shop-text ng-binding" style="font-weight: normal;">Please enter your new email address:</label>
+            </div>
+        </div>
+        <div class="spacer"></div>
+
+        <div class="content-row row-big">
+            <div class="large-offset-1 large-8 small-offset-0 small-12 columns">
+
+                <div class="shop-form-row">
+                    <div class="label-wrapper">
+                        <label for="email" class="ng-binding">
+                            Email address
+                        </label>
+                    </div>
+	                <div class="shop-form-item">
+		                <%=form.email_field "email", id: "email", validateemail: "", "ng-model"=>"email", autocomplete: "email", required: "", class: "ng-pristine ng-untouched ng-empty ng-valid-email ng-invalid ng-invalid-required"%>
+		                <label class="<%=!user.errors[:email].blank? && user.errors.details[:email].any?{|h|h[:error] == :blank || h[:error] == :invalid} ? "validation-error ng-binding" : "nghide"%>" for="email" ng-show="submitted &amp;&amp; form['email'].$invalid">
+			                Please enter a valid email address.
+		                </label>
+	                </div>
+                </div>
+
+                <div class="spacer"></div>
+            </div>
+        </div>
+
+        <div class="content-row row-big">
+            <div class="large-offset-3 large-6 small-offset-0 small-12 columns">
+                <%if !user.errors[:email].blank? && user.errors.details[:email].any?{|h|h[:error] == :notfound || h[:error] == :blank || h[:error] == :taken || h[:error] == :empty}%>
+                <%user.errors[:email].uniq.each do |msg|%>
+                <div class="validation-error ng-binding" ng-show="">
+                    <%=msg%>
+					<br><br>
+                </div>
+                <%end%>
+                <%end%>
+                <!--
+               <div class="<%=!user.errors[:email].blank? ? "validation-error ng-binding" : "nghide"%>" ng-show="submitted &amp;&amp; serverError == 'EMAIL_ALREADY_EXISTS'">
+                    This address cannot be used. Please enter another email address.
+					<br><br>
+
+                </div>
+                <div class="<%=!user.errors[:email].blank? ? "validation-error ng-binding" : "nghide"%>" ng-show="submitted &amp;&amp; serverError == 'AMBIGUOUS_EMAIL'">
+                    Eine Änderung auf die angegebene E-Mail-Adresse ist nicht möglich. Bitte wenden Sie sich an die Ticket-Hotline.
+                    <br><br>
+                </div>
+                <div class="<%=!user.errors[:email].blank? ? "validation-error ng-binding" : "nghide"%>" ng-show="submitted &amp;&amp; serverError == 'EMAIL_UNCHANGED'">
+                    Please enter a new email address.
+                    <br><br>
+                </div>
+                <div class="<%=!user.errors[:email].blank? ? "validation-error ng-binding" : "nghide"%>" ng-show="submitted &amp;&amp; serverError == 'UNKNOWN_ERROR'">
+                    An error occurred while changing your email address. Please try again later.
+                    <br><br>
+                </div>
+                -->
+
+            </div>
+        </div> 
+        
+        <div class="content-row row-big">
+            <div class="large-offset-3 large-6 small-offset-0 small-12 columns">
+                <div class="shop-form-row">
+                    <button class="shop-button submit read-more ng-binding" onclick="submit()">
+                        Save
+                    </button>
+                    <div class="inline-link-button"><a href="#" onclick="cancel(); event.preventDefault();" class="read-more ng-binding">Back to my account</a></div>
+                </div>
+            </div>
+        </div>
+
+    <%end%>

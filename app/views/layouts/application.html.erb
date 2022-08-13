@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<!-- saved from url=(0034)/en/ -->
+<html lang="en" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#" class="no-touch"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title><%=yield :title%>Elbphilharmonie</title>
+
+        
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="Two venues, one website: the events programme of the Elbphilharmonie and Laeiszhalle in Hamburg – book concerts, plan your visit, browse the Mediatheque.">
+	<meta name="robots" content="index, follow">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+	<meta name="google-site-verification" content="JoUZ76dl6PXwuYZNAvCEgfVwns43082LWUvWr3_YDGg">
+	<meta name="msvalidate.01" content="9AFB81202CCFE43F4652998779EE4914">
+
+	<link rel="shortcut icon" href="https://d3c80vss50ue25.cloudfront.net/static/images/favicons/favicon.edbb048cd1b1.ico">
+	<link rel="shortcut icon" sizes="196x196" href="https://d3c80vss50ue25.cloudfront.net/static/images/favicons/favicon-196.8d8dfca262e2.png">
+	<link rel="icon" sizes="128x128" href="https://d3c80vss50ue25.cloudfront.net/static/images/favicons/favicon-128.529d6ecb723a.png">
+	<link rel="icon" sizes="192x192" href="https://d3c80vss50ue25.cloudfront.net/static/images/favicons/favicon-192.7e5f03037d27.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="https://d3c80vss50ue25.cloudfront.net/static/images/favicons/favicon-152.3a9a6b59eb84.png">
+	<link rel="apple-touch-icon" sizes="167x167" href="https://d3c80vss50ue25.cloudfront.net/static/images/favicons/favicon-167.605865468ee6.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="https://d3c80vss50ue25.cloudfront.net/static/images/favicons/favicon-180.eefc81e025b8.png">
+
+	<link rel="preconnect" href="/">
+	<link rel="dns-prefetch" href="/">
+	<link rel="preconnect" href="https://cdn.elbphilharmonie.de/">
+	<link rel="dns-prefetch" href="https://cdn.elbphilharmonie.de/">
+	<link rel="dns-prefetch" href="https://merkliste.elbphilharmonie.de/">
+
+	
+	<link rel="alternate" href="/de/" hreflang="de">
+	
+	<link rel="alternate" href="/en/" hreflang="en">
+	
+	<link rel="alternate" hreflang="x-default" href="/en/">
+
+	<link href="/index_files/app.min.c7ae617b99e3.css" rel="stylesheet">
+	
+
+	<style>.nbhide {
+            display: none;
+            }
+        .nghide {
+            display: none;
+            }
+        .header__bottom {
+    border-bottom: 1px solid #efefef;
+    text-align: right;
+}
+
+.header__navigation {
+    font-size: 1.1251rem;
+    line-height: 1;
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    top: 50%;
+    line-height: 1.5;
+    font-weight: 500;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+.header__bottom {
+    border-bottom: 1px solid #efefef;
+    text-align: right;
+}
+.header__bottomcontent {
+    height: 112px;
+}
+        .header {
+    position: fixed;
+    z-index: 2;
+    width: 100%;
+    background-color: #ffffff;
+    -webkit-transition: 0.68s cubic-bezier(0.71, 0.03, 0.22, 0.99);
+    transition: 0.68s cubic-bezier(0.71, 0.03, 0.22, 0.99);
+}
+        
+        
+        </style>
+<%=yield :mycss%>
+	
+
+	<script type="text/javascript" async="" src="/index_files/analytics.js"></script><script type="text/javascript" async="" src="/index_files/js"></script><script async="" src="/index_files/gtm.js"></script><script language="javascript">
+		var DjangoApp = {
+			settings: {
+				STATIC_URL: "https://d3c80vss50ue25.cloudfront.net/static/",
+				LANGUAGE_CODE: "en",
+				ACTIVITY_ID: "",
+				
+				SEARCH_URL_AJAX: "/en/search/ajax/1/",
+				SEARCH_URL: "/en/search/",
+				
+				NEWSLETTER_ENABLED: true,
+				
+				API_USER_ENABLED: true,
+				
+				API_VIMEO_VIDEOS: "/de/api/vimeo/videos/VIMEOID/",
+				API_USER_DETAIL: "/de/api/user/",
+				API_CART_DETAIL: "/de/api/cart/",
+				SITE_ID: "6"
+			},
+      api: {
+        search: "/en/api/expert/?format=json",
+      },
+			models: {},
+			views: {},
+			strings: {},
+			templates: {}
+		}
+    var translations = {
+      "expert-from": "From",
+      "expert-to": "To",
+      "expert-composer": "Composer",
+      "expert-work": "Work",
+      "expert-distribution": "Series / Subscription / Festival",
+      "expert-performers": "Performer",
+      "expert-promoter": "Promoter",
+      "expert-venue": "Venue",
+      "expert-day": "day",
+      "expert-month": "month",
+      "expert-year": "year",
+      "expert-period": "Date range",
+      "expert-reset": "Delete all filters",
+      "expert-canceled": "Also show cancelled events",
+      "expert-error-date": "Please check the date",
+      "expert-loading-text": "The advanced search is loading…",
+      "expert-results": "Search Results",
+      "expert-result": "Search Result",
+      "expert-event-past": "Past Event"
+    }
+	</script>
+
+
+	<script id="cart-template" type="text/html">
+		<%# if(cart_items_count) %>
+		<%#*<span class="icon icon-basket has-item">Shopping Basket</span>%>
+		<%#*<span class="items-count"><%= #cart_items_count %></span>%>
+		<% if defined?(remaining) %><span class="additional-info"><%=  remaining %> Min</span><% end %>
+		<%# else %>
+		<%#*<span class="icon icon-basket">Shopping Basket</span>%>
+		<%# end %>
+	</script>
+
+
+	<script id="user-template" type="text/html">
+		<!-- profile1_link_begin -->
+		<a href="" class="link-with-icon" title="Customer Account">
+			<span class="icon icon-login">Customer Account</span>
+			<!-- if logged in -->
+			<% if user_signed_in?%><span class="additional-info"><%="display_name" %></span><% end %>
+		</a>
+		<!-- profile1_link_end -->
+		<%# if(user_signed_in?) %>
+		<%#*<div class="overlay-head-elements overlay-login">%>
+			<%#*<div class="table">%>
+				<%#*<div class="table-row">%>
+					<%#*<div class="table-cell">%>
+						<%#*<p class="username"> display_name %></p>
+						<%#*<p><b>Kundennummer:</b>  customer_number %></p>
+						<%#*<p><b>E-Mail:</b>  email %></p>
+					<%#*</div>%>
+					<%#*<div class="table-cell">%>
+						<%#*<!-- profile2_link_begin -->%>
+						<%#*<a href="">Customer Account</a>%>
+						<%#*<!-- profile2_link_end -->%>
+						<%#*<br>%>
+						<%#*<!-- logout_link_begin -->%>
+						<%#*<a href="">Logout</a>%>
+						<%#*<!-- logout_link_end -->%>
+					<%#*</div>%>
+				<%#*</div>%>
+			<%#*</div>%>
+			<%#*<a href="#" class="icon icon-close" title="Close">Close</a>%>
+		<%#*</div>%>
+		<%# } %>
+	</script>
+
+	
+
+	
+
+	
+	
+<meta class="foundation-mq"></head>
+
+<body class="homepage desktop">
+	
+
+	
+		<!-- Google Tag Manager -->
+<div id="gtm" data-cookie-consent="googleTagManager">
+  
+      <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MH9K989"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+      <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-MH9K989');</script>
+    
+</div>
+<!-- End Google Tag Manager -->
+	
+
+	
+
+
+	
+
+	<div class="page-container ">
+
+		
+
+
+
+
+
+
+
+
+<header class="header header--scroll">
+	
+<%if root_path(locale: I18n.locale) == request.path%>
+<a href="https://www.elbphilharmonie.de/en/" class="header__logo" title="Elbphilharmonie Laeiszhalle Hamburg">
+
+<svg version="1.1" id="Group_2199" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 56 67.9" enable-background="new 0 0 56 67.9" xml:space="preserve" class="header__logo-svg">
+<rect class="logo-line-11" x="43.5" y="39.6" width="12.5" height="3.4" style="height: 3px;"></rect>
+<rect class="logo-line-10" x="43.5" y="56.6" width="12.5" height="1.1" style="height: 1px;"></rect>
+<rect class="logo-line-9" x="43.5" y="67.6" width="12.5" height="0.3"></rect>
+<rect class="logo-line-8" x="29" y="46.4" width="12.5" height="1.1"></rect>
+<rect class="logo-line-7" x="29" y="53.4" width="12.5" height="0.6" style="height: 1px;"></rect>
+<rect class="logo-line-6" x="14.5" y="39.6" width="12.5" height="3.4"></rect>
+<rect class="logo-line-5" x="14.5" y="46.4" width="12.5" height="2.3" style="height: 2px;"></rect>
+<rect class="logo-line-4" x="14.5" y="56.6" width="12.5" height="1.1" style="height: 1px;"></rect>
+<rect class="logo-line-3" y="39.6" width="12.5" height="1.7" style="height: 2px;"></rect>
+<rect class="logo-line-2" y="46.4" width="12.5" height="1.1" style="height: 1px;"></rect>
+<rect class="logo-line-1" y="53.4" width="12.5" height="0.6" style="height: 1px;"></rect>
+<rect class="logo-bottom" y="23.1" width="56" height="10.7"></rect>
+<path class="logo-top" d="M56,0v24.1H0V13.9c5.1,2.2,11,0.8,14.7-3.4c7,6.3,18.5,2.8,24.1-7.3C49.2,9.8,55.9,0,56,0z"></path>
+<!-- <path class="logo-icon" d="M38.9,3.2c-5.6,10.1-17.1,13.6-24.1,7.3c-3.7,4.2-9.6,5.6-14.7,3.4l0,19.9h56V0C56,0,49.3,9.8,38.9,3.2"/> -->
+</svg>
+</a>
+<%elsif !("/"+I18n.locale.to_s+"/my-data/").include?(request.path)%>
+    <a href="https://www.elbphilharmonie.de/en/" class="header__logo" title="Elbphilharmonie Laeiszhalle Hamburg">
+
+<svg version="1.1" id="Group_2199" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 56 67.9" enable-background="new 0 0 56 67.9" xml:space="preserve" class="header__logo-svg">
+<rect class="logo-line-11" x="43.5" y="39.6" width="12.5" height="3.4" style="height: 3px;"></rect>
+<rect class="logo-line-10" x="43.5" y="56.6" width="12.5" height="1.1" style="height: 1px;"></rect>
+<rect class="logo-line-9" x="43.5" y="67.6" width="12.5" height="0.3"></rect>
+<rect class="logo-line-8" x="29" y="46.4" width="12.5" height="1.1"></rect>
+<rect class="logo-line-7" x="29" y="53.4" width="12.5" height="0.6" style="height: 1px;"></rect>
+<rect class="logo-line-6" x="14.5" y="39.6" width="12.5" height="3.4"></rect>
+<rect class="logo-line-5" x="14.5" y="46.4" width="12.5" height="2.3" style="height: 2px;"></rect>
+<rect class="logo-line-4" x="14.5" y="56.6" width="12.5" height="1.1" style="height: 1px;"></rect>
+<rect class="logo-line-3" y="39.6" width="12.5" height="1.7" style="height: 2px;"></rect>
+<rect class="logo-line-2" y="46.4" width="12.5" height="1.1" style="height: 1px;"></rect>
+<rect class="logo-line-1" y="53.4" width="12.5" height="0.6" style="height: 1px;"></rect>
+<rect class="logo-bottom" y="23.1" width="56" height="10.7"></rect>
+<path class="logo-top" d="M56,0v24.1H0V13.9c5.1,2.2,11,0.8,14.7-3.4c7,6.3,18.5,2.8,24.1-7.3C49.2,9.8,55.9,0,56,0z"></path>
+<!-- <path class="logo-icon" d="M38.9,3.2c-5.6,10.1-17.1,13.6-24.1,7.3c-3.7,4.2-9.6,5.6-14.7,3.4l0,19.9h56V0C56,0,49.3,9.8,38.9,3.2"/> -->
+</svg>
+</a>
+<%else%>
+<a href="https://www.elbphilharmonie.de/en/" class="header__logo" style="background-image: url('data:image/svg+xml;charset=utf8,%3Csvg viewBox=%220 0 56 67.9%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cpath d=%22m43.5 39.6h12.5v3.4h-12.5z%22 height=%223%22/%3E%3Cpath d=%22m43.5 56.6h12.5v1.1h-12.5z%22 height=%221%22/%3E%3Cpath d=%22m43.5 67.6h12.5v.3h-12.5z%22/%3E%3Cpath d=%22m29 46.4h12.5v1.1h-12.5z%22/%3E%3Cpath d=%22m29 53.4h12.5v.6h-12.5z%22 height=%221%22/%3E%3Cpath d=%22m14.5 39.6h12.5v3.4h-12.5z%22/%3E%3Cpath d=%22m14.5 46.4h12.5v2.3h-12.5z%22 height=%222%22/%3E%3Cpath d=%22m14.5 56.6h12.5v1.1h-12.5z%22 height=%221%22/%3E%3Cpath d=%22m0 39.6h12.5v1.7h-12.5z%22 height=%222%22/%3E%3Cpath d=%22m0 46.4h12.5v1.1h-12.5z%22 height=%221%22/%3E%3Cpath d=%22m0 53.4h12.5v.6h-12.5z%22 height=%221%22/%3E%3Cpath d=%22m38.9 3.2c-5.6 10.1-17.1 13.6-24.1 7.3-3.7 4.2-9.6 5.6-14.7 3.4v19.9h56v-33.8c-.1 0-6.8 9.8-17.2 3.2%22/%3E%3C/svg%3E');" title="Elbphilharmonie Laeiszhalle Hamburg"></a>
+<%end%>		
+
+	
+
+	<button type="button" class="header__burger" aria-expanded="false" title="Menu">
+		<i class="header__burger-line"></i>
+		<i class="header__burger-line"></i>
+		<i class="header__burger-line"></i>
+	</button>
+
+	<nav aria-label="Main menu" class="header__navigation" aria-hidden="true">
+
+		<ul class="header__menu">
+			<li class="header__menu-indicator" style="width: 0px;"></li>
+			
+				<li class="header__menu-item " data-name="What’s On">
+					<a href="/en/whats-on" class="">What’s On</a>
+				</li>
+			
+				<li class="header__menu-item " data-name="Visit">
+					<a href="/en/visit" class="">Visit</a>
+				</li>
+			
+				<li class="header__menu-item " data-name="Mediatheque">
+					<a href="/en/mediatheque" class="">Mediatheque</a>
+				</li>
+			
+				<li class="header__menu-item " data-name="The Halls">
+					<a href="/en/the-halls" class="">The Halls</a>
+				</li>
+			
+				<li class="header__menu-item " data-name="Children &amp; Families">
+					<a href="/en/children-and-families" class="">Children &amp; Families</a>
+				</li>
+			
+				<li class="header__menu-item " data-name="Support">
+					<a href="/en/support" class="">Support</a>
+				</li>
+			
+			<!-- <li class="header__menu-item"><a href="#" title="Startseite">Startseite</a></li> -->
+			<!-- <li class="header__menu-item header__menu-item--active"><a href="#" title="Programm">Programm</a></li> -->
+		</ul>
+
+		<aside class="header__above">
+			
+				
+					<div class="header__search js-search">
+						<button onclick="$('.header__search').toggleClass('header__search--show')" class="header__search-button bold"><label for="search-input" class="header__search-text">Search</label> <i class="icon-search"></i></button>
+						<form id="search-form" action="/en/search/" method="get" onsubmit="window.location=(this.action+$('#search-input').val());return false;" class="header__search-form js-search-form">
+							<div class="header__search-wrapper">
+								<i class="icon-search header__search-icon"  onclick="$('.header__search').toggleClass('header__search--show')" ></i>
+								<input type="search" id="search-input" placeholder="Search" name="q" autocomplete="off" class="header__search-input js-autocomplete-input">
+								<!-- <button type="submit" id="search-submit" value="Search" title=""></button> -->
+							</div>
+						</form>
+						<nav class="header__autocomplete">
+							<div class="header__autocomplete-loading loading-animation"></div>
+              <div class="header__autocomplete-noresult">
+                <h4>Your search yielded no results.</h4>
+                <p class="din">Please try again with a different search term.</p>
+              </div>
+							<ul class="header__autocomplete-list"></ul>
+						</nav>
+					</div>
+				
+			
+
+			<ul class="header__above-items">
+				<li class="header__above-item header__above-item--merklist" data-name="Saved events">
+					<a href="/en/#" title="Saved events" class="" id="merklist">
+						<i class="icon-merken"></i>
+						<span class="header__above-count header__merklist-count">0</span>
+					</a>
+				</li>
+				<li class="header__above-item" data-name="Customer Account">
+					 <%if user_signed_in?%>
+                                <a href="/en/my-data/" class="header__above-account--link" title="Customer Account" style="opacity: 1;">
+						<i class="icon-account"></i>
+						<span class="header__above-text header__above-account--name"><%=current_user.fullname%></span>
+					</a>
+                                <%else%>
+<a href="/en/my-data/" class="header__above-account--link" title="Customer Account" style="opacity: 1;">
+						<i class="icon-account"></i>
+						<span class="header__above-text header__above-account--name"></span>
+					</a>                                
+                                <%end%>
+				</li>
+		        <li class="header__above-item" data-name="View Shopping Basket">
+		        	<a href="/en/cart/" class="header__above-basket" title="View Shopping Basket" style="opacity: 1;">
+						<i class="icon-basket"></i>
+		            	<span class="header__above-count header__basket-count"></span>
+		          </a>
+		        </li>
+			</ul>
+
+			<div class="header__languages">
+				
+				
+				<a href="/en/#" class="header__languages-current" aria-expanded="false">En</a>
+				<ul class="header__languages-options" aria-hidden="true">
+					
+						<li class="header__languages-option">
+							<a href="/de/" class=" header__languages-link--DE header__languages-link" lang="de" hreflang="de">
+                Deutsch
+              </a>
+						</li>
+					
+						<li class="header__languages-option">
+							<a href="/en/" class="header__languages-link--active  header__languages-link--EN header__languages-link" lang="en" hreflang="en">
+                English
+              </a>
+						</li>
+					
+				</ul>
+			</div>
+		</aside>
+
+		<aside class="header__merklist grid-x align-center">
+			<button title="Close saved events" class="header__merklist-close" type="button"></button>
+			<div class="header__merklist-wrapper cell small-10 medium-7 large-5" data-merkcontent="loggedin" style="display: block;">
+				<h2 class="header__merklist-title line-center">Your saved events list is empty</h2>
+				<p class="header__merklist-text"> You can save events to your Saved Events list with the <strong>Save for later</strong> <i class="icon-merken-star"></i> function.</p>
+				<div class="header__merklist-button">
+					<a href="/en/whats-on/" class="link link-default">View programme</a>
+				</div>
+			</div>
+
+			<div class="header__merklist-wrapper cell small-10 medium-7 large-5" data-merkcontent="loggedout" style="display: none;">
+				<h2 class="header__merklist-title line-center">Saved events</h2>
+				<p class="header__merklist-text">You have to log in to view your saved events. If you do not have an Elbphilharmonie customer account, registering is quick and easy.</p>
+				<div class="header__merklist-button">
+					<a href="/en/my-data/?onSuccessfulLogin=/en/" class="button link link-default header__merklist-account" style="opacity: 1;">Log in or register</a>
+				</div>
+			</div>
+
+			<div class="header__merklist-container cell large-10 xlarge-12 grid-container" data-merkcontent="list" style="display: none">
+        <div class="grid-x align-center header__merklist-header">
+          <div class="cell large-8">
+            <h2 class="header__merklist-title line-center">Saved events</h2>
+            <button type="button" class="header__merklist-clear" data-clear="all">Clear saved events <i class="icon-trash-merklist"></i></button>
+            <button type="button" class="header__merklist-clear" data-clear="alert">Deactivate all ticket alerts <i class="icon-trash-merklist"></i></button>
+          </div>
+        </div>
+        <ul class="event-list merklist-list"></ul>
+        <div class="header__merklist-loading">
+          <div class="loading-animation"></div>
+        </div>
+        <div class="header__merklist-footer grid-x align-center">
+          <div class="cell large-8">
+            <a href="/en/whats-on/" title="Go to what’s on" class="button hollow link link-default">Go to what’s on</a>
+          </div>
+        </div>
+			</div>
+		</aside>
+
+	</nav>
+</header>
+
+
+		<%=yield%>
+
+
+
+
+<footer class="footer">
+	<div class="grid-container">
+		<div class="footer__wrapper-top">
+			<button type="button" class="link link-show-less footer__button-top">To the top</button>
+		</div>
+	</div>
+	<div class="grid-container footer__wrapper">
+		<ul class="footer__menu">
+			
+			
+				<li class="footer__menu-item"><a href="/en/contact-elbphilharmonie" class="">Contact</a></li>
+			
+				<li class="footer__menu-item"><a href="/en/press" class="">Press</a></li>
+			
+				<li class="footer__menu-item"><a href="/en/hire" class="">Venue Hire</a></li>
+			
+				<li class="footer__menu-item"><a href="/en/publications" class="">Publications</a></li>
+			
+				<li class="footer__menu-item"><a href="/en/advanced-search" class="">Concert Archive</a></li>
+			
+				<li class="footer__menu-item"><a href="/en/faq" class="">FAQ</a></li>
+			
+				<li class="footer__menu-item"><a href="/en/team" class="">Team</a></li>
+			
+				<li class="footer__menu-item"><a href="/en/careers" class="">Careers</a></li>
+			
+				<li class="footer__menu-item"><a href="/en/legal" class="">Legal</a></li>
+			
+				<li class="footer__menu-item"><a href="/en/privacy-policy" class="">Privacy Policy</a></li>
+			
+				<li class="footer__menu-item"><a href="/en/payment" class="">Payment</a></li>
+			
+				<li class="footer__menu-item"><a href="/en/terms" class="">Terms &amp; Conditions</a></li>
+			
+				<li class="footer__menu-item"><a href="javascript:window.elbphilharmonie.consent.editSettings()">Cookie Settings</a></li>
+		</ul>
+		<aside class="footer__column">
+			<a href="/en/newsletter" class="home-intro__newsletter footer__newsletter button-circle">
+				<i class="icon-newsletter"></i>
+				<span class="home-intro__newsletter-text button-circle-text">Get our newsletter</span>
+			</a>
+			<!-- <a href="//newsletter" title="" class="footer__newsletter"> -->
+			<!--   <figure class="footer__newsletter-icon icon-newsletter-black"></figure> -->
+			<!--   <span class="link link-default"></span> -->
+			<!-- </a> -->
+			<ul class="footer__socials">
+				<li class="footer__social"><a href="https://www.facebook.com/elbphilharmonie.hamburg" title="Facebook" class="icon-facebook footer__social-link" rel="noopener" target="_blank"></a></li>
+				<li class="footer__social"><a href="https://www.youtube.com/user/ElbphilharmonieHH" title="Youtube" class="icon-youtube footer__social-link" rel="noopener" target="_blank"></a></li>
+				<li class="footer__social"><a href="https://www.instagram.com/elbphilharmonie/" title="Instagram" class="icon-instagram footer__social-link" rel="noopener" target="_blank"></a></li>
+				<li class="footer__social"><a href="https://twitter.com/elbphilharmonie" title="Twitter" class="icon-twitter footer__social-link" rel="noopener" target="_blank"></a></li>
+				<li class="footer__social"><a href="https://issuu.com/elbphilharmonie" title="Issuu" class="icon-issuu footer__social-link" rel="noopener" target="_blank"></a></li>
+				<li class="footer__social"><a href="https://open.spotify.com/user/elbphilharmonie" title="Spotify" class="icon-spotify footer__social-link" rel="noopener" target="_blank"></a></li>
+			</ul>
+		</aside>
+		<ul class="footer__sponsors">
+			<li class="footer__sponsor"><a href="http://www.montblanc.com/en/home.html" rel="noopener" target="_blank" title="Mont Blanc"><img src="/index_files/mont-blanc.bb58c77d83c0.png" class="mont-blanc" alt="Mont Blanc Logo"></a></li>
+			<li class="footer__sponsor"><a href="http://www.sap.com/germany/index.html" rel="noopener" target="_blank" title="SAP"><img src="/index_files/sap.0fc35352c2f3.png" class="sap" alt="SAP Logo"></a></li>
+			<li class="footer__sponsor"><a href="https://www.kuehne-stiftung.org/" rel="noopener" target="_blank" title="Kühne Stiftung"><img src="/index_files/kuehne-stiftung.b4c96e2a3c25.png" class="kuehne-stiftung" alt="Kühne Stiftung Logo"></a></li>
+			<li class="footer__sponsor"><a href="https://www.juliusbaer.com/en/about-us/our-company/sponsoring/#c11715" rel="noopener" target="_blank" title="Julius Bär"><img src="/index_files/julius-bar.5897d8627cd4.png" class="julius-baer" alt="Julius Bär Logo"></a></li>
+			<li class="footer__sponsor"><a href="https://www.telekom.com/en" rel="noopener" target="_blank" title="Telekom"><img src="/index_files/telekom.1ed40c01823c.png" class="telekom" alt="Telekom Logo"></a></li>
+			<li class="footer__sponsor"><a href="https://www.porsche.com/uk" rel="noopener" target="_blank" title="Porsche"><img src="/index_files/porsche.da4c049474e6.png" class="porsche" alt="Porsche Logo"></a></li>
+		</ul>
+		<aside class="footer__sitemap">
+			<button class="link link-show-more footer__sitemap-button" type="button" aria-expanded="false">Sitemap</button>
+		</aside>
+	</div>
+	
+
+
+
+<ul class="sitemap grid-container" id="sitemap" hidden="hidden" aria-hidden="true">
+	
+	
+		
+			<li class="sitemap__column sitemap__column--logo">
+        <a href="/en/" title="Elbphilharmonie Laeiszhalle Hamburg">
+          <svg version="1.1" id="Group_2199" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 56 67.9" enable-background="new 0 0 56 67.9" xml:space="preserve" class="header__logo-svg">
+<rect class="logo-line-11" x="43.5" y="39.6" width="12.5" height="3.4"></rect>
+<rect class="logo-line-10" x="43.5" y="56.6" width="12.5" height="1.1"></rect>
+<rect class="logo-line-9" x="43.5" y="67.6" width="12.5" height="0.3"></rect>
+<rect class="logo-line-8" x="29" y="46.4" width="12.5" height="1.1"></rect>
+<rect class="logo-line-7" x="29" y="53.4" width="12.5" height="0.6"></rect>
+<rect class="logo-line-6" x="14.5" y="39.6" width="12.5" height="3.4"></rect>
+<rect class="logo-line-5" x="14.5" y="46.4" width="12.5" height="2.3"></rect>
+<rect class="logo-line-4" x="14.5" y="56.6" width="12.5" height="1.1"></rect>
+<rect class="logo-line-3" y="39.6" width="12.5" height="1.7"></rect>
+<rect class="logo-line-2" y="46.4" width="12.5" height="1.1"></rect>
+<rect class="logo-line-1" y="53.4" width="12.5" height="0.6"></rect>
+<rect class="logo-bottom" y="23.1" width="56" height="10.7"></rect>
+<path class="logo-top" d="M56,0v24.1H0V13.9c5.1,2.2,11,0.8,14.7-3.4c7,6.3,18.5,2.8,24.1-7.3C49.2,9.8,55.9,0,56,0z"></path>
+<!-- <path class="logo-icon" d="M38.9,3.2c-5.6,10.1-17.1,13.6-24.1,7.3c-3.7,4.2-9.6,5.6-14.7,3.4l0,19.9h56V0C56,0,49.3,9.8,38.9,3.2"/> -->
+</svg>
+
+          
+        </a>
+			</li>
+      <li class="sitemap__column">
+        <ul class="sitemap__items">
+		
+	
+		
+			<li class="sitemap__item">
+		        <a href="/en/whats-on" title="What’s On" class="sitemap__title">
+					What’s On
+		        </a>
+		        <ul class="sitemap__submenu">
+					
+
+
+
+
+
+
+
+					
+					
+						<li class="sitemap__submenu-item">
+							<a href="/en/subscriptions" class="">Subscriptions</a>
+							<ul class="sitemap__submenu-3 menu3">
+								
+							</ul>
+						</li>
+					
+						<li class="sitemap__submenu-item">
+							<a href="/en/season" class="">Season</a>
+							<ul class="sitemap__submenu-3 menu3">
+								
+							</ul>
+						</li>
+					
+						<li class="sitemap__submenu-item">
+							<a href="/en/experience" class="">Participate</a>
+							<ul class="sitemap__submenu-3 menu3">
+								
+							</ul>
+						</li>
+					
+				</ul>
+			</li>
+		
+	
+		
+			<li class="sitemap__item">
+		        <a href="/en/visit" title="Visit" class="sitemap__title">
+					Visit
+		        </a>
+		        <ul class="sitemap__submenu">
+					
+					
+						<li class="sitemap__submenu-item">
+							<a href="/en/ticketing-information" class="">Ticketing Information</a>
+							<ul class="sitemap__submenu-3 menu3">
+								
+							</ul>
+						</li>
+					
+						<li class="sitemap__submenu-item">
+							<a href="/en/mediatheque/this-way/499" class="">Musical Guide</a>
+							<ul class="sitemap__submenu-3 menu3">
+								
+							</ul>
+						</li>
+					
+						<li class="sitemap__submenu-item">
+							<a href="/en/coronavirus" class="">Your Concert Visit During the Coronavirus Crisis</a>
+							<ul class="sitemap__submenu-3 menu3">
+								
+							</ul>
+						</li>
+					
+						<li class="sitemap__submenu-item">
+							<a href="/en/plaza" class="">Plaza</a>
+							<ul class="sitemap__submenu-3 menu3">
+								
+							</ul>
+						</li>
+					
+						<li class="sitemap__submenu-item">
+							<a href="/en/tours" class="">Guided Tours</a>
+							<ul class="sitemap__submenu-3 menu3">
+								
+							</ul>
+						</li>
+					
+						<li class="sitemap__submenu-item">
+							<a href="/en/plan-your-visit" class="">Plan Your Visit</a>
+							<ul class="sitemap__submenu-3 menu3">
+								
+							</ul>
+						</li>
+					
+						<li class="sitemap__submenu-item">
+							<a href="/en/accessibility" class="">Accessibility</a>
+							<ul class="sitemap__submenu-3 menu3">
+								
+									<li class="sitemap__submenu-item">
+                    <a href="/en/accessibility-elbphilharmonie" class="">Accessibility at the Elbphilharmonie</a>
+										
+									</li>
+								
+									<li class="sitemap__submenu-item">
+                    <a href="/en/accessibility-laeiszhalle" class="">Accessibility at the Laeiszhalle</a>
+										
+									</li>
+								
+							</ul>
+						</li>
+					
+						<li class="sitemap__submenu-item">
+							<a href="/en/gift-vouchers" class="">Gift Vouchers</a>
+							<ul class="sitemap__submenu-3 menu3">
+								
+							</ul>
+						</li>
+					
+						<li class="sitemap__submenu-item">
+							<a href="/en/food-drink" class="">Food &amp; Drink</a>
+							<ul class="sitemap__submenu-3 menu3">
+								
+							</ul>
+						</li>
+					
+						<li class="sitemap__submenu-item">
+							<a href="/en/hotel" class="">Hotel</a>
+							<ul class="sitemap__submenu-3 menu3">
+								
+							</ul>
+						</li>
+					
+				</ul>
+			</li>
+		
+	
+		
+			<li class="sitemap__item">
+		        <a href="/en/mediatheque" title="Mediatheque" class="sitemap__title">
+					Mediatheque
+		        </a>
+		        <ul class="sitemap__submenu">
+					
+					
+						<li class="sitemap__submenu-item">
+							<a href="/en/mediathek/category/streams" class="">Streams</a>
+							<ul class="sitemap__submenu-3 menu3">
+								
+							</ul>
+						</li>
+					
+						<li class="sitemap__submenu-item">
+							<a href="/en/mediathek/category/videos" class="">Videos</a>
+							<ul class="sitemap__submenu-3 menu3">
+								
+							</ul>
+						</li>
+					
+						<li class="sitemap__submenu-item">
+							<a href="/en/mediathek/category/articles" class="">Articles</a>
+							<ul class="sitemap__submenu-3 menu3">
+								
+							</ul>
+						</li>
+					
+						<li class="sitemap__submenu-item">
+							<a href="/en/mediathek/category/podcasts" class="">Podcasts</a>
+							<ul class="sitemap__submenu-3 menu3">
+								
+							</ul>
+						</li>
+					
+				</ul>
+			</li>
+		
+	
+		
+			<li class="sitemap__item">
+		        <a href="/en/the-halls" title="The Halls" class="sitemap__title">
+					The Halls
+		        </a>
+		        <ul class="sitemap__submenu">
+					
+					
+				</ul>
+			</li>
+		
+	
+		
+			<li class="sitemap__item">
+		        <a href="/en/children-and-families" title="Children &amp; Families" class="sitemap__title">
+					Children &amp; Families
+		        </a>
+		        <ul class="sitemap__submenu">
+					
+					
+						<li class="sitemap__submenu-item">
+							<a href="/en/twinkle-concerts" class="">Twinkle Concerts</a>
+							<ul class="sitemap__submenu-3 menu3">
+								
+							</ul>
+						</li>
+					
+						<li class="sitemap__submenu-item">
+							<a href="/en/schools-and-kindergartens" class="">Schools &amp; Kindergartens</a>
+							<ul class="sitemap__submenu-3 menu3">
+								
+							</ul>
+						</li>
+					
+						<li class="sitemap__submenu-item">
+							<a href="/en/elbphilharmonie-in-the-city" class="">Elbphilharmonie in the City</a>
+							<ul class="sitemap__submenu-3 menu3">
+								
+							</ul>
+						</li>
+					
+						<li class="sitemap__submenu-item">
+							<a href="/en/workshops" class="">Workshops</a>
+							<ul class="sitemap__submenu-3 menu3">
+								
+							</ul>
+						</li>
+					
+						<li class="sitemap__submenu-item">
+							<a href="/en/family-orchestra" class="">Family Orchestra</a>
+							<ul class="sitemap__submenu-3 menu3">
+								
+							</ul>
+						</li>
+					
+						<li class="sitemap__submenu-item">
+							<a href="/en/mediatheque/tag/Kids" class="">Children &amp; Families – Digital Offers</a>
+							<ul class="sitemap__submenu-3 menu3">
+								
+							</ul>
+						</li>
+					
+				</ul>
+			</li>
+		
+	
+		
+			<li class="sitemap__item">
+		        <a href="/en/support" title="Support" class="sitemap__title">
+					Support
+		        </a>
+		        <ul class="sitemap__submenu">
+					
+					
+						<li class="sitemap__submenu-item">
+							<a href="/en/sponsoring" class="">Sponsoring</a>
+							<ul class="sitemap__submenu-3 menu3">
+								
+							</ul>
+						</li>
+					
+						<li class="sitemap__submenu-item">
+							<a href="/en/elbphilharmonie-circle" class="">Elbphilharmonie Circle</a>
+							<ul class="sitemap__submenu-3 menu3">
+								
+							</ul>
+						</li>
+					
+						<li class="sitemap__submenu-item">
+							<a href="/en/freundeskreis" class="">Freundeskreis</a>
+							<ul class="sitemap__submenu-3 menu3">
+								
+							</ul>
+						</li>
+					
+						<li class="sitemap__submenu-item">
+							<a href="/en/stiftung-elbphilharmonie" class="">Stiftung Elbphilharmonie</a>
+							<ul class="sitemap__submenu-3 menu3">
+								
+							</ul>
+						</li>
+					
+						<li class="sitemap__submenu-item">
+							<a href="/en/foerderkreis-musikfest" class="">Förderkreis Internationales Musikfest Hamburg</a>
+							<ul class="sitemap__submenu-3 menu3">
+								
+							</ul>
+						</li>
+					
+						<li class="sitemap__submenu-item">
+							<a href="/en/trusts-foundations" class="">Trusts &amp; Foundations</a>
+							<ul class="sitemap__submenu-3 menu3">
+								
+							</ul>
+						</li>
+					
+				</ul>
+			</li>
+		
+	
+    </ul>
+  </li>
+</ul>
+
+</footer>
+
+		
+
+	</div>
+
+	  <script>
+        <%=yield :myjs%>
+      window.onload=function(){
+<%=yield :myjsonload%>
+  };
+  </script>
+
+  <script>
+    var Instance = 'live';
+  </script>
+
+	
+	<script src="/index_files/app.min.394e1890b091.js"></script>
+	<script src="/index_files/gsap.min.js" async=""></script>
+	<script src="/index_files/ScrollToPlugin.min.js" async=""></script>
+  <script src="/index_files/api.js"></script>
+
+  
+
+	
+
+	
+
+	
+  <script src="/index_files/home.min.cbe705654401.js"></script>
+
+
+	
+
+	
+
+	<script src="/index_files/cookie-handler.6d5361201851.js"></script>
+
+	<script src="/index_files/SmoothScroll.min.js" async=""></script>
+	<!-- INSTANCE_NAME: live -->
+<%=yield :myscripts%>
+      
+<script type="text/javascript" id="">(function(){function f(a){switch(a.type){case "timeupdate":b[a.target.id].current=Math.round(a.target.currentTime);var k=Math.floor(100*b[a.target.id].current/a.target.duration),g;for(g in b[a.target.id]._progress_markers)k>=g&&g>b[a.target.id].greatest_marker&&(b[a.target.id].greatest_marker=g);b[a.target.id].greatest_marker&&!b[a.target.id]._progress_markers[b[a.target.id].greatest_marker]&&(b[a.target.id]._progress_markers[b[a.target.id].greatest_marker]=!0,dataLayer.push({event:"audio",audioPlayerAction:"Progress %"+
+b[a.target.id].greatest_marker,audioTitle:decodeURIComponent(a.target.currentSrc.split("/")[a.target.currentSrc.split("/").length-1])}));break;case "play":dataLayer.push({event:"audio",audioPlayerAction:"play",audioTitle:decodeURIComponent(a.target.currentSrc.split("/")[a.target.currentSrc.split("/").length-1])});break;case "pause":dataLayer.push({event:"audio",audioPlayerAction:"pause",audioTitle:decodeURIComponent(a.target.currentSrc.split("/")[a.target.currentSrc.split("/").length-1]),audioValue:b[a.target.id].current});
+break;case "ended":dataLayer.push({event:"audio",audioPlayerAction:"finished",audioTitle:decodeURIComponent(a.target.currentSrc.split("/")[a.target.currentSrc.split("/").length-1])})}}for(var h=10,b={},e=document.getElementsByTagName("audio"),c=0;c<e.length;c++){if(e[c].getAttribute("id"))var d=e[c].getAttribute("id");else d="html5_audio_"+Math.random().toString(36).slice(2),e[c].setAttribute("id",d);b[d]={};b[d].greatest_marker=0;b[d]._progress_markers={};for(j=0;100>j;j++)b[d].progress_point=h*
+Math.floor(j/h),b[d]._progress_markers[b[d].progress_point]=!1;b[d].current=0;e[c].addEventListener("play",f,!1);e[c].addEventListener("pause",f,!1);e[c].addEventListener("ended",f,!1);e[c].addEventListener("timeupdate",f,!1)}})();</script>
+
+
+
+</body></html>

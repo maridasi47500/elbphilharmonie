@@ -1,0 +1,3 @@
+class Residue < EventStatus
+  
+end

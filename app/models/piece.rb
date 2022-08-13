@@ -1,0 +1,3 @@
+class Piece < ApplicationRecord
+  
+end

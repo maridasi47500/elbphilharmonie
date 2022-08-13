@@ -1,0 +1,23 @@
+<div class="residue-status status-box">
+	
+		
+			
+				<span class="ticket-and-prices">
+					<a class="link link-ticket button large" href="<%=buyticket_path(id: status.event_id, title: status.event.title.parameterize)%>">
+						Tickets <span class="price-from">€</span><span class="price-from"><%=status.event.price.split(' | ')[0].to_f.round(2)%></span>
+					</a>
+					
+						
+
+<span class="prices"><span>€</span><%=status.event.price.split(' | ').map{|x|"<span>#{x}</span>"}.join(' | ').html_safe%></span>
+
+					
+				</span>
+				<span class="status">
+					Limited tickets available!
+				</span>
+			
+		
+	
+	
+</div>

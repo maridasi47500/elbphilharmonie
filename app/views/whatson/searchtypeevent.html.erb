@@ -1,0 +1,124 @@
+	<main class="content-container">
+			
+	<section class="results-all grid-container">
+		<div class="spacer big hide-on-mobile"></div>
+		<div class="spacer big hide-on-mobile"></div>
+		
+			
+			
+				<section class="grid-x event-list-module">
+					<div class="large-12 columns">
+            <div class="blog__links">
+              <a href="/en/search/piano" class="link">
+                <i class="icon-arrow-left"></i>
+                Back to search results
+              </a>
+            </div>
+						<div class="spacer small"></div>
+            <div class="grid-x align-center">
+              <div class="small-12 medium-8">
+                
+                <h2 class="no-line">
+        <%if t("event_type.#{params[:typesearch]}",default: "",q: params[:q],nb: @events.length.to_s, locale: :en) != ""%>
+        <%=t("event_type.#{params[:typesearch]}",default: "",q: params[:q],nb: @events.length.to_s, locale: :en).html_safe%>
+        <%else%>
+                <%=t("event_type.#{params[:typesearch]}",default: nil,q: params[:q],nb: @events.length.to_s, locale: :de).html_safe%>
+                    <%end%>
+                </h2>
+                 
+              </div>
+            </div>
+						<div class="spacer small"></div>
+					</div>
+					<ul class="event-list" id="list">
+						
+
+
+	<%=render partial: "event", as: :event,collection: @events%>
+	
+<li class="loading-event loading-animation">Loading...</li>
+
+
+
+						
+
+
+
+	<li data-url="/en/search/past_event/2/piano" class="search__next-page">
+		<a href="/en/search/past_event/2/piano" class=""><noscript>Next</noscript></a>
+	</li>
+  
+
+
+
+					</ul>
+				</section>
+			
+			
+		
+		<div class="spacer big"></div>
+		<div class="spacer big"></div>
+	</section>
+
+  
+
+
+      
+
+<aside class="merklist-modal">
+	<div class="merklist-modal__wrapper">
+		<button class="merklist-modal__close js-merklist-modal__close" type="button" title="Close"></button>
+    <!-- MODAL: login -->
+    <div class="merklist-modal__content" data-modal="login">
+      <p class="merklist-modal__title line-center h3">Saved events</p>
+      <p class="merklist-modal__text">Login required. If you do not have an Elbphilharmonie customer account, registering is quick and easy.</p>
+      <div class="merklist-modal__button">
+        <a href="#" class="button link link-default merklist-modal__account">Log in or register</a>
+      </div>
+    </div>
+    <!-- MODAL: alert check -->
+    <div class="merklist-modal__content" data-modal="alert" style="display: none;">
+      <p class="merklist-modal__title line-center h3">Your selection</p>
+      <label  class="merklist-modal__label">
+      <input type="radio" name="alert" class="merklist-modal__radio" value="1">
+        <span>Add to saved events</span>
+      </label>
+      <label class="merklist-modal__label">
+      <input type="radio" name="alert" class="merklist-modal__radio" value="2" checked>
+        <span>Activate ticket alert</span>
+        <span class="merklist-modal__text">You will receive an email alert one day before tickets go on sale.</span>
+      </label>
+      <div class="merklist-modal__button">
+        <button type="button" class="button link link-default merklist-modal__save">Confirm</button>
+      </div>
+    </div>
+    <!-- MODAL: alert uncheck -->
+    <div class="merklist-modal__content" data-modal="uncheck" style="display: none;">
+      <p class="merklist-modal__title line-center h3">Edit events saved</p>
+      <label class="merklist-modal__label">
+        <input type="radio" name="uncheck" class="merklist-modal__radio" value="1" checked>
+        <span>Deactivate ticket alert</span>
+      </label>
+      <label  class="merklist-modal__label">
+        <input type="radio" name="uncheck" class="merklist-modal__radio" value="DELETE">
+        <span>Remove event from my saved events</span>
+      </label>
+      <div class="merklist-modal__button">
+        <button type="button" class="button link link-default merklist-modal__save">Confirm</button>
+      </div>
+    </div>
+	</div>
+</aside>
+
+      <aside class="blog__lightbox">
+  <div class="blog__lightbox-container">
+    <button class="blog__lightbox-close" title="Close modal"></button>
+    <div class="blog__lightbox-wrapper">
+      <iframe src="" frameborder="0" id="blog-iframe" class="blog__lightbox-iframe" allow="fullscreen"></iframe>
+    </div>
+  </div>
+</aside>
+
+		</main>
+
+		

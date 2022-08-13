@@ -1,0 +1,160 @@
+<%=form_with model: user,scope: "",url: ('/'+I18n.locale.to_s+'/my-data'), html: {class: ""} do |form|%>
+
+<!-- ngIf: !$ctrl.waitingForEmailActivation --><div ng-if="" class="ng-scope">
+<div class="content-row row-big">
+    <div class="large-offset-1 large-8 small-offset-0 small-12 columns">
+
+        <div class="shop-form-row">
+            <div class="label-wrapper">
+                <label for="address-gender" class="ng-binding">
+                    Title
+                </label>
+            </div>
+            <div class="shop-form-item">
+                <%=form.select "gender", [["Mr", "male"], ["Ms", "female"]], {include_blank: "Please select..."},{"ng-model"=> "$ctrl.customerData.gender", id: "address-gender", class: "ng-pristine #{!user.errors[:gender].blank? ? "ng-empty ng-invalid ng-invalid-required ng-touched" : nil} "}%>
+                    
+                <label for="address-gender" class=" ng-binding <%=user.errors[:title].blank? ? "nbhide" : "validation-error"%>">
+                    Please select a title.
+                </label>
+            </div>
+        </div>
+
+        <div class="shop-form-row">
+            <div class="label-wrapper">
+                <label class="shop-form-label--optional ng-binding" for="address-title">
+                    Academic title
+                </label>
+            </div>
+            <div class="shop-form-item">
+                <%=form.select "title", ['Dr', 'Professor','Professor Dr'], {include_blank: ''}, {"ng-model"=>"$ctrl.customerData.title", id: "address-title", autocomplete: "honorific-prefix", "ng-options"=>"t.key as t.label for t in $ctrl.academicTitleOptions", class: "ng-pristine #{!user.errors[:title].blank? ? "ng-empty ng-invalid ng-invalid-required ng-touched" : nil} ng-valid ng-empty ng-touched"}%>
+                    
+                
+            </div>
+        </div>
+
+        <div class="shop-form-row">
+            <div class="label-wrapper">
+                <label for="address-first-name" class="ng-binding">First name</label>/<label for="address-last-name" class="ng-binding">Last name</label>
+            </div>
+            <div class="shop-form-item small">
+                <%=form.text_field "first_name",  "ng-model"=>"$ctrl.customerData.firstName", id: "address-first-name", autocomplete: "given-name", required: "", class: "ng-pristine #{!user.errors[:first_name].blank? ? "ng-empty ng-invalid ng-invalid-required ng-touched" : nil} ng-untouched ng-empty ng-invalid ng-invalid-required"%>
+                <label for="address-first-name" class=" ng-binding <%=user.errors[:first_name].blank? ? "nbhide" : "validation-error"%>">
+                    Please provide your first name.
+                </label>
+            </div>
+            <div class="shop-form-item small">
+                
+                <%=form.text_field "last_name", id: "address-last-name", autocomplete: "family-name", required: "", class: "ng-pristine #{!user.errors[:last_name].blank? ? "ng-empty ng-invalid ng-invalid-required ng-touched" : nil} ng-untouched ng-empty ng-invalid ng-invalid-required"%>
+                <label for="last_name" class=" ng-binding <%=user.errors[:last_name].blank? ? "nbhide" : "validation-error"%>">
+                    Please provide your last name.
+                </label>
+            </div>
+        </div>
+
+        <!-- ngIf: $ctrl.showCompanyName() -->
+
+        <div class="shop-form-row">
+            <div class="label-wrapper">
+                <label for="address-street" class="ng-binding">
+                    Street name and number
+                </label>
+            </div>
+            <div class="shop-form-item">
+                <%=form.text_field "street", id: "address-street", autocomplete: "address-line1", required: "", class: "ng-pristine #{!user.errors[:street].blank? ? "ng-empty ng-invalid ng-invalid-required ng-touched" : nil} ng-untouched ng-empty ng-invalid ng-invalid-required"%>
+                <label for="street" class=" ng-binding <%=user.errors[:street].blank? ? "nbhide" : "validation-error"%>">
+                    Please provide a street name and number.
+                </label>
+            </div>
+        </div>
+
+        <div class="shop-form-row">
+            <div class="label-wrapper">
+                <label for="address-zip-code" class="ng-binding">Postcode</label>/<label for="address-city" class="ng-binding">City</label>
+            </div>
+            <div class="shop-form-item postalcode">
+                <%=form.text_field "zip_code", id: "address-zip-code", autocomplete: "postal-code", "ng-pattern"=>"^\d{5}$", required: "", class: "ng-pristine #{!user.errors[:zip_code].blank? ? "ng-empty ng-invalid ng-invalid-required ng-touched" : nil} ng-untouched ng-empty ng-invalid ng-invalid-required ng-valid-pattern"%>
+                <label for="address-zip-code" class=" ng-binding <%=user.errors[:zip_code].blank? ? "nbhide" : "validation-error"%>">
+                    Please provide a postcode.
+                </label>
+                <label ng-show="$ctrl.submitted &amp;&amp; $ctrl.customerDataForm['address-zip-code'].$invalid &amp;&amp; $ctrl.customerDataForm['address-zip-code'].$error.pattern" for="address-zip-code" class=" ng-binding <%=user.errors[:zip_code].blank? ? "nbhide" : "validation-error"%>">
+                    The postcode does not match the valid format of your country.
+                </label>
+            </div>
+            <div class="shop-form-item city">
+                <%=form.text_field "city", id: "address-city", autocomplete: "address-level2", required: "", class: "ng-pristine #{!user.errors[:city].blank? ? "ng-empty ng-invalid ng-invalid-required ng-touched" : nil} ng-untouched ng-empty ng-invalid ng-invalid-required"%>
+                <label for="address-city" class=" ng-binding <%=user.errors[:city].blank? ? "nbhide" : "validation-error"%>">
+                    Please provide a city.
+                </label>
+            </div>
+        </div>
+
+        <div class="shop-form-row">
+            <div class="label-wrapper">
+                <label for="address-country" class="ng-binding">Country</label>
+            </div>
+            <div class="shop-form-item">
+                <%=form.select "country", Country.all.collect {|a|[a.name, a.myvalue]},selected: user.country, id: "my-country", autocomplete: "country-name", required: "", class: "ng-pristine #{!user.errors[:country].blank? ? "ng-empty ng-invalid ng-invalid-required ng-touched" : nil} ng-untouched ng-valid ng-not-empty ng-valid-required"%>
+                
+                
+                <label for="address-country" class=" ng-binding <%=user.errors[:country].blank? ? "nbhide" : "validation-error"%>">
+                    Please select your country.
+                </label>
+            </div>
+        </div>
+
+        <div class="shop-form-row">
+            <div class="label-wrapper">
+                <label for="address-phone" ng-class="{'shop-form-label--optional': !$ctrl.phoneNumberMandatory}" class="ng-binding shop-form-label--optional">
+                    Phone number
+                </label>
+            </div>
+            <div class="shop-form-item">
+                <%=form.telephone_field "phone", id: "address-phone", autocomplete: "tel", placeholder: "", "ng-pattern"=>"/^[0-9 \)\(\+\-]*$/", class: "ng-pristine #{!user.errors[:phone].blank? ? "ng-empty ng-invalid ng-invalid-required ng-touched" : nil} ng-untouched ng-valid ng-empty ng-valid-pattern ng-valid-required"%>
+                <label ng-show="$ctrl.submitted &amp;&amp; ($ctrl.customerDataForm['address-phone'].$invalid || $ctrl.serverError == 'PHONE_INVALID')" for="address-phone" class=" ng-binding <%=user.errors[:phone].blank? ? "nbhide" : "validation-error"%>">
+                    Please provide your phone number in case we need to contact you regarding your booking.
+                </label>
+            </div>
+        </div>
+
+        <div class="shop-form-row">
+            <div class="label-wrapper">
+                <label class="shop-form-label--optional ng-binding" for="address-birthday">
+                    Date of birth
+                </label>
+            </div>
+            <div class="shop-form-item">
+                <%=form.text_field "birthday", id: "address-birthday", autocomplete: "bday", input: "date", placeholder: "DD.MM.YYYY", "date-input"=>"", birthday: "", class: "ng-pristine #{!user.errors[:birthday].blank? ? "ng-empty ng-invalid ng-invalid-required ng-touched" : nil} ng-untouched ng-valid ng-empty ng-valid-birthday"%>
+                <label for="address-birthday" class=" ng-binding <%=user.errors[:birthday].blank? ? "nbhide" : "validation-error"%>">
+                    Please provide your date of birth in the following format:
+                    DD.MM.YYYY
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="spacer"></div>
+
+<div class="content-row row-big">
+    <div class="large-offset-3 large-6 small-offset-0 small-12 columns">
+        <div class="shop-form-row">
+            <button class="shop-button submit read-more ng-binding">
+                Save
+            </button>
+            
+            <!-- ngIf: $ctrl.onCancel -->
+            <div class="inline-link-button ng-scope" >
+                <a class="read-more ng-binding" onclick="window.location='<%=myaccount_path%>';">Cancel</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="spacer"></div>
+
+</div><!-- end ngIf: !$ctrl.waitingForEmailActivation -->
+        
+<!-- ngIf: $ctrl.waitingForEmailActivation -->
+<%end%>
